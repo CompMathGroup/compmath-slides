@@ -1,0 +1,371 @@
+\documentclass[professionalfonts,compress,unicode]{beamer}
+
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{ifthen}
+
+\usetheme{Dolgoprudny}
+\usecolortheme{FUPM}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\graphicspath{{images//}}
+
+\title[МНК]{Переопределенные системы линейных уравнений}
+\author[Цыбулин И.В.]{Скалько Юрий Иванович\\
+\textbf{Цыбулин Иван}
+\\Шевченко Александр}
+\date{}
+
+\begin{document}
+
+{
+	\setbeamertemplate{headline}{}
+	\setbeamertemplate{footline}{}
+	\frame{\titlepage}
+}
+
+\newcommand\myframe[3][dup]{
+\ifthenelse{\equal{#1}{}}{}{
+\ifthenelse{\equal{#1}{dup}}
+{\subsection{#2}}{\subsection{#1}}
+}\frame{\frametitle{#2}{#3}}}
+
+\section{ }
+
+\def\A{\mathbf{A}}
+\def\B{\mathbf{B}}
+\def\C{\mathbf{C}}
+\def\D{\mathbf{D}}
+\def\E{\mathbf{E}}
+\def\L{\mathbf{L}}
+\def\U{\mathbf{U}}
+\def\W{\mathbf{W}}
+\def\S{\mathbf{S}}
+\def\J{\mathbf{J}}
+\def\x{\mathbf{x}}
+\def\y{\mathbf{y}}
+\def\v{\mathbf{v}}
+\def\w{\mathbf{w}}
+\def\f{\mathbf{f}}
+\def\b{\mathbf{b}}
+\def\r{\mathbf{r}}
+\def\p{\mathbf{p}}
+\def\z{\mathbf{z}}
+
+\section{Переопределенные СЛАУ}
+\myframe{Переопределенные СЛАУ}
+{
+	Рассмотрим СЛАУ
+	$$
+	\A \x = \b,
+	$$
+	но в случае, когда уравнений больше, чем неизвестных. В этом случае система называется переопределенной.
+	Почти всегда переопределенная система не имеет точного решения.
+}
+
+\myframe{Решение переопределенной СЛАУ}
+{
+	Поскольку точного решения такая система почти никогда не имеет, необходимо ввести другое понятие решения 
+	переопределенной СЛАУ. Введем, как и раньше, невязку $\r = \A\x - \b$. Для точного решения требовалось $\r = 0$.
+	Назовем решением переопределенной системы такое значение $\x$ для которого невязка минимальна
+	$$
+	\|\r\|_E^2 \rightarrow \min_{\x}
+	$$
+	
+	Такое решение называется решением по методу наименьших квадратов
+}
+
+\myframe{Метод наименьших квадратов}
+{
+	Запишем квадрат нормы невязки
+	$$
+	\|\r\|_E^2 = \r^T\r = (\A\x-\b)^T(\A\x-\b) = \x^T\A^T\A\x - 2\A^T\b + \b^T\b
+	$$
+	Минимум достигается в точке, где градиент этой функции обращается в ноль, то есть
+	$$
+	\nabla\|\r\|_E^2 = 2(\A^T\A\x-\A^T\b) = 0
+	$$
+	Рассмотрим систему 
+	$$
+	\A^T\A \x = \A^T \b
+	$$
+	Это система с квадратной матрицей, которая не вырождена, если ранг матрицы $\A$ равен числу неизвестных.
+	Решение этой системы будет решением по методу наименьших квадратов.
+}
+
+\section{Поиск оптимальных параметров}
+\myframe{Метод наименьших квадратов}
+{
+	Метод широко применяется при анализе экспериментальных данных для определения параметров зависимостей, проведения наилучших прямых и т.п.
+	Пусть имеется набор данных $(x_i, y_i), i=\overline{1,n}$ и требуется по ним построить наилучшую прямую. Запишем уравнение прямой 
+	$$ y = \alpha x + \beta$$
+	Здесь $\alpha, \beta$ - неизвестные, причем на эти неизвестные имеется $n$ уравнений
+	$$ y_i = \alpha x_i + \beta, i = \overline{1,n}$$
+}
+
+\myframe[]{Метод наименьших квадратов}
+{
+	$$ y_i = \alpha x_i + \beta, i = \overline{1,n}$$
+	Запишем эту систему в матричной форме
+	$$
+	\begin{pmatrix}
+		x_1&1\\
+		x_2&1\\
+		\vdots&1\\
+		x_n&1
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$
+	Решая ее по методу наименьших квадратов, необходимо решить систему
+	$$
+	\begin{pmatrix}
+		x_1&x_2&\dots&x_n\\
+		1&1&1&1
+	\end{pmatrix}	
+	\begin{pmatrix}
+		x_1&1\\
+		x_2&1\\
+		\vdots&1\\
+		x_n&1
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		x_1&x_2&\dots&x_n\\
+		1&1&1&1
+	\end{pmatrix}		
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$	
+}
+\myframe[]{Метод наименьших квадратов}
+{
+	$$
+	\begin{pmatrix}
+		x_1&x_2&\dots&x_n\\
+		1&1&1&1
+	\end{pmatrix}	
+	\begin{pmatrix}
+		x_1&1\\
+		x_2&1\\
+		\vdots&1\\
+		x_n&1
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		x_1&x_2&\dots&x_n\\
+		1&1&1&1
+	\end{pmatrix}		
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$	
+	Перемножая матрицы, получим
+	$$
+	\begin{pmatrix}
+		\sum x_i^2&\sum x_i\\
+		\sum x_i&n\\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\sum x_i y_i\\
+		\sum y_i
+	\end{pmatrix}
+	$$
+	\begin{align*}
+		\alpha &= \frac{n \sum x_i y_i - \sum x_i \sum y_i}
+		{n \sum x_i^2 - \left(\sum x_i\right)^2}\\
+		\beta &= \frac{\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i}
+		{n \sum x_i^2 - \left(\sum x_i\right)^2}\\
+	\end{align*}
+}
+
+\myframe{Более сложные зависимости}
+{
+	Методом наименьших квадратов можно искать наилучшие коэффициенты 
+	и в нелинейных зависимостях. Важно, чтобы искомые коэффициенты входили
+	в зависимость линейно.
+
+	Например, рассмотрим зависимость
+	$$
+	y = \alpha + \beta x + \gamma x^3
+	$$
+
+	Сама зависимость нелинейна, но коэффициенты $\alpha, \beta, \gamma$ входят 
+	в нее линейно.
+}
+
+\myframe[]{Более сложные зависимости}
+{
+	Аналогично
+	$$ y_i = \alpha + \beta x_i + \gamma x_i^3, i = \overline{1,n}$$
+	Запишем эту систему в матричной форме
+	$$
+	\begin{pmatrix}
+		1&x_1&x_1^3\\
+		1&x_2&x_2^3\\
+		1&\vdots&\vdots\\
+		1&x_n&x_n^3\\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta\\\gamma
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$
+	Решая ее по методу наименьших квадратов, необходимо решить систему
+	$$
+	\begin{pmatrix}
+		1&1&\dots&1\\
+		x_1&x_2&\dots&x_n\\
+		x_1^3&x_2^3&\dots&x_n^3
+	\end{pmatrix}
+	\begin{pmatrix}
+		1&x_1&x_1^3\\
+		1&x_2&x_2^3\\
+		1&\vdots&\vdots\\
+		1&x_n&x_n^3\\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta\\\gamma
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		1&1&\dots&1\\
+		x_1&x_2&\dots&x_n\\
+		x_1^3&x_2^3&\dots&x_n^3
+	\end{pmatrix}
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$	
+}
+
+\myframe[]{Более сложные зависимости}
+{
+	$$
+	\begin{pmatrix}
+		1&1&\dots&1\\
+		x_1&x_2&\dots&x_n\\
+		x_1^3&x_2^3&\dots&x_n^3
+	\end{pmatrix}
+	\begin{pmatrix}
+		1&x_1&x_1^3\\
+		1&x_2&x_2^3\\
+		1&\vdots&\vdots\\
+		1&x_n&x_n^3\\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta\\\gamma
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		1&1&\dots&1\\
+		x_1&x_2&\dots&x_n\\
+		x_1^3&x_2^3&\dots&x_n^3
+	\end{pmatrix}
+	\begin{pmatrix}
+		y_1\\y_2\\\vdots\\y_n
+	\end{pmatrix}
+	$$
+	Умножая матрицы
+	$$
+	\begin{pmatrix}
+		n & \sum x_i & \sum x_i^3\\
+		\sum x_i & \sum x_i^2 & \sum x_i^4\\
+		\sum x_i^3 & \sum x_i^4 & \sum x_i^6
+	\end{pmatrix}
+	\begin{pmatrix}
+		\alpha\\\beta\\\gamma
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		\sum y_i\\
+		\sum x_i y_i\\
+		\sum x_i^3 y_i
+	\end{pmatrix}
+	$$
+	Решение последней системы дает наилучшие значения $\alpha, \beta, \gamma$.
+}
+
+\myframe[]{Нелинейные зависимости от искомых коэффициентов}
+{
+	В некоторых случаях неизвестные коэффициенты входят в зависимости нелинейно.
+	Иногда можно изменить уравнение так, чтобы коэффициенты входили линейно
+	\begin{align*}
+	\sin (\omega x_i + \varphi) = y_i &\rightarrow 
+		\omega x_i + \varphi = \arcsin y_i\\
+	\rho_i = c T_i^\gamma &\rightarrow
+		\ln \rho_i = \ln c + \gamma \ln T_i
+	\end{align*}
+
+	Во втором случае неопределенными коэффициентам будут $\xi \equiv \ln c$ и $\gamma$.
+	После нахождения $\xi$ можно легко найти $c = e^\xi$
+}
+
+\myframe{Взвешенный метод наименьших квадратов}
+{
+	Допустим, по некоторым причинам, некоторым уравнениям в системе приписан больший вес в суммарной невязке. Это означает, что 
+	одни уравнения должны выполняться точнее других, или наоборот, некоторые уравнения вообще не должны влиять на результат.
+
+	Пусть дана диагональная матрица $\W = \W^T > 0$. Вместо минимизации $\|\r\|_E^2 = \r^T\r$ будем 
+	минимизировать $\|\r\|_W^2 \equiv \r^T\W\r$. 
+
+	Чем больше значение $W_{ii}$ тем точнее должно выполняться уравнение $i$
+	(его невязка учитывается с большим весом)
+	$$
+	\r^T \W \r = (\x^T\A^T - \b^T)\W(\A\x - \b) = \x^T\A^T\W\A\x - 2\b^T \W\A\x +\b^T\b
+	$$
+	Аналогично, получаем обычную СЛАУ
+	$$
+	\A^T\W\A \x = \A^T\W\b
+	$$
+}
+
+\myframe[]{Взвешенный метод наименьших квадратов}
+{
+	Пусть имеются те же самые данные $(x_i,y_i)$, но еще дополнительно известна погрешность $\delta y_i$ 
+	(например, погрешность измерений). Имеет смысл вместо задачи
+	$$
+	\sum_i (y_i - \alpha x_i - \beta)^2 \rightarrow \min_{\alpha, \beta}
+	$$
+	решать задачу
+	$$
+	\sum_i \left(\frac{y_i - \alpha x_i - \beta}{\delta y_i}\right)^2 \rightarrow \min_{\alpha, \beta}
+	$$
+	Тогда матрица $\W = diag\left(\frac{1}{\delta y_1^2},\dots,\frac{1}{\delta
+	y_n^2}\right)$.
+	Чем больше ошибка измерения, тем меньше <<вес>> уравнения.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%                            %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	\setbeamertemplate{headline}{}
+	\setbeamertemplate{footline}{}
+	\frame{
+		\begin{center}
+		{\Huge Спасибо за внимание!}
+		\end{center}
+		\bigskip
+		\begin{center}
+		{\color{blue}{tsybulinhome@gmail.com}}
+		\end{center}
+	}
+}
+
+\end{document}

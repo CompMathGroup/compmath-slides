@@ -1,0 +1,141 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4861,        132]
+NotebookOptionsPosition[      4453,        114]
+NotebookOutlinePosition[      4890,        131]
+CellTagsIndexPosition[      4847,        128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", "x", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{
+          FractionBox[
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"-", "1"}], ")"}], 
+            RowBox[{"k", "+", "1"}]], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", "k"}], "-", "1"}], ")"}], "!"}]], 
+          SuperscriptBox["x", 
+           RowBox[{
+            RowBox[{"2", "k"}], "-", "1"}]]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "1", ",", "n"}], "}"}]}], "]"}]}], "}"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "50"}], "}"}], "\[IndentingNewLine]", ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "3"}], ",", "3"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}], "\[IndentingNewLine]", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "\"\<Number of terms\>\""}], "}"}], ",", 
+     "1", ",", "100", ",", "1", ",", "Slider", ",", "\[IndentingNewLine]", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5556506580695267`*^9, 3.555650790259989*^9}, {
+  3.555650826530034*^9, 3.5556508267564173`*^9}, {3.555650873040277*^9, 
+  3.55565101252815*^9}, {3.555651046394156*^9, 3.555651047518423*^9}, {
+  3.5556513481571083`*^9, 3.5556514643053637`*^9}, {3.555651538267578*^9, 
+  3.5556515390399446`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 94, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 1, "Number of terms"}, 1, 100, 1}}, 
+    Typeset`size$$ = {600., {185., 196.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`n$1735$$ =
+     0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$1735$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         Sin[$CellContext`x], 
+         Sum[((-1)^($CellContext`k + 1)/Factorial[
+           2 $CellContext`k - 1]) $CellContext`x^(2 $CellContext`k - 
+            1), {$CellContext`k, 1, $CellContext`n$$}]}, {$CellContext`x, 0, 
+         50}, PlotRange -> {-3, 3}, ImageSize -> 400], 
+      "Specifications" :> {{{$CellContext`n$$, 1, "Number of terms"}, 1, 100, 
+         1, ControlType -> Slider, Appearance -> "Labeled"}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{666., {247., 255.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.55565092386042*^9, 3.555650958123489*^9, {3.5556509913963203`*^9, 
+   3.555651013095436*^9}, 3.555651048163191*^9, {3.5556513666274977`*^9, 
+   3.5556513728713837`*^9}, {3.555651410975342*^9, 3.555651430574586*^9}, 
+   3.555651465036509*^9, 3.555651540416362*^9}]
+}, {2}]]
+},
+WindowSize->{796, 846},
+WindowMargins->{{-800, Automatic}, {Automatic, 52}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1742, 45, 1053, "Input"],
+Cell[2324, 69, 2116, 42, 526, "Output"]
+}, {2}]]
+}
+]
+*)
+
+(* End of internal cache information *)

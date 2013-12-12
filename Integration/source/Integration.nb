@@ -1,0 +1,1908 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     87583,       1899]
+NotebookOptionsPosition[     87048,       1876]
+NotebookOutlinePosition[     87605,       1898]
+CellTagsIndexPosition[     87562,       1895]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Quiet", "@", 
+    RowBox[{"Deploy", "@", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"p", "=", 
+          RowBox[{
+          "m", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"w", "=", 
+          RowBox[{
+          "m", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"r", "=", 
+          RowBox[{
+          "m", "\[LeftDoubleBracket]", "4", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"Co", "=", 
+          RowBox[{
+          "m", "\[LeftDoubleBracket]", "5", "\[RightDoubleBracket]"}]}], ",", 
+         "lf", ",", 
+         RowBox[{"J", "=", "Nums"}], ",", "I1", ",", "I2", ",", "Ie", ",", 
+         "h", ",", "\[CapitalDelta]", ",", "z", ",", "y", ",", "pts", ",", 
+         "fit", ",", "fiteq", ",", "data"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"lf", "=", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"f", "/.", 
+            RowBox[{"x", "\[Rule]", "#"}]}], "]"}], "&"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"J", "=", 
+         RowBox[{"GetQuadData", "[", 
+          RowBox[{"lf", ",", "a", ",", "b", ",", "p", ",", "w"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"NumberQ", "@", 
+           RowBox[{"Numrev", "[", "n", "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"I1", "=", 
+            RowBox[{"J", "\[LeftDoubleBracket]", 
+             RowBox[{"Numrev", "[", "n", "]"}], "\[RightDoubleBracket]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"I2", "=", 
+            RowBox[{"J", "\[LeftDoubleBracket]", 
+             RowBox[{
+              RowBox[{"Numrev", "[", "n", "]"}], "+", "1"}], 
+             "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"I1", "=", 
+            RowBox[{"Int", "[", 
+             RowBox[{"lf", ",", "a", ",", "b", ",", "p", ",", "w", ",", "n"}],
+              "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"I2", "=", 
+            RowBox[{"Int", "[", 
+             RowBox[{"lf", ",", "a", ",", "b", ",", "p", ",", "w", ",", 
+              RowBox[{"2", "n"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Ie", "=", 
+         RowBox[{"1.", 
+          RowBox[{"NIntegrate", "[", 
+           RowBox[{
+            RowBox[{"lf", "[", "\[Xi]", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[Xi]", ",", "a", ",", "b"}], "}"}], ",", 
+            RowBox[{"PrecisionGoal", "\[Rule]", "$MachinePrecision"}], ",", 
+            RowBox[{"WorkingPrecision", "\[Rule]", "50"}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\[CapitalDelta]", "=", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"I2", "-", "I1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"h", "=", 
+         FractionBox[
+          RowBox[{"b", "-", "a"}], "n"]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"z", "=", 
+         FractionBox[
+          RowBox[{"b", "-", "a"}], "Nums"]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"y", "=", 
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"J", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ";;"}], "\[RightDoubleBracket]"}], "-", 
+           RowBox[{"J", "\[LeftDoubleBracket]", 
+            RowBox[{";;", 
+             RowBox[{"-", "2"}]}], "\[RightDoubleBracket]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"data", "=", 
+         RowBox[{
+          RowBox[{"Reap", "[", 
+           RowBox[{"Do", "[", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"NumericQ", "@", 
+                RowBox[{"Log", "[", 
+                 RowBox[{
+                 "y", "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}], 
+                 "]"}]}], ",", 
+               RowBox[{"Sow", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Log", "@", 
+                   RowBox[{
+                   "z", "\[LeftDoubleBracket]", "j", 
+                    "\[RightDoubleBracket]"}]}], ",", 
+                  RowBox[{"Log", "@", 
+                   RowBox[{
+                   "y", "\[LeftDoubleBracket]", "j", 
+                    "\[RightDoubleBracket]"}]}]}], "}"}], "]"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", 
+               RowBox[{"Length", "@", "y"}]}], "}"}]}], "]"}], "]"}], 
+          "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"data", "===", 
+           RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"data", "=", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1"}], "}"}]}], "}"}], "}"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"fit", "=", 
+            RowBox[{"Fit", "[", 
+             RowBox[{"data", ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "\[Xi]"}], "}"}], ",", "\[Xi]"}], "]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"z", "=", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "E"}], "}"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"fiteq", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+           RowBox[{"fit", "=", 
+            RowBox[{"Plot", "[", 
+             RowBox[{"fit", ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Xi]", ",", 
+                RowBox[{"Log", "@", 
+                 RowBox[{"Min", "[", "z", "]"}]}], ",", 
+                RowBox[{"Log", "@", 
+                 RowBox[{"Max", "[", "z", "]"}]}]}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"pts", "=", "fit"}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"pts", "=", 
+            RowBox[{"ListLogLogPlot", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"z", ",", "y"}], "}"}], "\[Transpose]"}], ",", 
+              RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+              RowBox[{"Mesh", "\[Rule]", "Full"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"data", "=", 
+            RowBox[{"1.", 
+             RowBox[{
+             "data", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"fit", "=", 
+            RowBox[{"Fit", "[", 
+             RowBox[{"data", ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "\[Xi]"}], "}"}], ",", "\[Xi]"}], "]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"fiteq", "=", 
+            RowBox[{"Exp", "[", 
+             RowBox[{"fit", "/.", 
+              RowBox[{"\[Xi]", "\[Rule]", 
+               RowBox[{"Log", "[", "\[Eta]", "]"}]}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"fit", "=", 
+            RowBox[{"Plot", "[", 
+             RowBox[{"fit", ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Xi]", ",", 
+                RowBox[{"Log", "@", 
+                 RowBox[{"Min", "[", "z", "]"}]}], ",", 
+                RowBox[{"Log", "@", 
+                 RowBox[{"Max", "[", "z", "]"}]}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Show", "[", 
+            RowBox[{"pts", ",", "fit", ",", "\[IndentingNewLine]", 
+             RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"AxesLabel", "\[Rule]", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"TraditionalForm", "[", "\"\<h\>\"", "]"}], ",", 
+                  "18"}], "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{
+                  "TraditionalForm", "[", 
+                   "\"\<\[CapitalDelta]=|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|\>\"", "]"}], ",", "18"}], 
+                 "]"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Min", "@", 
+                 RowBox[{"data", "\[LeftDoubleBracket]", 
+                  RowBox[{";;", ",", "2"}], "\[RightDoubleBracket]"}]}], ",", 
+                
+                RowBox[{"Max", "@", 
+                 RowBox[{"data", "\[LeftDoubleBracket]", 
+                  RowBox[{";;", ",", "2"}], "\[RightDoubleBracket]"}]}]}], 
+               "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"fiteq", "/.", 
+                 RowBox[{"\[Eta]", "\[Rule]", "\"\<h\>\""}]}], ",", "18"}], 
+               "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Quadrature: \>\"", ",", 
+              RowBox[{
+              "TraditionalForm", "@", 
+               "\"\<\!\(\*FractionBox[\(1\), \(b - \
+a\)]\)\!\(\*SubsuperscriptBox[\(\[Integral]\), \(a\), \(b\)]\)f(x)dx \
+\[TildeTilde] \>\""}], ",", "\[IndentingNewLine]", 
+              RowBox[{"TraditionalForm", "@", 
+               RowBox[{"Row", "[", 
+                RowBox[{
+                 RowBox[{"Table", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    "w", "\[LeftDoubleBracket]", "j", 
+                    "\[RightDoubleBracket]"}], 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<f(\>\"", ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Simplify", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", 
+                    RowBox[{
+                    "p", "\[LeftDoubleBracket]", "j", 
+                    "\[RightDoubleBracket]"}]}], ")"}], "\"\<a\>\""}], "+", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    "p", "\[LeftDoubleBracket]", "j", 
+                    "\[RightDoubleBracket]"}], "\"\<b\>\""}]}], "]"}], "/.", 
+                    RowBox[{
+                    RowBox[{"Times", "[", 
+                    RowBox[{
+                    RowBox[{"Rational", "[", 
+                    RowBox[{"1", ",", "\[Zeta]_"}], "]"}], ",", "\[Sigma]_"}],
+                     "]"}], "\[Rule]", 
+                    RowBox[{"FractionBox", "[", 
+                    RowBox[{"\[Sigma]", ",", "\[Zeta]"}], "]"}]}]}], "//", 
+                    "DisplayForm"}], "\[IndentingNewLine]", ",", 
+                    "\"\<)\>\""}], "}"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"j", ",", 
+                    RowBox[{"Length", "@", "p"}]}], "}"}]}], "]"}], ",", 
+                 "\"\<+\>\""}], "]"}]}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Quadrature \>\"", " ", ",", "\"\<error\>\"", ",", 
+              "\"\< \[CurlyEpsilon]\>\"", ",", "\"\<= \>\"", ",", 
+              RowBox[{"Co", "\"\<(b-a)\>\"", 
+               RowBox[{"Subscript", "[", 
+                RowBox[{"\"\<M\>\"", ",", "r"}], "]"}], 
+               RowBox[{"Superscript", "[", 
+                RowBox[{"\"\<h\>\"", ",", "r"}], "]"}]}]}], "}"}], "]"}], ",",
+            "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Grid", "[", 
+              RowBox[{"If", "[", 
+               RowBox[{"verbose", ",", "\[IndentingNewLine]", 
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<For h = \>\"", ",", 
+                    RowBox[{"N", "[", "h", "]"}], ",", 
+                    "\"\< \!\(\*SubscriptBox[\(I\), \(h\)]\)\>\"", ",", " ", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"I1", ",", "15"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\<For h = \>\"", ",", 
+                    RowBox[{"N", "[", 
+                    RowBox[{"h", "/", "2"}], "]"}], ",", 
+                    "\"\< \!\(\*SubscriptBox[\(I\), \(h/2\)]\)\>\"", ",", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"I2", ",", "15"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<Exact \>\"", ",", "\"\< \>\"", ",", 
+                    "\"\< \!\(\*SubscriptBox[\(I\), \(e\)]\)\>\"", ",", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"Ie", ",", "15"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<\>\"", ",", "\"\<\[CapitalDelta] =\>\"", ",", 
+                    "\"\<|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|\>\"", ",", " ", "\"\<= \>\"", 
+                    ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"\[CapitalDelta]", ",", "6"}], "]"}]}], "}"}], 
+                  ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<\!\(\*SubscriptBox[\(\[CurlyEpsilon]\), \(2\)]\) \
+estimate\>\"", ",", "\"\<is \>\"", ",", " ", 
+                    
+                    FractionBox[
+                    "\"\<|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|\>\"", 
+                    RowBox[{
+                    SuperscriptBox["2", "r"], "-", "1"}]], ",", " ", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{
+                    FractionBox["\[CapitalDelta]", 
+                    RowBox[{
+                    SuperscriptBox["2", "r"], "-", "1"}]], ",", "6"}], 
+                    "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<Actual error\>\"", ",", "\"\<is\>\"", ",", " ", 
+                    "\"\<|\!\(\*SubscriptBox[\(I\), \
+\(h/2\)]\)-\!\(\*SubscriptBox[\(I\), \(e\)]\)|\>\"", ",", " ", "\"\<= \>\"", 
+                    ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{
+                    RowBox[{"Abs", "[", 
+                    RowBox[{"I2", "-", "Ie"}], "]"}], ",", "6"}], "]"}]}], 
+                   "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<For h = \>\"", ",", 
+                    RowBox[{"N", "[", "h", "]"}], ",", 
+                    "\"\< \!\(\*SubscriptBox[\(I\), \(h\)]\)\>\"", ",", " ", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"I1", ",", "15"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\<For h = \>\"", ",", 
+                    RowBox[{"N", "[", 
+                    RowBox[{"h", "/", "2"}], "]"}], ",", 
+                    "\"\< \!\(\*SubscriptBox[\(I\), \(h/2\)]\)\>\"", ",", 
+                    "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"I2", ",", "15"}], "]"}]}], "}"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<\>\"", ",", "\"\<\[CapitalDelta] =\>\"", ",", 
+                    "\"\<|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|\>\"", ",", " ", "\"\<= \>\"", 
+                    ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{"\[CapitalDelta]", ",", "6"}], "]"}]}], "}"}], 
+                  ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<\!\(\*SubscriptBox[\(\[CurlyEpsilon]\), \(h/2\)]\) \
+estimate\>\"", ",", "\"\<is \>\"", ",", " ", 
+                    RowBox[{
+                    "\"\<|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|\>\"", "/", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Superscript", "[", 
+                    RowBox[{"2", ",", "r"}], "]"}], ",", "\"\<-1\>\""}], 
+                    "}"}], "]"}]}], ",", " ", "\"\<= \>\"", ",", 
+                    RowBox[{"ScientificForm", "[", 
+                    RowBox[{
+                    FractionBox["\[CapitalDelta]", 
+                    RowBox[{
+                    SuperscriptBox["2", "r"], "-", "1"}]], ",", "6"}], 
+                    "]"}]}], "}"}]}], "\[IndentingNewLine]", "}"}]}], 
+               "\[IndentingNewLine]", "]"}], "]"}], "\[IndentingNewLine]", 
+             ",", "Medium"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0", ",", "\"\<a\>\""}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "InputField"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1", ",", "\"\<b\>\""}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "InputField"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", 
+       RowBox[{"Sin", "[", "x", "]"}], ",", "\"\<Integrand\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"InputField", "[", 
+       RowBox[{"##", ",", 
+        RowBox[{"FrameMargins", "\[Rule]", "5"}], ",", 
+        RowBox[{"BaseStyle", "\[Rule]", "Large"}], ",", 
+        RowBox[{"FieldSize", "\[Rule]", "11"}]}], "]"}], "&"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", 
+       RowBox[{"Nums", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+        ",", "\"\<Number of intervals\>\""}], "}"}], ",", "Nums", ",", 
+     RowBox[{"ControlType", "\[Rule]", "Slider"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", 
+       RowBox[{"Quadratures", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ",", ";;"}], "\[RightDoubleBracket]"}], ",", 
+       "\"\<Integration method\>\""}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Quadratures", "\[LeftDoubleBracket]", 
+         RowBox[{"i", ",", ";;"}], "\[RightDoubleBracket]"}], "->", 
+        RowBox[{"Quadratures", "\[LeftDoubleBracket]", 
+         RowBox[{"i", ",", "1"}], "\[RightDoubleBracket]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "[", "Quadratures", "]"}]}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"verbose", ",", "False", ",", "\"\<Show exact value\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], 
+   "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Nums", "=", 
+       RowBox[{"5", " ", 
+        SuperscriptBox["2", 
+         RowBox[{"Range", "[", 
+          RowBox[{"0", ",", "7"}], "]"}]]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Numrev", "[", 
+          RowBox[{
+          "Nums", "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}], 
+          "]"}], "=", "j"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{"Length", "@", "Nums"}]}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Int", "[", 
+        RowBox[{"f_", ",", "a_", ",", "b_", ",", "x_", ",", "w_", ",", "n_"}],
+         "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"X", ",", "h", ",", "F", ",", "W", ",", "v"}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"h", "=", 
+           FractionBox[
+            RowBox[{"b", "-", "a"}], "n"]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"X", "=", 
+           RowBox[{"a", "+", 
+            RowBox[{"h", " ", 
+             RowBox[{"Range", "[", 
+              RowBox[{"0", ",", 
+               RowBox[{"n", "-", "1"}]}], "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"wt", ",", "W"}], "}"}], "=", 
+           RowBox[{"AbsoluteTiming", "@", 
+            RowBox[{"Flatten", "@", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"h", " ", "w"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"p", ",", "X"}], "}"}]}], "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"xt", ",", "X"}], "}"}], "=", 
+           RowBox[{"AbsoluteTiming", "@", 
+            RowBox[{"Flatten", "@", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"p", "+", 
+                RowBox[{"h", " ", "x"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"p", ",", "X"}], "}"}]}], "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"X", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"X", ",", 
+             RowBox[{"2", "$MachinePrecision"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"W", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"W", ",", 
+             RowBox[{"2", "$MachinePrecision"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"ft", ",", "F"}], "}"}], "=", 
+           RowBox[{"AbsoluteTiming", "@", "\[IndentingNewLine]", 
+            RowBox[{"Flatten", "@", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Limit", "[", 
+                RowBox[{
+                 RowBox[{"f", "[", "\[Xi]", "]"}], ",", 
+                 RowBox[{"\[Xi]", "\[Rule]", 
+                  RowBox[{
+                  "X", "\[LeftDoubleBracket]", "1", 
+                   "\[RightDoubleBracket]"}]}]}], "]"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"0", 
+                 RowBox[{"X", "\[LeftDoubleBracket]", 
+                  RowBox[{"2", ";;", 
+                   RowBox[{"-", "2"}]}], "\[RightDoubleBracket]"}]}], "+", 
+                RowBox[{"f", "[", 
+                 RowBox[{"X", "\[LeftDoubleBracket]", 
+                  RowBox[{"2", ";;", 
+                   RowBox[{"-", "2"}]}], "\[RightDoubleBracket]"}], "]"}]}], 
+               ",", "\[IndentingNewLine]", 
+               RowBox[{"Limit", "[", 
+                RowBox[{
+                 RowBox[{"f", "[", "\[Xi]", "]"}], ",", 
+                 RowBox[{"\[Xi]", "\[Rule]", 
+                  RowBox[{"X", "\[LeftDoubleBracket]", 
+                   RowBox[{"-", "1"}], "\[RightDoubleBracket]"}]}]}], "]"}]}],
+               "}"}]}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"vt", ",", "v"}], "}"}], "=", 
+           RowBox[{"AbsoluteTiming", "@", 
+            RowBox[{"Dot", "[", 
+             RowBox[{"W", ",", "F"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+          "v"}]}], "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quadratures", "=", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"{", 
+          RowBox[{"name", ",", 
+           RowBox[{"pts", " ", "per", " ", "segment"}], ",", 
+           SubscriptBox["x", "i"], ",", 
+           SubscriptBox["w", "i"], ",", "order", ",", 
+           RowBox[{"C", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[CurlyEpsilon]", "=", 
+              RowBox[{"C", 
+               RowBox[{"(", 
+                RowBox[{"b", "-", "a"}], ")"}], 
+               SubscriptBox["M", "ord"], 
+               SuperscriptBox["h", "ord"]}]}], ")"}]}]}], "}"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Left rectangle\>\"", ",", 
+           RowBox[{"{", "0", "}"}], ",", 
+           RowBox[{"{", "1", "}"}], ",", "1", ",", 
+           FractionBox["1", "2"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Right rectangle\>\"", ",", 
+           RowBox[{"{", "1", "}"}], ",", 
+           RowBox[{"{", "1", "}"}], ",", "1", ",", 
+           FractionBox["1", "2"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Midpoint\>\"", ",", 
+           RowBox[{"{", 
+            FractionBox["1", "2"], "}"}], ",", 
+           RowBox[{"{", "1", "}"}], ",", "2", ",", 
+           FractionBox["1", "24"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Trapezoid\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             FractionBox["1", "2"], ",", 
+             FractionBox["1", "2"]}], "}"}], ",", "2", ",", 
+           FractionBox["1", "12"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Simpson's\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             FractionBox["1", "2"], ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             FractionBox["1", "6"], ",", 
+             FractionBox["2", "3"], ",", 
+             FractionBox["1", "6"]}], "}"}], ",", "4", ",", 
+           FractionBox["1", "2880"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Gaussian 2 point\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              FractionBox["1", "2"], "-", 
+              FractionBox["1", 
+               RowBox[{"2", 
+                SqrtBox["3"]}]]}], ",", 
+             RowBox[{
+              FractionBox["1", "2"], "+", 
+              FractionBox["1", 
+               RowBox[{"2", 
+                SqrtBox["3"]}]]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"1", "/", "2"}], ",", 
+             RowBox[{"1", "/", "2"}]}], "}"}], ",", "4", ",", 
+           FractionBox["1", "4320"]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Gaussian 3 point\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              FractionBox["1", "2"], "-", 
+              FractionBox[
+               SqrtBox["3"], 
+               RowBox[{"2", 
+                SqrtBox["5"]}]]}], ",", 
+             FractionBox["1", "2"], ",", 
+             RowBox[{
+              FractionBox["1", "2"], "+", 
+              FractionBox[
+               SqrtBox["3"], 
+               RowBox[{"2", 
+                SqrtBox["5"]}]]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"5", "/", "18"}], ",", 
+             RowBox[{"4", "/", "9"}], ",", 
+             RowBox[{"5", "/", "18"}]}], "}"}], ",", "6", ",", 
+           FractionBox["1", "2016000"]}], "}"}]}], "\[IndentingNewLine]", 
+        "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"GetQuadData", "[", 
+        RowBox[{"f_", ",", "a_", ",", "b_", ",", "p_", ",", "w_"}], "]"}], ":=",
+        "\[IndentingNewLine]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"GetQuadData", "[", 
+          RowBox[{"f", ",", "a", ",", "b", ",", "p", ",", "w"}], "]"}], "=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"J", "=", "Nums"}], "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Do", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+               "J", "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}], 
+               "=", 
+               RowBox[{"Int", "[", 
+                RowBox[{"f", ",", "a", ",", "b", ",", "p", ",", "w", ",", 
+                 RowBox[{
+                 "Nums", "\[LeftDoubleBracket]", "j", 
+                  "\[RightDoubleBracket]"}]}], "]"}]}], "\[IndentingNewLine]",
+               ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"Length", "@", "Nums"}]}], "}"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Flatten", "[", 
+             RowBox[{"{", 
+              RowBox[{"J", ",", 
+               RowBox[{"Int", "[", 
+                RowBox[{"f", ",", "a", ",", "b", ",", "p", ",", "w", ",", 
+                 RowBox[{"2", 
+                  RowBox[{"Nums", "\[LeftDoubleBracket]", 
+                   RowBox[{"-", "1"}], "\[RightDoubleBracket]"}]}]}], "]"}]}],
+               "}"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ")"}]}], 
+      ";"}], "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = 
+    1, $CellContext`f$$ = Sin[$CellContext`x], $CellContext`m$$ = {
+    "Left rectangle", {0}, {1}, 1, 
+     Rational[1, 2]}, $CellContext`n$$ = 5, $CellContext`verbose$$ = False, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 0, "a"}}, {{
+       Hold[$CellContext`b$$], 1, "b"}}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "Integrand"}, InputField[
+       SlotSequence[1], FrameMargins -> 5, BaseStyle -> Large, FieldSize -> 
+       11]& }, {{
+       Hold[$CellContext`n$$], 5, "Number of intervals"}, {5, 10, 20, 40, 80, 
+      160, 320, 640}}, {{
+       Hold[$CellContext`m$$], {"Left rectangle", {0}, {1}, 1, 
+        Rational[1, 2]}, 
+       "Integration method"}, {{"Left rectangle", {0}, {1}, 1, 
+         Rational[1, 2]} -> "Left rectangle", {"Right rectangle", {1}, {1}, 1, 
+         Rational[1, 2]} -> "Right rectangle", {"Midpoint", {
+          Rational[1, 2]}, {1}, 2, 
+         Rational[1, 24]} -> "Midpoint", {"Trapezoid", {0, 1}, {
+          Rational[1, 2], 
+          Rational[1, 2]}, 2, 
+         Rational[1, 12]} -> "Trapezoid", {"Simpson's", {0, 
+          Rational[1, 2], 1}, {
+          Rational[1, 6], 
+          Rational[2, 3], 
+          Rational[1, 6]}, 4, 
+         Rational[1, 2880]} -> 
+       "Simpson's", {
+        "Gaussian 2 point", {
+         Rational[1, 2] + Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 2] + 
+          Rational[1, 2] 3^Rational[-1, 2]}, {
+          Rational[1, 2], 
+          Rational[1, 2]}, 4, 
+         Rational[1, 4320]} -> 
+       "Gaussian 2 point", {
+        "Gaussian 3 point", {
+         Rational[1, 2] + Rational[-1, 2] Rational[3, 5]^Rational[1, 2], 
+          Rational[1, 2], Rational[1, 2] + 
+          Rational[1, 2] Rational[3, 5]^Rational[1, 2]}, {
+          Rational[5, 18], 
+          Rational[4, 9], 
+          Rational[5, 18]}, 6, 
+         Rational[1, 2016000]} -> "Gaussian 3 point"}}, {{
+       Hold[$CellContext`verbose$$], False, "Show exact value"}, {
+      True, False}}}, Typeset`size$$ = {500., {253.5, 258.5}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$38992$$ = 0, $CellContext`m$38993$$ = 
+    False, $CellContext`verbose$38994$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        1, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`m$$ = {
+         "Left rectangle", {0}, {1}, 1, 
+          Rational[1, 2]}, $CellContext`n$$ = 5, $CellContext`verbose$$ = 
+        False}, "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$38992$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$38993$$, False], 
+        Hold[$CellContext`verbose$$, $CellContext`verbose$38994$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Quiet[
+        Deploy[
+         Module[{$CellContext`p$ = Part[$CellContext`m$$, 2], $CellContext`w$ = 
+           Part[$CellContext`m$$, 3], $CellContext`r$ = 
+           Part[$CellContext`m$$, 4], $CellContext`Co$ = 
+           Part[$CellContext`m$$, 
+             5], $CellContext`lf$, $CellContext`J$ = $CellContext`Nums, \
+$CellContext`I1$, $CellContext`I2$, $CellContext`Ie$, $CellContext`h$, \
+$CellContext`\[CapitalDelta]$, $CellContext`z$, $CellContext`y$, \
+$CellContext`pts$, $CellContext`fit$, $CellContext`fiteq$, \
+$CellContext`data$}, $CellContext`lf$ = Evaluate[
+             
+             ReplaceAll[$CellContext`f$$, $CellContext`x -> #]]& ; \
+$CellContext`J$ = $CellContext`GetQuadData[$CellContext`lf$, \
+$CellContext`a$$, $CellContext`b$$, $CellContext`p$, $CellContext`w$]; If[
+            NumberQ[
+             $CellContext`Numrev[$CellContext`n$$]], $CellContext`I1$ = 
+             Part[$CellContext`J$, 
+               $CellContext`Numrev[$CellContext`n$$]]; $CellContext`I2$ = 
+             Part[$CellContext`J$, $CellContext`Numrev[$CellContext`n$$] + 1]; 
+            Null, $CellContext`I1$ = $CellContext`Int[$CellContext`lf$, \
+$CellContext`a$$, $CellContext`b$$, $CellContext`p$, $CellContext`w$, \
+$CellContext`n$$]; $CellContext`I2$ = $CellContext`Int[$CellContext`lf$, \
+$CellContext`a$$, $CellContext`b$$, $CellContext`p$, $CellContext`w$, 
+               2 $CellContext`n$$]; Null]; $CellContext`Ie$ = 1. NIntegrate[
+              $CellContext`lf$[$CellContext`\[Xi]], {$CellContext`\[Xi], \
+$CellContext`a$$, $CellContext`b$$}, PrecisionGoal -> $MachinePrecision, 
+              WorkingPrecision -> 50]; $CellContext`\[CapitalDelta]$ = 
+           Abs[$CellContext`I2$ - $CellContext`I1$]; $CellContext`h$ = \
+($CellContext`b$$ - $CellContext`a$$)/$CellContext`n$$; $CellContext`z$ = \
+($CellContext`b$$ - $CellContext`a$$)/$CellContext`Nums; $CellContext`y$ = 
+           Abs[Part[$CellContext`J$, 
+               Span[2, All]] - Part[$CellContext`J$, 
+              Span[1, -2]]]; $CellContext`data$ = Part[
+             Reap[
+              Do[
+               If[
+                NumericQ[
+                 Log[
+                  Part[$CellContext`y$, $CellContext`j]]], 
+                Sow[{
+                  Log[
+                   Part[$CellContext`z$, $CellContext`j]], 
+                  Log[
+                   Part[$CellContext`y$, $CellContext`j]]}]], {$CellContext`j,
+                 1, 
+                Length[$CellContext`y$]}]], 2]; 
+          If[$CellContext`data$ === {}, $CellContext`data$ = {{{0, 0}, {1, 
+              1}}}; $CellContext`fit$ = 
+             Fit[$CellContext`data$, {
+               1, $CellContext`\[Xi]}, $CellContext`\[Xi]]; $CellContext`z$ = \
+{1, E}; $CellContext`fiteq$ = ""; $CellContext`fit$ = 
+             Plot[$CellContext`fit$, {$CellContext`\[Xi], 
+                Log[
+                 Min[$CellContext`z$]], 
+                Log[
+                 
+                 Max[$CellContext`z$]]}]; $CellContext`pts$ = \
+$CellContext`fit$; Null, $CellContext`pts$ = ListLogLogPlot[
+               Transpose[{$CellContext`z$, $CellContext`y$}], Joined -> True, 
+               Mesh -> Full]; $CellContext`data$ = 
+             1. Part[$CellContext`data$, 1]; $CellContext`fit$ = 
+             Fit[$CellContext`data$, {
+               1, $CellContext`\[Xi]}, $CellContext`\[Xi]]; \
+$CellContext`fiteq$ = Exp[
+               
+               ReplaceAll[$CellContext`fit$, $CellContext`\[Xi] -> 
+                Log[$CellContext`\[Eta]]]]; $CellContext`fit$ = 
+             Plot[$CellContext`fit$, {$CellContext`\[Xi], 
+                Log[
+                 Min[$CellContext`z$]], 
+                Log[
+                 Max[$CellContext`z$]]}, PlotStyle -> Red]; Null]; Column[{
+             
+             Show[$CellContext`pts$, $CellContext`fit$, ImageSize -> 500, 
+              AxesLabel -> {
+                Style[
+                 TraditionalForm["h"], 18], 
+                Style[
+                 TraditionalForm[
+                 "\[CapitalDelta]=|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|"], 18]}, PlotRange -> {
+                Min[
+                 Part[$CellContext`data$, 
+                  Span[1, All], 2]], 
+                Max[
+                 Part[$CellContext`data$, 
+                  Span[1, All], 2]]}, PlotLabel -> Style[
+                ReplaceAll[$CellContext`fiteq$, $CellContext`\[Eta] -> "h"], 
+                18]], 
+             Row[{"Quadrature: ", 
+               TraditionalForm[
+               "\!\(\*FractionBox[\(1\), \(b - a\)]\)\!\(\*SubsuperscriptBox[\
+\(\[Integral]\), \(a\), \(b\)]\)f(x)dx \[TildeTilde] "], 
+               TraditionalForm[
+                Row[
+                 Table[Part[$CellContext`w$, $CellContext`j] Row[{"f(", 
+                    DisplayForm[
+                    ReplaceAll[
+                    Simplify[(1 - Part[$CellContext`p$, $CellContext`j]) "a" + 
+                    Part[$CellContext`p$, $CellContext`j] "b"], Rational[1, 
+                    Pattern[$CellContext`\[Zeta], 
+                    Blank[]]] Pattern[$CellContext`\[Sigma], 
+                    Blank[]] -> 
+                    FractionBox[$CellContext`\[Sigma], \
+$CellContext`\[Zeta]]]], ")"}], {$CellContext`j, 
+                   Length[$CellContext`p$]}], "+"]]}], 
+             
+             Row[{"Quadrature ", "error", " \[CurlyEpsilon]", 
+               "= ", $CellContext`Co$ "(b-a)" Subscript["M", $CellContext`r$] 
+               Superscript["h", $CellContext`r$]}], Null, 
+             Style[
+              Grid[
+               If[$CellContext`verbose$$, {{"For h = ", 
+                  N[$CellContext`h$], " \!\(\*SubscriptBox[\(I\), \(h\)]\)", 
+                  "= ", 
+                  ScientificForm[$CellContext`I1$, 15]}, {"For h = ", 
+                  N[$CellContext`h$/2], 
+                  " \!\(\*SubscriptBox[\(I\), \(h/2\)]\)", "= ", 
+                  ScientificForm[$CellContext`I2$, 15]}, {
+                 "Exact ", " ", " \!\(\*SubscriptBox[\(I\), \(e\)]\)", "= ", 
+                  ScientificForm[$CellContext`Ie$, 15]}, {
+                 "", "\[CapitalDelta] =", 
+                  "|\!\(\*SubscriptBox[\(I\), \(h\)]\)-\!\(\*SubscriptBox[\(I\
+\), \(h/2\)]\)|", "= ", 
+                  ScientificForm[$CellContext`\[CapitalDelta]$, 6]}, {
+                 "\!\(\*SubscriptBox[\(\[CurlyEpsilon]\), \(2\)]\) estimate", 
+                  "is ", "|\!\(\*SubscriptBox[\(I\), \
+\(h\)]\)-\!\(\*SubscriptBox[\(I\), \(h/2\)]\)|"/(2^$CellContext`r$ - 1), "= ", 
+                  
+                  ScientificForm[$CellContext`\[CapitalDelta]$/(
+                   2^$CellContext`r$ - 1), 6]}, {
+                 "Actual error", "is", 
+                  "|\!\(\*SubscriptBox[\(I\), \
+\(h/2\)]\)-\!\(\*SubscriptBox[\(I\), \(e\)]\)|", "= ", 
+                  ScientificForm[
+                   Abs[$CellContext`I2$ - $CellContext`Ie$], 6]}}, {{
+                 "For h = ", 
+                  N[$CellContext`h$], " \!\(\*SubscriptBox[\(I\), \(h\)]\)", 
+                  "= ", 
+                  ScientificForm[$CellContext`I1$, 15]}, {"For h = ", 
+                  N[$CellContext`h$/2], 
+                  " \!\(\*SubscriptBox[\(I\), \(h/2\)]\)", "= ", 
+                  ScientificForm[$CellContext`I2$, 15]}, {
+                 "", "\[CapitalDelta] =", 
+                  "|\!\(\*SubscriptBox[\(I\), \(h\)]\)-\!\(\*SubscriptBox[\(I\
+\), \(h/2\)]\)|", "= ", 
+                  ScientificForm[$CellContext`\[CapitalDelta]$, 6]}, {
+                 "\!\(\*SubscriptBox[\(\[CurlyEpsilon]\), \(h/2\)]\) \
+estimate", "is ", 
+                  "|\!\(\*SubscriptBox[\(I\), \(h\)]\)-\!\(\*SubscriptBox[\(I\
+\), \(h/2\)]\)|"/Row[{
+                    Superscript[2, $CellContext`r$], "-1"}], "= ", 
+                  
+                  ScientificForm[$CellContext`\[CapitalDelta]$/(
+                   2^$CellContext`r$ - 1), 6]}}]], Medium]}]]]], 
+      "Specifications" :> {{{$CellContext`a$$, 0, "a"}, ControlType -> 
+         InputField}, {{$CellContext`b$$, 1, "b"}, ControlType -> 
+         InputField}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "Integrand"}, InputField[
+          SlotSequence[1], FrameMargins -> 5, BaseStyle -> Large, FieldSize -> 
+          11]& }, {{$CellContext`n$$, 5, "Number of intervals"}, {5, 10, 20, 
+         40, 80, 160, 320, 640}, ControlType -> Slider, Appearance -> 
+         "Labeled"}, {{$CellContext`m$$, {"Left rectangle", {0}, {1}, 1, 
+           Rational[1, 2]}, 
+          "Integration method"}, {{"Left rectangle", {0}, {1}, 1, 
+            Rational[1, 2]} -> 
+          "Left rectangle", {"Right rectangle", {1}, {1}, 1, 
+            Rational[1, 2]} -> "Right rectangle", {"Midpoint", {
+             Rational[1, 2]}, {1}, 2, 
+            Rational[1, 24]} -> "Midpoint", {"Trapezoid", {0, 1}, {
+             Rational[1, 2], 
+             Rational[1, 2]}, 2, 
+            Rational[1, 12]} -> "Trapezoid", {"Simpson's", {0, 
+             Rational[1, 2], 1}, {
+             Rational[1, 6], 
+             Rational[2, 3], 
+             Rational[1, 6]}, 4, 
+            Rational[1, 2880]} -> 
+          "Simpson's", {
+           "Gaussian 2 point", {
+            Rational[1, 2] + Rational[-1, 2] 3^Rational[-1, 2], 
+             Rational[1, 2] + Rational[1, 2] 3^Rational[-1, 2]}, {
+             Rational[1, 2], 
+             Rational[1, 2]}, 4, 
+            Rational[1, 4320]} -> 
+          "Gaussian 2 point", {
+           "Gaussian 3 point", {
+            Rational[1, 2] + Rational[-1, 2] Rational[3, 5]^Rational[1, 2], 
+             Rational[1, 2], Rational[1, 2] + 
+             Rational[1, 2] Rational[3, 5]^Rational[1, 2]}, {
+             Rational[5, 18], 
+             Rational[4, 9], 
+             Rational[5, 18]}, 6, 
+            Rational[1, 2016000]} -> "Gaussian 3 point"}, ControlType -> 
+         PopupMenu}, {{$CellContext`verbose$$, False, "Show exact value"}, {
+         True, False}, ControlType -> Checkbox}}, 
+      "Options" :> {ControlPlacement -> Left}, "DefaultOptions" :> {}],
+     ImageSizeCache->{967., {282., 287.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({{$CellContext`Nums = {5, 10, 20, 40, 80, 160, 320, 
+          640}, $CellContext`GetQuadData[Sqrt[
+            Sin[#]]& , 0, 1, {1/2}, {1}] = {
+          0.6479353769166219013523121200895997210112958224323361898225`31.\
+754365699286794, 
+           0.6447806017524043880925708471315716412183570033411160076909`31.\
+754713421276257, 
+           0.6436277293171842032009808130945751656275786870423079098449`31.\
+754813275115485, 
+           0.6432106497026556908707553439019417011884441544219939949617`31.\
+75484274327488, 
+           0.6430608116841918989593946694375090247885209242224797195921`31.\
+754851695844692, 
+           0.6430072406875866766115147814641961950399492719196985018578`31.\
+754854493744773, 
+           0.6429881516036378708600756072772597020198398708196542058227`31.\
+754855391029118, 
+           0.642981365368823041726444720858880729647604982647929630648`31.\
+754855685275057, 
+           0.6429789567659163821994464265374020412892194593346507328761`31.\
+754855783557403}, $CellContext`GetQuadData[Sqrt[
+            Sin[#]]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          
+          0.6404110291940444507816871701363239187298049437654945902495`31.\
+7549448516517, 
+           0.6420700196125215005605054631409431000085911703714352686137`31.\
+754887348048037, 
+           0.642656729058982821065478132444926386886288542657070239589`31.\
+75486697716051, 
+           0.6428641761117311705797458266413284666308439264361464647942`31.\
+754859773663743, 
+           0.6429375208948842361176768022953466329763618869627273796399`31.\
+754857227035355, 
+           0.6429634522918012526399491438842192757167269707240827377752`31.\
+754856326723306, 
+           0.6429726204337280941247725132162500733649318539218610891363`31.\
+7548560084251, 
+           0.6429758618621397630700034693011689061108959369229412640171`31.\
+754855895891207, 
+           0.6429770078802102960468918988657056923069934442432495156177`31.\
+754855856104736}, $CellContext`GetQuadData[Sin[#]& , 0, 1, {0}, {1}] = {
+          0.3740172474796539651907688880308276576531880471539477782233`31.\
+638577932493902, 
+           0.4172409996175814995773263986577627883221452873764939523105`31.\
+64256026988926, 
+           0.4385651451680498191782408824795412334829073701770421341856`31.\
+644577090901095, 
+           0.4491553639841198696874706746616656327216059250890702380288`31.\
+645592472307754, 
+           0.4544325148141642402956602760563646753859205347664193777462`31.\
+64610197753772, 
+           0.4570666008915966265509836215279046037588302364239707551821`31.\
+646357192897366, 
+           0.4583825216150958671053378754647877073179323955593616717836`31.\
+646484917411374, 
+           0.4590402013992400108717735739998511646123655281871906143597`31.\
+64654880902099, 
+           0.4593689711469856359255706240022052353433489159142890622081`31.\
+646580762182012}, $CellContext`GetQuadData[Sin[#]& , 0, 1, {1/2}, {1}] = {
+          0.4604647517555090339638839092846979189911025275990401263975`31.\
+645822058821825, 
+           0.4598892907185181387791553663013196786436694529775903160605`31.\
+646415018836, 
+           0.4597455828001899201967004668437900319603044800010983418754`31.\
+646563292641186, 
+           0.4597096656442086109038498774510637180502351444437685174631`31.\
+646600363209576, 
+           0.4597006869690290128063069669994445321317399380815221326049`31.\
+64660963098407, 
+           0.4596984423385951076596921294016708108770345546947525883856`31.\
+64661194793596, 
+           0.4596978811833841546382092725349146219067986608150195569788`31.\
+646612527174454, 
+           0.4596977408947312609793676740045593060743323036413875100589`31.\
+646612671984112, 
+           0.4596977058225774028424475059546146021931849312232978004938`31.\
+64661270818648}, $CellContext`GetQuadData[Sin[#]& , 0, 1, {1}, {1}] = {
+          0.5423114444412332665212693523568874575777006593136219913578`31.\
+65497067244898, 
+           0.5013880980983711502425766308207926882844015934563310588778`31.\
+650745778244023, 
+           0.4806386944084446445108659985610561834640355232169606874692`31.\
+64866849007314, 
+           0.4701921386043172823537832327024231077121700016090295146706`31.\
+64763800260222, 
+           0.464950902124262946628816555076743412881202573026399016067`31.\
+647124721526133, 
+           0.4623257945466459797175617610380939725064712555539605743427`31.\
+646868562246794, 
+           0.4610121184426205436886269452198823916917529051243565813639`31.\
+646740601755504, 
+           0.4603549998130023491634181088773985067992757829696880691498`31.\
+646676651151733, 
+           0.460026370353866805071392891440978906436804043305537789603`31.\
+64664468324222}, $CellContext`GetQuadData[
+          Sin[#]& , 0, 1, {0, 1}, {1/2, 1/2}] = {
+          0.4581643459604436158560191201938575576154443532337848847908`31.\
+64820475500319, 
+           0.4593145488579763249099515147392777383032734404164125055941`31.\
+647008789549734, 
+           0.4596019197882472318445534405202987084734714466970014108257`31.\
+646711617086265, 
+           0.4596737512942185760206269536820443702168879633490498763493`31.\
+64663743694252, 
+           0.4596917084692135934622384155665540441335615538964091969125`31.\
+64661889895634, 
+           0.4596961977191213031342726912829992881326507459889656647605`31.\
+64661426490024, 
+           0.459697320028858205396982410342335049504842650341859126551`31.\
+646613106413717, 
+           0.4596976006061211800175958414386248357058206555784393417524`31.\
+646612816793827, 
+           0.4596976707504262204984817577215920708900764796099134259937`31.\
+646612744388964}, $CellContext`GetQuadData[
+          Sin[#]& , 0, 1, {1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {
+           1/2, 1/2}] = {
+          0.4596975236570239497419926761196480676424705105092282668489`31.\
+64661307241533, 
+           0.4596976834873309149625390414566350967328190066264286642952`31.\
+646612742232634, 
+           0.4596976934667356001645204703769940759956001483046888185685`31.\
+646612721627182, 
+           0.4596976940902924643780998503750569790278755713064856881938`31.\
+64661272033982, 
+           0.4596976941292623326208335991264936505269242212619172217596`31.\
+64661272025939, 
+           0.4596976941316979113294861979033067570867821562733870734059`31.\
+646612720254332, 
+           0.4596976941318501344041532525323372599097970535767373596276`31.\
+64661272025402, 
+           0.4596976941318596483370289842032923009553990326583056270592`31.\
+64661272025398, 
+           0.4596976941318602429576885463374456355570650600962233462779`31.\
+646612720254005}, $CellContext`GetQuadData[
+          Sin[#]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          0.4596979498238205612612623129210844651992164694772883791958`31.\
+6466121920759, 
+           0.4596977100983375341560874157806390318635374487905310459044`31.\
+646612687287046, 
+           0.4596976951295423574126514580692929241313601355663993648589`31.\
+646612718194262, 
+           0.4596976941942119326094422361947239354391194174121956370918`31.\
+646612720125272, 
+           0.4596976941357572063582841165218143694656804766864844873787`31.\
+646612720245958, 
+           0.4596976941321038394845523166954469699622399517928236138347`31.\
+6466127202535, 
+           0.4596976941318755048911336518040547644394799906572994135113`31.\
+646612720253977, 
+           0.4596976941318612339921103964825811492848284209537381206275`31.\
+646612720253998, 
+           0.459697694131860342061125589876940425092148780685503009058`31.\
+64661272025397}, $CellContext`GetQuadData[
+          Sin[#]& , 0, 1, {1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {
+           5/18, 4/9, 5/18}] = {
+          0.4596976941464737452422596032094522229174752216383056359651`31.\
+646612720208733, 
+           0.4596976941320883848617007606911472850098710645928664584622`31.\
+64661272025329, 
+           0.459697694131863845787330776950630049470535318528940099138`31.\
+646612720253987, 
+           0.4596976941318603382703279022662204213033487185433570112379`31.\
+646612720254, 
+           0.4596976941318602834689130257463185840448313641784690961811`31.\
+646612720254005, 
+           0.4596976941318602826126547388781279213576208225115548561913`31.\
+646612720253998, 
+           0.4596976941318602825992757571315825962900000375401979629442`31.\
+646612720253994, 
+           0.4596976941318602825990667107526738999871319782126179312973`31.\
+646612720254016, 
+           0.4596976941318602825990634444038272049837138184962533530073`31.\
+646612720253998}, $CellContext`GetQuadData[1/Sqrt[#]& , 0, 1, {0}, {1}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2}, {1}] = {
+          1.7303108487231763019251193144964909776436880286937235664658`31.\
+733088281326317, 
+           1.8089223597304338821100654136232831753932945562278945744445`31.\
+733088281326324, 
+           1.8647926204877279865552506884710298061196444698385616337848`31.\
+733088281326307, 
+           1.9043701466055491351750232739509391436812711535049031597402`31.\
+7330882813263, 
+           1.9323735308432973654321801450322375463920134111420704023769`31.\
+733088281326307, 
+           1.9521793771296469493551701908084039211175761545780270425416`31.\
+7330882813263, 
+           1.9661853412955992383787902750100918573106418433805440711905`31.\
+733088281326335, 
+           1.9760893325281368751830932336034067011056927450997056248012`31.\
+733088281326353, 
+           1.9830925816383045596043945026619493857843152646848712452867`31.\
+733088281326317}, $CellContext`GetQuadData[1/Sqrt[#]& , 0, 1, {1}, {1}] = {
+          1.4452470490139359678012591483814813647263358021687521217392`31.\
+733088281326324, 
+           1.5877789488685561348631892314389861711850119154312378441037`31.\
+733088281326324, 
+           1.6983506542994950084866273225311346732891532358295662092743`31.\
+733088281326335, 
+           1.7815716373936114975209390055010822397043988528340639215238`31.\
+733088281326317, 
+           1.8429708919995803163479811397260106916928350031694835406317`31.\
+7330882813263, 
+           1.8876722114214388408900806423791241190424242071557769715283`31.\
+733088281326335, 
+           1.9199257942755428951226254165937640200800001808669020070347`31.\
+733088281326353, 
+           1.9430555677855710667507078458019279386953210121237230390129`31.\
+733088281326353, 
+           1.9595724501568539709669005397026673199005068786117143319064`31.\
+733088281326385}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {0, 1}, {1/2, 1/2}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {
+           1/2, 1/2}] = {
+          1.8436419866355707470258561606703710126880771157790377148691`31.\
+733088281326335, 
+           1.889437750068657195331598597798151134902896869605020320569`31.\
+733088281326324, 
+           1.9218206555012159136656996953609495774257679507656044028162`31.\
+733088281326317, 
+           1.9447188536099218260694030035395084258195994603739244182562`31.\
+733088281326317, 
+           1.9609103264065581172177059032990651918587582521130845675033`31.\
+733088281326335, 
+           1.9723594267208785988304799477319216497396876931651190246927`31.\
+733088281326367, 
+           1.980455163198022673734214639794708840791561348698754716227`31.\
+733088281326403, 
+           1.9861797133601107559710928740460404982304437687060686474965`31.\
+733088281326353, 
+           1.9902275815989908025988453109764082815443942990645510157071`31.\
+733088281326282}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {
+           5/18, 4/9, 5/18}] = {
+          1.8885794455589640878631607746945581800333628230578330703444`31.\
+733088281326335, 
+           1.9212137697729666578265630209205075188036325698439144112162`31.\
+733088281326317, 
+           1.9442897223323342372000791546162041669226020084144813198937`31.\
+7330882813263, 
+           1.9606068848792502800552804218604956119841109231197346304874`31.\
+733088281326275, 
+           1.9721448611660530800974510565514572210703202150103209937621`31.\
+733088281326353, 
+           1.9803034424396233541194405335467919298983881780199850068995`31.\
+733088281326317, 
+           1.9860724305830265121279998052956386285603872186554113269494`31.\
+733088281326275, 
+           1.9901517212198116766233967155963956739337994353812093754638`31.\
+7330882813263, 
+           1.9930362152915132560571821040844710219007929440228844861458`31.\
+73308828132642}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {0}, {1}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {1/2}, {1}] = {
+          1.5402324248604072144603725416839589600478900123295169672967`31.\
+669724544966336, 
+           1.6181996991785826478072808635947600345938843079372677927844`31.\
+67242491079996, 
+           1.6739002065522801261255508360146748146975246231499063569884`31.\
+674274074586172, 
+           1.7134337363194282277573020584481128489955645228046022057199`31.\
+675535067889616, 
+           1.7414258446751007346931371009981138067657638206346163605544`31.\
+67639983560717, 
+           1.7612288229716029618567833060933548999906830297919059735485`31.\
+676997152069166, 
+           1.7752340614689727772349817569671359340286916170513348588816`31.\
+67741231944275, 
+           1.7851378697511549087104468241664029250691322122726603950276`31.\
+67770228167485, 
+           1.7921410728526753551296990489683882200052550052720690022023`31.\
+677905519960998}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {1}, {1}] = {
+          1.206513715464643989606499551255999291734456666421955567212`31.\
+63643220803579, 
+           1.3733730701625256020334360464699791258911733393757362672555`31.\
+654785609707602, 
+           1.4957863846705541249203584550323695802425288236565020300199`31.\
+664238002119088, 
+           1.5848432956114171255229546455235221974700267234032041934988`31.\
+66950910559799, 
+           1.6491385159654226766401283519858175232327956231039031996095`31.\
+672629116899707, 
+           1.695282180320261705666632726491965664999279721869259780104`31.\
+67456170396484, 
+           1.7282555016459323337617080162926602824949813758305828768266`31.\
+67580095429462, 
+           1.7517447815574525554983448866298981082618364964409588677662`31.\
+67661669311827, 
+           1.7684413256543037321043958553981505166654843543568096313925`31.\
+67716427295639}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {
+           1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {1/2, 1/2}] = {
+          1.6527019302061500061655343391771870249678569155318074446298`31.\
+673558708591155, 
+           1.6984882760468424531800360316557986996953632080953980793106`31.\
+675058141675716, 
+           1.7308694952206952434767839678909794455357248158501499843825`31.\
+676075065874496, 
+           1.7537673938389947184109871094612009144197515695111006266435`31.\
+676773136630285, 
+           1.7699588136026918169998477393210321773043972556893600049996`31.\
+677256553299117, 
+           1.7814079045362855883422331462216617990610706152659926992791`31.\
+67759340350447, 
+           1.7895036393547721197275893865509824365649171075329749248649`31.\
+677829148006452, 
+           1.7952281892236252525885925795252039907828866364920397678163`31.\
+67799463795985, 
+           1.7992760574106667497916005204854137479889959038727047070622`31.\
+678111059290586}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          Cos[#]/Sqrt[#]& , 0, 1, {
+           1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {5/18, 4/9, 5/18}] = {
+          1.6976296028909046355290690324861876776745793877596908203647`31.\
+675030558716042, 
+           1.7302625429140524777135444395730711960780364116415477398965`31.\
+676056304537386, 
+           1.7533382506994742155037435867817678236006503956504626985143`31.\
+67676020607451, 
+           1.7696553699725072393600335158395792139671940993581256404594`31.\
+677247569122276, 
+           1.7811933386093395275370605843373219760483359830609768797597`31.\
+67758712791083, 
+           1.7893519185305663885601463538147636619699186880084179360577`31.\
+6778247483729, 
+           1.7951209064349064420030785564544720625970136386814859365095`31.\
+677991545663374, 
+           1.7992001970294308074239290210925260907876654472229222420209`31.\
+678108881988383, 
+           1.8020846910936616618609218156401849934773176192429341590675`31.\
+67819154972186}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {0}, {1}] = {
+          0.3045449372516569326977451704543529761512275250482315012153`31.\
+51123953170997, 
+           0.3511694607524107356270649578655222472600825200104920752027`31.\
+51123953170997, 
+           0.3752982565935209447845535514348889831347852253187496904754`31.\
+511239531709965, 
+           0.387575606725795385985930206456629209423515078902959607841`31.\
+511239531709965, 
+           0.3937690860545604335059158719226767884839780311804489349363`31.\
+511239531709965, 
+           0.3968798041108683575635630726368764593877470790788468580845`31.\
+511239531709965, 
+           0.3984387067904198252858067286186765496111600673734100539554`31.\
+511239531709982, 
+           0.3992190527163335303997274889430098525571540069305549431585`31.\
+51123953170998, 
+           0.3996094508591719176127696486770805709863731331708884555489`31.\
+511239531709965}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {1/2}, {1}] = {
+          0.3977939842531645385563847452766915183689375149727526491899`31.\
+51123953170997, 
+           0.3994270524346311539420421450042557190094879306270073057485`31.\
+51123953170997, 
+           0.399852956858069827187306861478369435712244932487169525208`31.\
+511239531709965, 
+           0.3999625653833254810259015373887243675444409834579382620325`31.\
+51123953170996, 
+           0.3999905221671762816212102733510761302915161269772447812219`31.\
+511239531709972, 
+           0.3999976094699712930080503846004766398345730556679732498293`31.\
+51123953170997, 
+           0.3999993986422472355136482492673431555031479464876998323993`31.\
+511239531709982, 
+           0.3999998490020103048258118084111512894155922594112219679437`31.\
+51123953170996, 
+           0.3999999621340850863899109521815581715136051535318352168396`31.\
+51123953170994}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {1}, {1}] = {
+          0.5045449372516569326977451704543529761512275250482315012152`31.\
+51123953170997, 
+           0.4511694607524107356270649578655222472600825200104920752027`31.\
+51123953170997, 
+           0.4252982565935209447845535514348889831347852253187496904755`31.\
+511239531709965, 
+           0.4125756067257953859859302064566292094235150789029596078409`31.\
+51123953170996, 
+           0.4062690860545604335059158719226767884839780311804489349363`31.\
+511239531709965, 
+           0.4031298041108683575635630726368764593877470790788468580846`31.\
+511239531709965, 
+           0.4015637067904198252858067286186765496111600673734100539554`31.\
+51123953170998, 
+           0.4007815527163335303997274889430098525571540069305549431584`31.\
+51123953170997, 
+           0.4003907008591719176127696486770805709863731331708884555489`31.\
+51123953170997}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {
+           1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {1/2, 1/2}] = {
+          0.3999767930831474258582748348724325279629884066442648419503`31.\
+51123953170997, 
+           0.3999958817909031200536667382229026718816698148471193346104`31.\
+51123953170997, 
+           0.3999992710062780463030232757102006037941294091160751456007`31.\
+51123953170997, 
+           0.3999998710689258577136888855011407022314083356664363984669`31.\
+51123953170998, 
+           0.3999999772041162563481138518431605082878705713862541971259`31.\
+511239531709965, 
+           0.3999999959699768278959553092494480877728048391189272893821`31.\
+511239531709958, 
+           0.3999999992875706852728836690144497042334140876755002183353`31.\
+511239531709965, 
+           0.3999999998740581540808340811900526201948472089309513597722`31.\
+51123953170997, 
+           0.3999999999777363575519502479846698834146605401260712710319`31.\
+51123953171001}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {0, 1/2, 1}, {
+           1/6, 2/3, 1/6}] = {
+          0.4000443019193286699368382203359120042963675183312455998651`31.\
+511239531709965, 
+           0.4000078552072243478370497492913445617596861270881688955663`31.\
+51123953170997, 
+           0.4000013901032201997197224247972092848530916967643629136312`31.\
+51123953170997, 
+           0.4000002458308154493459110937446926481707990152729453773028`31.\
+51123953170996, 
+           0.4000000434629709989161121395416096830223367617116461657986`31.\
+51123953170996, 
+           0.400000007683603647859887947279276579685631063471597785903`31.\
+511239531709947, 
+           0.4000000013583047654377010757177876202058186534496032395849`31.\
+51123953170996, 
+           0.4000000002401180466837837019217708104627795085843329596783`31.\
+51123953170996, 
+           0.4000000000424473634641971843467323046711944800781862964862`31.\
+511239531709933}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {
+           1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {5/18, 4/9, 5/18}] = {
+          0.3999966357025913705049858545381998508131157440672920367778`31.\
+511239531709965, 
+           0.3999994052635871447163034761096037140365970517974712622536`31.\
+511239531709972, 
+           0.3999998948643505923546943123161208300289260091704053927754`31.\
+51123953170997, 
+           0.3999999814144655859548078788571197311950877140271124533276`31.\
+51123953170996, 
+           0.399999996714510618529059308096468368701879678894754862446`31.\
+51123953170997, 
+           0.3999999994192020442826020234476770310188420644794089600637`31.\
+51123953170998, 
+           0.3999999998973284567465359000098867445235416388312081981868`31.\
+51123953170998, 
+           0.3999999999818500638825422128840133926765155733063485472092`31.\
+51123953170995, 
+           0.399999999996791514273309104363775401911252673187904947004`31.\
+51123953170996}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {0}, {1}] = {
+          0.3045449372516569326977451704543529761512275250482315012153`31.\
+51123953170997, 
+           0.3511694607524107356270649578655222472600825200104920752027`31.\
+51123953170997, 
+           0.3752982565935209447845535514348889831347852253187496904754`31.\
+511239531709965, 
+           0.387575606725795385985930206456629209423515078902959607841`31.\
+511239531709965, 
+           0.3937690860545604335059158719226767884839780311804489349363`31.\
+511239531709965, 
+           0.3968798041108683575635630726368764593877470790788468580845`31.\
+511239531709965, 
+           0.3984387067904198252858067286186765496111600673734100539554`31.\
+511239531709982, 
+           0.3992190527163335303997274889430098525571540069305549431585`31.\
+51123953170998, 
+           0.3996094508591719176127696486770805709863731331708884555489`31.\
+511239531709965}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {1/2}, {1}] = {
+          0.3977939842531645385563847452766915183689375149727526491899`31.\
+51123953170997, 
+           0.3994270524346311539420421450042557190094879306270073057485`31.\
+51123953170997, 
+           0.399852956858069827187306861478369435712244932487169525208`31.\
+511239531709965, 
+           0.3999625653833254810259015373887243675444409834579382620325`31.\
+51123953170996, 
+           0.3999905221671762816212102733510761302915161269772447812219`31.\
+511239531709972, 
+           0.3999976094699712930080503846004766398345730556679732498293`31.\
+51123953170997, 
+           0.3999993986422472355136482492673431555031479464876998323993`31.\
+511239531709982, 
+           0.3999998490020103048258118084111512894155922594112219679437`31.\
+51123953170996, 
+           0.3999999621340850863899109521815581715136051535318352168396`31.\
+51123953170994}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {1}, {1}] = {
+          0.5045449372516569326977451704543529761512275250482315012152`31.\
+51123953170997, 
+           0.4511694607524107356270649578655222472600825200104920752027`31.\
+51123953170997, 
+           0.4252982565935209447845535514348889831347852253187496904755`31.\
+511239531709965, 
+           0.4125756067257953859859302064566292094235150789029596078409`31.\
+51123953170996, 
+           0.4062690860545604335059158719226767884839780311804489349363`31.\
+511239531709965, 
+           0.4031298041108683575635630726368764593877470790788468580846`31.\
+511239531709965, 
+           0.4015637067904198252858067286186765496111600673734100539554`31.\
+51123953170998, 
+           0.4007815527163335303997274889430098525571540069305549431584`31.\
+51123953170997, 
+           0.4003907008591719176127696486770805709863731331708884555489`31.\
+51123953170997}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {
+           1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {1/2, 1/2}] = {
+          0.3999767930831474258582748348724325279629884066442648419503`31.\
+51123953170997, 
+           0.3999958817909031200536667382229026718816698148471193346104`31.\
+51123953170997, 
+           0.3999992710062780463030232757102006037941294091160751456007`31.\
+51123953170997, 
+           0.3999998710689258577136888855011407022314083356664363984669`31.\
+51123953170998, 
+           0.3999999772041162563481138518431605082878705713862541971259`31.\
+511239531709965, 
+           0.3999999959699768278959553092494480877728048391189272893821`31.\
+511239531709958, 
+           0.3999999992875706852728836690144497042334140876755002183353`31.\
+511239531709965, 
+           0.3999999998740581540808340811900526201948472089309513597722`31.\
+51123953170997, 
+           0.3999999999777363575519502479846698834146605401260712710319`31.\
+51123953171001}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {0, 1/2, 1}, {
+           1/6, 2/3, 1/6}] = {
+          0.4000443019193286699368382203359120042963675183312455998651`31.\
+511239531709965, 
+           0.4000078552072243478370497492913445617596861270881688955663`31.\
+51123953170997, 
+           0.4000013901032201997197224247972092848530916967643629136312`31.\
+51123953170997, 
+           0.4000002458308154493459110937446926481707990152729453773028`31.\
+51123953170996, 
+           0.4000000434629709989161121395416096830223367617116461657986`31.\
+51123953170996, 
+           0.400000007683603647859887947279276579685631063471597785903`31.\
+511239531709947, 
+           0.4000000013583047654377010757177876202058186534496032395849`31.\
+51123953170996, 
+           0.4000000002401180466837837019217708104627795085843329596783`31.\
+51123953170996, 
+           0.4000000000424473634641971843467323046711944800781862964862`31.\
+511239531709933}, $CellContext`GetQuadData[#^(3/2)& , 0, 1, {
+           1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {5/18, 4/9, 5/18}] = {
+          0.3999966357025913705049858545381998508131157440672920367778`31.\
+511239531709965, 
+           0.3999994052635871447163034761096037140365970517974712622536`31.\
+511239531709972, 
+           0.3999998948643505923546943123161208300289260091704053927754`31.\
+51123953170997, 
+           0.3999999814144655859548078788571197311950877140271124533276`31.\
+51123953170996, 
+           0.399999996714510618529059308096468368701879678894754862446`31.\
+51123953170997, 
+           0.3999999994192020442826020234476770310188420644794089600637`31.\
+51123953170998, 
+           0.3999999998973284567465359000098867445235416388312081981868`31.\
+51123953170998, 
+           0.3999999999818500638825422128840133926765155733063485472092`31.\
+51123953170995, 
+           0.399999999996791514273309104363775401911252673187904947004`31.\
+51123953170996}, $CellContext`GetQuadData[Sqrt[
+            Sin[#]]& , 0, 1, {1/2}, {1}] = {
+          0.6479353769166219013523121200895997210112958224323361898225`31.\
+754365699286794, 
+           0.6447806017524043880925708471315716412183570033411160076909`31.\
+754713421276257, 
+           0.6436277293171842032009808130945751656275786870423079098449`31.\
+754813275115485, 
+           0.6432106497026556908707553439019417011884441544219939949617`31.\
+75484274327488, 
+           0.6430608116841918989593946694375090247885209242224797195921`31.\
+754851695844692, 
+           0.6430072406875866766115147814641961950399492719196985018578`31.\
+754854493744773, 
+           0.6429881516036378708600756072772597020198398708196542058227`31.\
+754855391029118, 
+           0.642981365368823041726444720858880729647604982647929630648`31.\
+754855685275057, 
+           0.6429789567659163821994464265374020412892194593346507328761`31.\
+754855783557403}, $CellContext`GetQuadData[Sqrt[
+            Sin[#]]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          0.6404110291940444507816871701363239187298049437654945902495`31.\
+7549448516517, 
+           0.6420700196125215005605054631409431000085911703714352686137`31.\
+754887348048037, 
+           0.642656729058982821065478132444926386886288542657070239589`31.\
+75486697716051, 
+           0.6428641761117311705797458266413284666308439264361464647942`31.\
+754859773663743, 
+           0.6429375208948842361176768022953466329763618869627273796399`31.\
+754857227035355, 
+           0.6429634522918012526399491438842192757167269707240827377752`31.\
+754856326723306, 
+           0.6429726204337280941247725132162500733649318539218610891363`31.\
+7548560084251, 
+           0.6429758618621397630700034693011689061108959369229412640171`31.\
+754855895891207, 
+           0.6429770078802102960468918988657056923069934442432495156177`31.\
+754855856104736}, $CellContext`GetQuadData[1/Sqrt[#]& , 0, 1, {0}, {1}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2}, {1}] = {
+          1.7303108487231763019251193144964909776436880286937235664658`31.\
+733088281326317, 
+           1.8089223597304338821100654136232831753932945562278945744445`31.\
+733088281326324, 
+           1.8647926204877279865552506884710298061196444698385616337848`31.\
+733088281326307, 
+           1.9043701466055491351750232739509391436812711535049031597402`31.\
+7330882813263, 
+           1.9323735308432973654321801450322375463920134111420704023769`31.\
+733088281326307, 
+           1.9521793771296469493551701908084039211175761545780270425416`31.\
+7330882813263, 
+           1.9661853412955992383787902750100918573106418433805440711905`31.\
+733088281326335, 
+           1.9760893325281368751830932336034067011056927450997056248012`31.\
+733088281326353, 
+           1.9830925816383045596043945026619493857843152646848712452867`31.\
+733088281326317}, $CellContext`GetQuadData[1/Sqrt[#]& , 0, 1, {1}, {1}] = {
+          1.4452470490139359678012591483814813647263358021687521217392`31.\
+733088281326324, 
+           1.5877789488685561348631892314389861711850119154312378441037`31.\
+733088281326324, 
+           1.6983506542994950084866273225311346732891532358295662092743`31.\
+733088281326335, 
+           1.7815716373936114975209390055010822397043988528340639215238`31.\
+733088281326317, 
+           1.8429708919995803163479811397260106916928350031694835406317`31.\
+7330882813263, 
+           1.8876722114214388408900806423791241190424242071557769715283`31.\
+733088281326335, 
+           1.9199257942755428951226254165937640200800001808669020070347`31.\
+733088281326353, 
+           1.9430555677855710667507078458019279386953210121237230390129`31.\
+733088281326353, 
+           1.9595724501568539709669005397026673199005068786117143319064`31.\
+733088281326385}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {0, 1}, {1/2, 1/2}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2 - 1/(2 Sqrt[3]), 1/2 + 1/(2 Sqrt[3])}, {
+           1/2, 1/2}] = {
+          1.8436419866355707470258561606703710126880771157790377148691`31.\
+733088281326335, 
+           1.889437750068657195331598597798151134902896869605020320569`31.\
+733088281326324, 
+           1.9218206555012159136656996953609495774257679507656044028162`31.\
+733088281326317, 
+           1.9447188536099218260694030035395084258195994603739244182562`31.\
+733088281326317, 
+           1.9609103264065581172177059032990651918587582521130845675033`31.\
+733088281326335, 
+           1.9723594267208785988304799477319216497396876931651190246927`31.\
+733088281326367, 
+           1.980455163198022673734214639794708840791561348698754716227`31.\
+733088281326403, 
+           1.9861797133601107559710928740460404982304437687060686474965`31.\
+733088281326353, 
+           1.9902275815989908025988453109764082815443942990645510157071`31.\
+733088281326282}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {0, 1/2, 1}, {1/6, 2/3, 1/6}] = {
+          Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, 
+           Infinity, Infinity, Infinity}, $CellContext`GetQuadData[
+          1/Sqrt[#]& , 0, 1, {1/2 - Sqrt[3/5]/2, 1/2, 1/2 + Sqrt[3/5]/2}, {
+           5/18, 4/9, 5/18}] = {
+          1.8885794455589640878631607746945581800333628230578330703444`31.\
+733088281326335, 
+           1.9212137697729666578265630209205075188036325698439144112162`31.\
+733088281326317, 
+           1.9442897223323342372000791546162041669226020084144813198937`31.\
+7330882813263, 
+           1.9606068848792502800552804218604956119841109231197346304874`31.\
+733088281326275, 
+           1.9721448611660530800974510565514572210703202150103209937621`31.\
+733088281326353, 
+           1.9803034424396233541194405335467919298983881780199850068995`31.\
+733088281326317, 
+           1.9860724305830265121279998052956386285603872186554113269494`31.\
+733088281326275, 
+           1.9901517212198116766233967155963956739337994353812093754638`31.\
+7330882813263, 
+           1.9930362152915132560571821040844710219007929440228844861458`31.\
+73308828132642}, $CellContext`GetQuadData[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]], 
+           Pattern[$CellContext`p, 
+            Blank[]], 
+           Pattern[$CellContext`w, 
+            
+            Blank[]]] := ($CellContext`GetQuadData[$CellContext`f, \
+$CellContext`a, $CellContext`b, $CellContext`p, $CellContext`w] = 
+          Module[{$CellContext`J = $CellContext`Nums}, 
+            Do[Part[$CellContext`J, $CellContext`j] = \
+$CellContext`Int[$CellContext`f, $CellContext`a, $CellContext`b, \
+$CellContext`p, $CellContext`w, 
+                Part[$CellContext`Nums, $CellContext`j]], {$CellContext`j, 1, 
+               
+               Length[$CellContext`Nums]}]; Flatten[{$CellContext`J, 
+               $CellContext`Int[$CellContext`f, $CellContext`a, \
+$CellContext`b, $CellContext`p, $CellContext`w, 2 
+                Part[$CellContext`Nums, -1]]}]]), $CellContext`Int[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]], 
+           Pattern[$CellContext`x, 
+            Blank[]], 
+           Pattern[$CellContext`w, 
+            Blank[]], 
+           Pattern[$CellContext`n, 
+            Blank[]]] := 
+         Module[{$CellContext`X, $CellContext`h, $CellContext`F, \
+$CellContext`W, $CellContext`v}, $CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n; $CellContext`X = $CellContext`a + \
+$CellContext`h 
+              Range[0, $CellContext`n - 1]; {$CellContext`wt, $CellContext`W} = 
+            AbsoluteTiming[
+              Flatten[
+               
+               Table[$CellContext`h $CellContext`w, {$CellContext`p, \
+$CellContext`X}]]]; {$CellContext`xt, $CellContext`X} = AbsoluteTiming[
+              Flatten[
+               
+               Table[$CellContext`p + $CellContext`h $CellContext`x, \
+{$CellContext`p, $CellContext`X}]]]; $CellContext`X = 
+            N[$CellContext`X, 2 $MachinePrecision]; $CellContext`W = 
+            N[$CellContext`W, 
+              2 $MachinePrecision]; {$CellContext`ft, $CellContext`F} = 
+            AbsoluteTiming[
+              Flatten[{
+                Limit[
+                 $CellContext`f[$CellContext`\[Xi]], $CellContext`\[Xi] -> 
+                 Part[$CellContext`X, 1]], 0 Part[$CellContext`X, 
+                   Span[2, -2]] + $CellContext`f[
+                  Part[$CellContext`X, 
+                   Span[2, -2]]], 
+                Limit[
+                 $CellContext`f[$CellContext`\[Xi]], $CellContext`\[Xi] -> 
+                 Part[$CellContext`X, -1]]}]]; {$CellContext`vt, \
+$CellContext`v} = AbsoluteTiming[
+              
+              Dot[$CellContext`W, $CellContext`F]]; $CellContext`v], \
+$CellContext`wt = 0.003528`3.9990735699557454, $CellContext`xt = 
+         0.005472`4.189691082208026, $CellContext`ft = 
+         0.030994`4.942822622198154, $CellContext`vt = 
+         0.001476`3.620631350982994, $CellContext`Numrev[5] = 
+         1, $CellContext`Numrev[10] = 2, $CellContext`Numrev[20] = 
+         3, $CellContext`Numrev[40] = 4, $CellContext`Numrev[80] = 
+         5, $CellContext`Numrev[160] = 6, $CellContext`Numrev[320] = 
+         7, $CellContext`Numrev[640] = 8, Attributes[Subscript] = {NHoldRest},
+          Attributes[Superscript] = {
+          NHoldRest, ReadProtected}}; ($CellContext`Nums = 5 2^Range[0, 7]; 
+        Do[$CellContext`Numrev[
+            
+            Part[$CellContext`Nums, $CellContext`j]] = $CellContext`j, \
+{$CellContext`j, 1, 
+           Length[$CellContext`Nums]}]; $CellContext`Int[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]], 
+           Pattern[$CellContext`x, 
+            Blank[]], 
+           Pattern[$CellContext`w, 
+            Blank[]], 
+           Pattern[$CellContext`n, 
+            Blank[]]] := 
+         Module[{$CellContext`X, $CellContext`h, $CellContext`F, \
+$CellContext`W, $CellContext`v}, $CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n; $CellContext`X = $CellContext`a + \
+$CellContext`h 
+              Range[0, $CellContext`n - 1]; {$CellContext`wt, $CellContext`W} = 
+            AbsoluteTiming[
+              Flatten[
+               
+               Table[$CellContext`h $CellContext`w, {$CellContext`p, \
+$CellContext`X}]]]; {$CellContext`xt, $CellContext`X} = AbsoluteTiming[
+              Flatten[
+               
+               Table[$CellContext`p + $CellContext`h $CellContext`x, \
+{$CellContext`p, $CellContext`X}]]]; $CellContext`X = 
+            N[$CellContext`X, 2 $MachinePrecision]; $CellContext`W = 
+            N[$CellContext`W, 
+              2 $MachinePrecision]; {$CellContext`ft, $CellContext`F} = 
+            AbsoluteTiming[
+              Flatten[{
+                Limit[
+                 $CellContext`f[$CellContext`\[Xi]], $CellContext`\[Xi] -> 
+                 Part[$CellContext`X, 1]], 0 Part[$CellContext`X, 
+                   Span[2, -2]] + $CellContext`f[
+                  Part[$CellContext`X, 
+                   Span[2, -2]]], 
+                Limit[
+                 $CellContext`f[$CellContext`\[Xi]], $CellContext`\[Xi] -> 
+                 Part[$CellContext`X, -1]]}]]; {$CellContext`vt, \
+$CellContext`v} = AbsoluteTiming[
+              
+              Dot[$CellContext`W, $CellContext`F]]; $CellContext`v]; \
+$CellContext`Quadratures = {{"Left rectangle", {0}, {1}, 1, 1/2}, {
+           "Right rectangle", {1}, {1}, 1, 1/2}, {
+           "Midpoint", {1/2}, {1}, 2, 1/24}, {
+           "Trapezoid", {0, 1}, {1/2, 1/2}, 2, 1/12}, {
+           "Simpson's", {0, 1/2, 1}, {1/6, 2/3, 1/6}, 4, 1/2880}, {
+           "Gaussian 2 point", {
+            1/2 - 1/(2 3^Rational[1, 2]), 1/2 + 1/(2 3^Rational[1, 2])}, {
+            1/2, 1/2}, 4, 1/4320}, {
+           "Gaussian 3 point", {
+            1/2 - 3^Rational[1, 2]/(2 5^Rational[1, 2]), 1/2, 1/2 + 
+             3^Rational[1, 2]/(2 5^Rational[1, 2])}, {5/18, 4/9, 5/18}, 6, 1/
+            2016000}}; $CellContext`GetQuadData[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]], 
+           Pattern[$CellContext`p, 
+            Blank[]], 
+           Pattern[$CellContext`w, 
+            
+            Blank[]]] := ($CellContext`GetQuadData[$CellContext`f, \
+$CellContext`a, $CellContext`b, $CellContext`p, $CellContext`w] = 
+          Module[{$CellContext`J = $CellContext`Nums}, 
+            Do[Part[$CellContext`J, $CellContext`j] = \
+$CellContext`Int[$CellContext`f, $CellContext`a, $CellContext`b, \
+$CellContext`p, $CellContext`w, 
+                Part[$CellContext`Nums, $CellContext`j]], {$CellContext`j, 1, 
+               
+               Length[$CellContext`Nums]}]; Flatten[{$CellContext`J, 
+               $CellContext`Int[$CellContext`f, $CellContext`a, \
+$CellContext`b, $CellContext`p, $CellContext`w, 2 
+                Part[$CellContext`Nums, -1]]}]]); Null)}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output"]
+}, {2}]]
+},
+WindowSize->{1278, 976},
+WindowMargins->{{0, Automatic}, {2, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperOrientation"->"Portrait",
+"PaperSize"->{594.75, 842.25},
+"PostScriptOutputFile"->""},
+ShowSelection->True,
+TrackCellChangeTimes->False,
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 31075, 728, 2950, "Input"],
+Cell[31657, 752, 55378, 1121, 586, "Output"]
+}, {2}]]
+}
+]
+*)
+
+(* End of internal cache information *)
