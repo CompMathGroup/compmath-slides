@@ -15,7 +15,7 @@ int main()
 	double *x;
 	double **f;
 
-	printf("set term png\n");
+	printf("set term pngcairo\n");
 	printf("set xrange [-1:1]\nset yrange [-1:2]\n");
 
 	for (n = *pn++; n > 0; n = *pn++) {

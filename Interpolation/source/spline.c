@@ -14,7 +14,7 @@ int main()
 		fprintf(g, "%e %e\n", x[i], f[i]);
 	}
 	fclose(g);
-	printf("set term png\nset xrange[0:2*pi]\nset yrange[-1.1:1.1]\nset samples 1001\n");
+	printf("set term pngcairo\nset xrange[0:2*pi]\nset yrange[-1.1:1.1]\nset samples 1001\n");
 	printf("set style data lp\n");
 	printf("set output \"../images/spline1_1.png\"\n");
 	printf("plot \"spline.dat\" using 1:2 lw 2 title \"Linear\"\n");

@@ -1,4 +1,4 @@
-set term png
+set term pngcairo
 set xrange[0:2*pi]
 set yrange[-1.1:1.1]
 set samples 1001

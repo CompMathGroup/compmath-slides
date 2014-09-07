@@ -13,7 +13,7 @@ int main() {
 	double *x;
 	double a = -1.0, b = 1.0;
 
-	printf("set term png\nset xrange [-1.1:1.1]\nset samples 1000\n");
+	printf("set term pngcairo\nset xrange [-1.1:1.1]\nset samples 1000\n");
 
 	for (n = *pn++, y = *py++; n>0; n = *pn++, y = *py++){
 		x = malloc(sizeof(*x)*n);
