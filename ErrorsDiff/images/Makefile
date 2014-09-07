@@ -1,4 +1,4 @@
-all: diff.eps sine_pi_2.eps sine_17pi_2.eps
+all: diff.png sine_pi_2.png sine_17pi_2.png
 
 %.mpcyr : %.mp
 	echo 'verbatimtex' > $@
@@ -8,10 +8,15 @@ all: diff.eps sine_pi_2.eps sine_17pi_2.eps
 	echo '\\usepackage{amsmath,amssymb}' >> $@
 	echo '\\begin{document}' >> $@
 	echo 'etex;' >> $@
+	echo 'vppp:=.25;' >> $@
+	echo 'hppp:=.25;' >> $@
 	cat $< >> $@
 
-%.eps : %.mpcyr
-	mpost -tex=latex -s outputtemplate=\"%j.eps\" $<
+%.png : %.mpcyr
+	mpost -tex=latex -s outputtemplate=\"%j.png\" -s outputformat=\"png\" $<
 
-clean : 
+junk:
 	rm -f *.log *.mpx *.eps *.pdf *.mpcyr *.tex
+
+clean: junk
+	rm -f *.png

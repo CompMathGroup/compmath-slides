@@ -11,17 +11,19 @@
 \mode<presentation>
 
 \definecolor{miptbase}{rgb}{0,0.5,1}
-\colorlet{mipt}{miptbase!80!black}
+% Adjust contrast
+\colorlet{mipt}{miptbase!50!black}
+\colorlet{miptgray}{gray!70!white}
 
 \setbeamercolor{section in toc}{fg=black,bg=white}
 \setbeamercolor{alerted text}{fg=red!70!black}
 
-\setbeamercolor*{palette primary}{fg=mipt!60!black,bg=gray!30!white}
-\setbeamercolor*{palette secondary}{fg=mipt!70!black,bg=gray!15!white}
-\setbeamercolor*{palette tertiary}{bg=mipt!80!black,fg=gray!10!white}
-\setbeamercolor*{palette quaternary}{fg=mipt,bg=gray!5!white}
+\setbeamercolor*{palette primary}{fg=mipt!60!black,bg=miptgray}
+\setbeamercolor*{palette secondary}{fg=mipt!70!black,bg=miptgray!40!white}
+\setbeamercolor*{palette tertiary}{bg=mipt!80!black,fg=miptgray!20!white}
+\setbeamercolor*{palette quaternary}{fg=mipt,bg=miptgray!10!white}
 
-\setbeamercolor*{sidebar}{fg=mipt,bg=gray!15!white}
+\setbeamercolor*{sidebar}{fg=mipt,bg=miptgray!15!white}
 
 \setbeamercolor*{palette sidebar primary}{fg=mipt!10!black}
 \setbeamercolor*{palette sidebar secondary}{fg=white}
@@ -29,8 +31,8 @@
 \setbeamercolor*{palette sidebar quaternary}{fg=gray!10!white}
 
 \setbeamercolor{titlelike}{parent=palette primary,fg=mipt}
-\setbeamercolor{frametitle}{bg=gray!10!white}
-\setbeamercolor{frametitle right}{bg=gray!60!white}
+\setbeamercolor{frametitle}{bg=miptgray!10!white}
+\setbeamercolor{frametitle right}{bg=miptgray!60!white}
 
 \setbeamercolor{block title}{parent=palette primary}
 \setbeamercolor{block body}{parent=palette secondary}
