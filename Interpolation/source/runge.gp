@@ -1,4 +1,5 @@
 set term pngcairo
+set samples 1001
 set xrange [-1:1]
 set yrange [-1:2]
 set output "../images/runge5.png"

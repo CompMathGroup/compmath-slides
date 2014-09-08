@@ -1,4 +1,5 @@
 set term pngcairo
+set samples 1001
 set xrange[0:2*pi]
 set yrange [-1.5:1.5]
 set output "../images/sense0.png"

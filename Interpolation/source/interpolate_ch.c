@@ -1,5 +1,6 @@
 #include <malloc.h>
 #include <stdio.h>
+#include <math.h>
 
 double runge(double x)
 {
@@ -19,7 +20,7 @@ int main()
 	printf("set xrange [-1:1]\nset yrange [-1:2]\n");
 
 	for (n = *pn++; n > 0; n = *pn++) {
-		printf("set output \"../images/runge%d.png\"\n", n);
+		printf("set output \"../images/runge%d_ch.png\"\n", n);
 		printf("plot \\\n");
 		printf("1.0/(1.0+25.0*x*x) title \"Runge\" lw 2,\\\n");
 		x = malloc(sizeof(*x)*n);
@@ -28,11 +29,11 @@ int main()
 			f[i] = malloc(sizeof(**f)*n);
 
 		for (i=0; i<n; i++) {
-			x[i] = a + (b-a)*i/(n-1);
+			x[i] = (a+b)/2 + (b-a)/2*cos(M_PI*(2*i+1)/(2*n));
 			f[0][i] = runge(x[i]);
 		}
 
-		for (i=1; i<n; i++) 
+		for (i=1; i<n; i++)
 			for (j=0; j<n-i; j++)
 				f[i][j] = (f[i-1][j+1] - f[i-1][j])/(x[j+i]-x[j]);
 

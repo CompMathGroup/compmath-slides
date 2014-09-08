@@ -30,7 +30,7 @@ int main()
 		f[0][i] = g(x[i]);
 	}
 
-	printf("set term pngcairo\nset xrange[0:2*pi]\nset yrange [-1.5:1.5]\n");
+	printf("set term pngcairo\nset samples 1001\nset xrange[0:2*pi]\nset yrange [-1.5:1.5]\n");
 
 	for (s = 0; s < 20; s++)
 	{
