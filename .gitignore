@@ -31,3 +31,12 @@
 *.xdy
 *.tdo
 *-converted-to.pdf
+# binaries
+ErrorsDiff/source/terms
+Interpolation/source/helpsense
+Interpolation/source/interpolate
+Interpolation/source/interpolate_ch
+Interpolation/source/lebesgue
+Interpolation/source/lebesgue2
+Interpolation/source/sense
+Interpolation/source/spline
