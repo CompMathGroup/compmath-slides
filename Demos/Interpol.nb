@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     32915,        767]
-NotebookOptionsPosition[     32602,        751]
-NotebookOutlinePosition[     32938,        766]
-CellTagsIndexPosition[     32895,        763]
+NotebookDataLength[     32943,        769]
+NotebookOptionsPosition[     32626,        753]
+NotebookOutlinePosition[     32966,        768]
+CellTagsIndexPosition[     32923,        765]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -553,9 +553,10 @@ Cell[BoxData[
            Superscript[10, 
             Log[10, $CellContext`noize$$]]]]}]& ]}}, Typeset`size$$ = {
     506., {329.5, 334.5}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`n$565$$ = 
-    0, $CellContext`type$570$$ = 0, $CellContext`methoderr$571$$ = 
-    False, $CellContext`senseerr$572$$ = False, $CellContext`noize$573$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$6948$$ = 
+    0, $CellContext`type$6949$$ = 0, $CellContext`methoderr$6950$$ = 
+    False, $CellContext`senseerr$6951$$ = False, $CellContext`noize$6952$$ = 
+    0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`f$$ = 
@@ -563,11 +564,12 @@ Cell[BoxData[
         False, $CellContext`n$$ = 5, $CellContext`noize$$ = 
         0, $CellContext`senseerr$$ = False, $CellContext`type$$ = "Uniform"}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$565$$, 0], 
-        Hold[$CellContext`type$$, $CellContext`type$570$$, 0], 
-        Hold[$CellContext`methoderr$$, $CellContext`methoderr$571$$, False], 
-        Hold[$CellContext`senseerr$$, $CellContext`senseerr$572$$, False], 
-        Hold[$CellContext`noize$$, $CellContext`noize$573$$, 0]}, 
+        Hold[$CellContext`n$$, $CellContext`n$6948$$, 0], 
+        Hold[$CellContext`type$$, $CellContext`type$6949$$, 0], 
+        Hold[$CellContext`methoderr$$, $CellContext`methoderr$6950$$, False], 
+        
+        Hold[$CellContext`senseerr$$, $CellContext`senseerr$6951$$, False], 
+        Hold[$CellContext`noize$$, $CellContext`noize$6952$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -749,8 +751,8 @@ $CellContext`a, $CellContext`b}, PlotRange -> Full, AxesOrigin -> {0, 0},
   Manipulate`InterpretManipulate[1]]], "Output"]
 }, {2}]]
 },
-WindowSize->{1918, 1032},
-WindowMargins->{{0, Automatic}, {2, Automatic}},
+WindowSize->{1002, 839},
+WindowMargins->{{-1465, Automatic}, {Automatic, 37}},
 FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
 StyleDefinitions->"Default.nb"
 ]
@@ -766,8 +768,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 20792, 493, 1774, "Input"],
-Cell[21374, 517, 11215, 231, 884, "Output"]
+Cell[579, 22, 20792, 493, 2107, "Input"],
+Cell[21374, 517, 11239, 233, 884, "Output"]
 }, {2}]]
 }
 ]
