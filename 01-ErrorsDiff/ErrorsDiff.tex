@@ -507,7 +507,7 @@
 \begin{frame}
 \frametitle{Оптимальное значение h}
 	Итак, при слишком маленьких значениях $h$ основной вклад в ошибку дает
-	именно вычислительная погрешность, которая растет с уменьшением $h$, а 
+	именно вычислительная погрешность, которая растет с уменьшением $h$, а
 	при слишком больших становится значительной ошибка метода. Найдем оптимальное значение
 	$h$, при котором сумма обеих ошибок имеет минимальную величину.
 	\pause
@@ -530,14 +530,14 @@
 	\varepsilon_{\text{сумм}} =
 	\varepsilon_{\text{выч}} +
 	\varepsilon_{\text{метод}} =
-	\frac{2\Delta f}{h} + \frac{M_3 h^2}{6}
+	\frac{2\Delta f}{2h} + \frac{M_3 h^2}{6}
 	\]
 	\[
-	h_\text{опт} = \sqrt[3]{\frac{6\Delta f}{M_3}},\text{ при этом } 
-	\varepsilon_{\text{сумм}} =	3 \sqrt[3]{\frac{M_3 \Delta f^2}{6}}
+	h_\text{опт} = \sqrt[3]{\frac{6\Delta f}{M_3}},\text{ при этом }
+	\varepsilon_{\text{сумм}} =	\frac{3}{2} \sqrt[3]{\frac{M_3 \Delta f^2}{3}}
 	\]
 	Для проверки подставим $M_3 = 1, \Delta f = 10^{-16}$, тогда
-	\[h \approx 8.4 \cdot 10^{-6},  \quad \varepsilon_{\text{сумм}} \approx 3.6 \cdot
+	\[h \approx 6.7 \cdot 10^{-6},  \quad \varepsilon_{\text{сумм}} \approx 2.2 \cdot
 	10^{-11}\]}%
 \end{frame}
 
