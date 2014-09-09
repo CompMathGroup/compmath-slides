@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     28808,        672]
-NotebookOptionsPosition[     28493,        656]
-NotebookOutlinePosition[     28832,        671]
-CellTagsIndexPosition[     28789,        668]
+NotebookDataLength[     32915,        767]
+NotebookOptionsPosition[     32602,        751]
+NotebookOutlinePosition[     32938,        766]
+CellTagsIndexPosition[     32895,        763]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,7 +29,8 @@ Cell[BoxData[
       RowBox[{
       "a", ",", "b", ",", "randy", ",", "grid", ",", "der", ",", 
        "\[CurlyPhi]", ",", "M", ",", "y", ",", "\[Phi]", ",", "L", ",", 
-       "\[Omega]"}], "}"}], ",", "\[IndentingNewLine]", 
+       "\[Omega]", ",", "em1", ",", "em2", ",", "mxv", ",", "mnv", ",", 
+       "dv"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"a", "=", 
        RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
@@ -194,6 +195,15 @@ Cell[BoxData[
            FractionBox[
             RowBox[{"a", "+", "b"}], "2"]}]}], "\[IndentingNewLine]", 
          "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{"SyntaxQ", "[", 
+          RowBox[{"ToString", "@", "f"}], "]"}]}], ",", 
+        RowBox[{"f", "=", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"2", "\[Pi]", " ", "x"}], "]"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
       RowBox[{"\[CurlyPhi]", "=", 
        RowBox[{
         RowBox[{"(", 
@@ -211,8 +221,37 @@ Cell[BoxData[
        RowBox[{"Max", "[", 
         RowBox[{"Abs", "[", 
          RowBox[{"der", "/.", 
-          RowBox[{"x", "\[Rule]", "grid"}]}], "]"}], "]"}]}], ";", 
+          RowBox[{"x", "\[Rule]", 
+           RowBox[{"Range", "[", 
+            RowBox[{"a", ",", "b", ",", 
+             FractionBox[
+              RowBox[{"b", "-", "a"}], "1000."]}], "]"}]}]}], "]"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"mxv", "=", 
+       RowBox[{"Max", "[", 
+        RowBox[{"\[CurlyPhi]", "[", 
+         RowBox[{"Range", "[", 
+          RowBox[{"a", ",", "b", ",", 
+           FractionBox[
+            RowBox[{"b", "-", "a"}], "1000."]}], "]"}], "]"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
+      RowBox[{"mnv", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"\[CurlyPhi]", "[", 
+         RowBox[{"Range", "[", 
+          RowBox[{"a", ",", "b", ",", 
+           FractionBox[
+            RowBox[{"b", "-", "a"}], "1000."]}], "]"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"dv", "=", 
+       RowBox[{"Max", "[", 
+        RowBox[{
+         RowBox[{"mxv", "-", "mnv"}], ",", "1"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"mxv", "+=", 
+       RowBox[{"0.5", "dv"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"mnv", "-=", 
+       RowBox[{"0.5", "dv"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"y", "=", 
        RowBox[{
         RowBox[{"\[CurlyPhi]", "@", "grid"}], "+", 
@@ -259,6 +298,14 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"k", ",", "1", ",", "n"}], "}"}]}], "]"}], ")"}], "&"}]}],
        ";", "\[IndentingNewLine]", 
+      RowBox[{"em1", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{"methoderr", ",", "1", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"em2", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{"senseerr", ",", "1", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
       RowBox[{"Column", "[", 
        RowBox[{"{", "\[IndentingNewLine]", 
         RowBox[{
@@ -269,70 +316,72 @@ Cell[BoxData[
              RowBox[{"\[CurlyPhi]", "[", "x", "]"}], ",", 
              RowBox[{"{", 
               RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"mnv", ",", "mxv"}], "}"}]}], ",", 
              RowBox[{"PlotStyle", "\[Rule]", 
               RowBox[{"{", 
                RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}], ",", 
            "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{"errs", ",", "\[IndentingNewLine]", 
-             RowBox[{"Plot", "[", 
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
               RowBox[{
-               RowBox[{"{", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"\[Phi]", "[", "x", "]"}], ",", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{
-                  RowBox[{"\[Phi]", "[", "x", "]"}], "-", 
-                  RowBox[{
-                   FractionBox["M", 
-                    RowBox[{"n", "!"}]], 
-                   RowBox[{"\[Omega]", "[", "x", "]"}]}]}], ",", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{
-                  RowBox[{"\[Phi]", "[", "x", "]"}], "+", 
-                  RowBox[{
-                   FractionBox["M", 
-                    RowBox[{"n", "!"}]], 
-                   RowBox[{"\[Omega]", "[", "x", "]"}]}]}]}], 
-                "\[IndentingNewLine]", "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
-               RowBox[{"PlotStyle", "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"Directive", "[", 
-                   RowBox[{"Thick", ",", "Red"}], "]"}], ",", 
-                  RowBox[{"Directive", "[", 
-                   RowBox[{"Thin", ",", "Red"}], "]"}], ",", 
-                  RowBox[{"Directive", "[", 
-                   RowBox[{"Thin", ",", "Red"}], "]"}]}], "}"}]}], ",", 
-               RowBox[{"Filling", "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"1", "\[Rule]", 
-                   RowBox[{"{", "2", "}"}]}], ",", 
-                  RowBox[{"1", "\[Rule]", 
-                   RowBox[{"{", "3", "}"}]}]}], "}"}]}], ",", 
-               RowBox[{"FillingStyle", "\[Rule]", 
+               RowBox[{"\[Phi]", "[", "x", "]"}], ",", "\[IndentingNewLine]", 
+               
+               RowBox[{
+                RowBox[{"\[Phi]", "[", "x", "]"}], "-", 
+                RowBox[{"em1", 
+                 FractionBox["M", 
+                  RowBox[{"n", "!"}]], 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"\[Omega]", "[", "x", "]"}], "]"}]}], "-", 
+                RowBox[{"em2", " ", "noize", " ", 
+                 RowBox[{"L", "[", "x", "]"}]}]}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\[Phi]", "[", "x", "]"}], "+", 
+                RowBox[{"em1", 
+                 FractionBox["M", 
+                  RowBox[{"n", "!"}]], 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"\[Omega]", "[", "x", "]"}], "]"}]}], "+", 
+                RowBox[{"em2", " ", "noize", " ", 
+                 RowBox[{"L", "[", "x", "]"}]}]}]}], "\[IndentingNewLine]", 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"mnv", ",", "mxv"}], "}"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
                 RowBox[{"Directive", "[", 
-                 RowBox[{"Red", ",", 
-                  RowBox[{"Opacity", "[", ".3", "]"}]}], "]"}]}]}], "]"}], 
-             ",", "\[IndentingNewLine]", 
-             RowBox[{"Plot", "[", 
-              RowBox[{
-               RowBox[{"\[Phi]", "[", "x", "]"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
-               RowBox[{"PlotStyle", "\[Rule]", 
+                 RowBox[{"Thick", ",", "Red"}], "]"}], ",", 
                 RowBox[{"Directive", "[", 
-                 RowBox[{"Thick", ",", "Red"}], "]"}]}]}], "]"}], ","}], 
-            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"Thin", ",", "Red"}], "]"}], ",", 
+                RowBox[{"Directive", "[", 
+                 RowBox[{"Thin", ",", "Red"}], "]"}]}], "}"}]}], ",", 
+             RowBox[{"Filling", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"1", "\[Rule]", 
+                 RowBox[{"{", "2", "}"}]}], ",", 
+                RowBox[{"1", "\[Rule]", 
+                 RowBox[{"{", "3", "}"}]}]}], "}"}]}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Opacity", "[", ".3", "]"}]}], "]"}]}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
            RowBox[{"ListPlot", "[", 
             RowBox[{
              RowBox[{
               RowBox[{"{", 
                RowBox[{"grid", ",", "y"}], "}"}], "\[Transpose]"}], ",", 
-             RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"mnv", ",", "mxv"}], "}"}]}], ",", 
              RowBox[{"PlotStyle", "\[Rule]", 
               RowBox[{"{", 
                RowBox[{"Thick", ",", 
@@ -351,7 +400,10 @@ Cell[BoxData[
               RowBox[{"L", "[", "x", "]"}], ",", 
               RowBox[{"{", 
                RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
-              RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", 
               RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
               RowBox[{
               "PlotLabel", "\[Rule]", 
@@ -368,6 +420,9 @@ Cell[BoxData[
               RowBox[{"{", 
                RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
               RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", 
               RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
               RowBox[{
               "PlotLabel", "\[Rule]", 
@@ -385,8 +440,8 @@ Cell[BoxData[
      RowBox[{"f", ",", 
       RowBox[{"Sin", "[", 
        RowBox[{"\[Pi]", " ", 
-        SuperscriptBox["x", "3"]}], "]"}], ",", "\"\<Base function\>\""}], 
-     "}"}], "}"}], "\[IndentingNewLine]", ",", 
+        SuperscriptBox["x", "3"]}], "]"}], ",", "\"\<Base function\>\"", ",", 
+      "InputField"}], "}"}], "}"}], "\[IndentingNewLine]", ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
@@ -408,8 +463,16 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"errs", ",", "False", ",", "\"\<Show error bounds\>\""}], "}"}],
-      ",", 
+      RowBox[{"methoderr", ",", "False", ",", "\"\<Show method error\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}], "\[IndentingNewLine]", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"senseerr", ",", "False", ",", "\"\<Show sensivity error\>\""}],
+       "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"False", ",", "True"}], "}"}]}], "}"}], "\[IndentingNewLine]", 
    ",", 
@@ -425,8 +488,12 @@ Cell[BoxData[
           SuperscriptBox["10", "d"], ",", 
           RowBox[{"{", 
            RowBox[{"d", ",", 
-            RowBox[{"-", "9"}], ",", 
-            RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "}"}]}], ",", 
+            RowBox[{"-", "7"}], ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "0.7"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "0.3"}]], ",", "1"}], "}"}]}], ",", 
      "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"Row", "[", 
@@ -451,29 +518,30 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`errs$$ = False, $CellContext`f$$ = Sin[
-    4 Pi $CellContext`x], $CellContext`n$$ = 17, $CellContext`noize$$ = 
-    0, $CellContext`type$$ = "Random", Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`f$$ = Sin[
+    Pi $CellContext`x^3], $CellContext`methoderr$$ = False, $CellContext`n$$ =
+     5, $CellContext`noize$$ = 0, $CellContext`senseerr$$ = 
+    False, $CellContext`type$$ = "Uniform", Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`f$$], 
-       Sin[Pi $CellContext`x^3], "Base function"}}, {{
+       Sin[Pi $CellContext`x^3], "Base function", InputField}}, {{
        Hold[$CellContext`n$$], 5, "Grid size"}, 2, 30, 1}, {{
        Hold[$CellContext`type$$], "Uniform", "Grid type"}, {
       "Random", "Uniform", "Chebyshev's (roots)", "Chebyshev's (extrema)"}}, {{
-       Hold[$CellContext`errs$$], False, "Show error bounds"}, {
+       Hold[$CellContext`methoderr$$], False, "Show method error"}, {
+      False, True}}, {{
+       Hold[$CellContext`senseerr$$], False, "Show sensivity error"}, {
       False, True}}, {{
        Hold[$CellContext`noize$$], 0, "Noize amplitude"}, {0, 
-       Rational[1, 1000000000], 
-       Rational[1, 100000000], 
        Rational[1, 10000000], 
        Rational[1, 1000000], 
        Rational[1, 100000], 
        Rational[1, 10000], 
        Rational[1, 1000], 
        Rational[1, 100], 
-       Rational[1, 10]}, 
+       Rational[1, 10], 0.19952623149688797`, 0.5011872336272722, 1}, 
       Dynamic[Row[{
          Slider[
           SlotSequence[1]], 
@@ -484,19 +552,22 @@ Cell[BoxData[
             Invisible[0]], 
            Superscript[10, 
             Log[10, $CellContext`noize$$]]]]}]& ]}}, Typeset`size$$ = {
-    506., {326., 331.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`n$10762$$ = 
-    0, $CellContext`type$10763$$ = 0, $CellContext`errs$10764$$ = 
-    False, $CellContext`noize$10765$$ = 0}, 
+    506., {329.5, 334.5}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$565$$ = 
+    0, $CellContext`type$570$$ = 0, $CellContext`methoderr$571$$ = 
+    False, $CellContext`senseerr$572$$ = False, $CellContext`noize$573$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
-      "Variables" :> {$CellContext`errs$$ = False, $CellContext`f$$ = 
-        Sin[Pi $CellContext`x^3], $CellContext`n$$ = 5, $CellContext`noize$$ = 
-        0, $CellContext`type$$ = "Uniform"}, "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$10762$$, 0], 
-        Hold[$CellContext`type$$, $CellContext`type$10763$$, 0], 
-        Hold[$CellContext`errs$$, $CellContext`errs$10764$$, False], 
-        Hold[$CellContext`noize$$, $CellContext`noize$10765$$, 0]}, 
+      "Variables" :> {$CellContext`f$$ = 
+        Sin[Pi $CellContext`x^3], $CellContext`methoderr$$ = 
+        False, $CellContext`n$$ = 5, $CellContext`noize$$ = 
+        0, $CellContext`senseerr$$ = False, $CellContext`type$$ = "Uniform"}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$565$$, 0], 
+        Hold[$CellContext`type$$, $CellContext`type$570$$, 0], 
+        Hold[$CellContext`methoderr$$, $CellContext`methoderr$571$$, False], 
+        Hold[$CellContext`senseerr$$, $CellContext`senseerr$572$$, False], 
+        Hold[$CellContext`noize$$, $CellContext`noize$573$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -505,7 +576,8 @@ Cell[BoxData[
       DynamicModule[{$CellContext`a, $CellContext`b, $CellContext`randy, \
 $CellContext`grid, $CellContext`der, $CellContext`\[CurlyPhi], \
 $CellContext`M, $CellContext`y, $CellContext`\[Phi], $CellContext`L, \
-$CellContext`\[Omega]}, $CellContext`a = -1; $CellContext`b = 
+$CellContext`\[Omega], $CellContext`em1, $CellContext`em2, $CellContext`mxv, \
+$CellContext`mnv, $CellContext`dv}, $CellContext`a = -1; $CellContext`b = 
          1; $CellContext`randy = CompressedData["
 1:eJwBLQPS/CFib1JlAQAAAGQAAACMWozwc5ztv/j6TvoAL9K/OA9eUH4J0D9Q
 oy3r05/Kv3wsh91AjuG/AMZkFZtxoj/4iBfK3DTRv5jWXhF9ydk/CNWeRiyV
@@ -545,16 +617,32 @@ $CellContext`a)/($CellContext`n$$ - 1)],
             "Chebyshev's (extrema)", (($CellContext`a - $CellContext`b)/2) 
              Cos[(Pi/($CellContext`n$$ - 1)) 
                Range[0, $CellContext`n$$ - 
-                 1]] + ($CellContext`a + $CellContext`b)/
-             2]]; $CellContext`\[CurlyPhi] = 
+                 1]] + ($CellContext`a + $CellContext`b)/2]]; If[
+          Not[
+           SyntaxQ[
+            ToString[$CellContext`f$$]]], $CellContext`f$$ = 
+          Sin[2 Pi $CellContext`x]]; $CellContext`\[CurlyPhi] = 
          ReplaceAll[$CellContext`f$$, $CellContext`x -> #]& ; \
 $CellContext`der = D[
            $CellContext`\[CurlyPhi][$CellContext`x], {$CellContext`x, \
 $CellContext`n$$}]; $CellContext`M = Max[
            Abs[
             
-            ReplaceAll[$CellContext`der, $CellContext`x -> \
-$CellContext`grid]]]; $CellContext`y = \
+            ReplaceAll[$CellContext`der, $CellContext`x -> 
+             Range[$CellContext`a, $CellContext`b, ($CellContext`b - \
+$CellContext`a)/1000.]]]]; $CellContext`mxv = Max[
+           $CellContext`\[CurlyPhi][
+            
+            Range[$CellContext`a, $CellContext`b, ($CellContext`b - \
+$CellContext`a)/1000.]]]; $CellContext`mnv = Min[
+           $CellContext`\[CurlyPhi][
+            
+            Range[$CellContext`a, $CellContext`b, ($CellContext`b - \
+$CellContext`a)/1000.]]]; $CellContext`dv = 
+         Max[$CellContext`mxv - $CellContext`mnv, 1]; 
+        AddTo[$CellContext`mxv, 0.5 $CellContext`dv]; 
+        SubtractFrom[$CellContext`mnv, 
+          0.5 $CellContext`dv]; $CellContext`y = \
 $CellContext`\[CurlyPhi][$CellContext`grid] + $CellContext`noize$$ 
            Part[$CellContext`randy, 
              Span[1, $CellContext`n$$]]; $CellContext`\[Phi] = 
@@ -572,65 +660,72 @@ $CellContext`L = Evaluate[
 {$CellContext`k, 1, $CellContext`n$$}]]& ; $CellContext`\[Omega] = 
          Product[# - 
            Part[$CellContext`grid, $CellContext`k], {$CellContext`k, 
-            1, $CellContext`n$$}]& ; Column[{
+            1, $CellContext`n$$}]& ; $CellContext`em1 = 
+         If[$CellContext`methoderr$$, 1, 0]; $CellContext`em2 = 
+         If[$CellContext`senseerr$$, 1, 0]; Column[{
            Show[
             Plot[
              $CellContext`\[CurlyPhi][$CellContext`x], {$CellContext`x, \
-$CellContext`a, $CellContext`b}, PlotStyle -> {Thick, Black}], 
-            If[$CellContext`errs$$, 
-             Plot[{
-               $CellContext`\[Phi][$CellContext`x], \
-$CellContext`\[Phi][$CellContext`x] - ($CellContext`M/
-                Factorial[$CellContext`n$$]) \
-$CellContext`\[Omega][$CellContext`x], $CellContext`\[Phi][$CellContext`x] + \
-($CellContext`M/
-                 Factorial[$CellContext`n$$]) \
-$CellContext`\[Omega][$CellContext`x]}, {$CellContext`x, $CellContext`a, \
-$CellContext`b}, PlotStyle -> {
-                Directive[Thick, Red], 
-                Directive[Thin, Red], 
-                Directive[Thin, Red]}, Filling -> {1 -> {2}, 1 -> {3}}, 
-              FillingStyle -> Directive[Red, 
-                Opacity[0.3]]], 
-             Plot[
-              $CellContext`\[Phi][$CellContext`x], {$CellContext`x, \
-$CellContext`a, $CellContext`b}, PlotStyle -> Directive[Thick, Red]], Null], 
+$CellContext`a, $CellContext`b}, 
+             PlotRange -> {$CellContext`mnv, $CellContext`mxv}, 
+             PlotStyle -> {Thick, Black}], 
+            Plot[{
+              $CellContext`\[Phi][$CellContext`x], \
+$CellContext`\[Phi][$CellContext`x] - $CellContext`em1 ($CellContext`M/
+               Factorial[$CellContext`n$$]) Abs[
+                $CellContext`\[Omega][$CellContext`x]] - $CellContext`em2 \
+$CellContext`noize$$ $CellContext`L[$CellContext`x], \
+$CellContext`\[Phi][$CellContext`x] + $CellContext`em1 ($CellContext`M/
+                Factorial[$CellContext`n$$]) Abs[
+                 $CellContext`\[Omega][$CellContext`x]] + $CellContext`em2 \
+$CellContext`noize$$ $CellContext`L[$CellContext`x]}, {$CellContext`x, \
+$CellContext`a, $CellContext`b}, 
+             PlotRange -> {$CellContext`mnv, $CellContext`mxv}, 
+             PlotStyle -> {
+               Directive[Thick, Red], 
+               Directive[Thin, Red], 
+               Directive[Thin, Red]}, Filling -> {1 -> {2}, 1 -> {3}}, 
+             FillingStyle -> Directive[Red, 
+               Opacity[0.3]]], 
             ListPlot[
-             Transpose[{$CellContext`grid, $CellContext`y}], PlotRange -> All,
-              PlotStyle -> {Thick, 
+             Transpose[{$CellContext`grid, $CellContext`y}], 
+             PlotRange -> {$CellContext`mnv, $CellContext`mxv}, 
+             PlotStyle -> {Thick, 
                Darker[Blue]}, PlotMarkers -> Style["\[Bullet]", 20]], 
             ImageSize -> 500], 
            FlipView[{
              Plot[
               $CellContext`L[$CellContext`x], {$CellContext`x, \
-$CellContext`a, $CellContext`b}, PlotRange -> Full, ImageSize -> 500, 
-              PlotLabel -> 
+$CellContext`a, $CellContext`b}, PlotRange -> All, AxesOrigin -> {0, 0}, 
+              ImageSize -> 500, PlotLabel -> 
               "L(x), Lebesgue function for grid (click to toggle)", 
               PlotStyle -> {Thick, 
                 Darker[Blue]}], 
              Plot[
               $CellContext`\[Omega][$CellContext`x], {$CellContext`x, \
-$CellContext`a, $CellContext`b}, PlotRange -> Full, ImageSize -> 500, 
-              PlotLabel -> "\[Omega](x) function for grid (click to toggle)", 
+$CellContext`a, $CellContext`b}, PlotRange -> Full, AxesOrigin -> {0, 0}, 
+              ImageSize -> 500, PlotLabel -> 
+              "\[Omega](x) function for grid (click to toggle)", 
               PlotStyle -> {Thick, 
                 Darker[Blue]}]}]}]], 
       "Specifications" :> {{{$CellContext`f$$, 
-          Sin[Pi $CellContext`x^3], "Base function"}}, {{$CellContext`n$$, 5, 
-          "Grid size"}, 2, 30, 1, ControlType -> Slider, Appearance -> 
+          Sin[Pi $CellContext`x^3], "Base function", 
+          InputField}}, {{$CellContext`n$$, 5, "Grid size"}, 2, 30, 1, 
+         ControlType -> Slider, Appearance -> 
          "Labeled"}, {{$CellContext`type$$, "Uniform", "Grid type"}, {
          "Random", "Uniform", "Chebyshev's (roots)", 
-          "Chebyshev's (extrema)"}}, {{$CellContext`errs$$, False, 
-          "Show error bounds"}, {
+          "Chebyshev's (extrema)"}}, {{$CellContext`methoderr$$, False, 
+          "Show method error"}, {
+         False, True}}, {{$CellContext`senseerr$$, False, 
+          "Show sensivity error"}, {
          False, True}}, {{$CellContext`noize$$, 0, "Noize amplitude"}, {0, 
-          Rational[1, 1000000000], 
-          Rational[1, 100000000], 
           Rational[1, 10000000], 
           Rational[1, 1000000], 
           Rational[1, 100000], 
           Rational[1, 10000], 
           Rational[1, 1000], 
           Rational[1, 100], 
-          Rational[1, 10]}, 
+          Rational[1, 10], 0.19952623149688797`, 0.5011872336272722, 1}, 
          Dynamic[Row[{
             Slider[
              SlotSequence[1]], 
@@ -642,7 +737,7 @@ $CellContext`a, $CellContext`b}, PlotRange -> Full, ImageSize -> 500,
               Superscript[10, 
                Log[10, $CellContext`noize$$]]]]}]& ]}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{551., {415., 420.}},
+     ImageSizeCache->{551., {431., 436.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -654,8 +749,8 @@ $CellContext`a, $CellContext`b}, PlotRange -> Full, ImageSize -> 500,
   Manipulate`InterpretManipulate[1]]], "Output"]
 }, {2}]]
 },
-WindowSize->{1598, 852},
-WindowMargins->{{Automatic, 1282}, {Automatic, 24}},
+WindowSize->{1918, 1032},
+WindowMargins->{{0, Automatic}, {2, Automatic}},
 FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
 StyleDefinitions->"Default.nb"
 ]
@@ -671,8 +766,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 18315, 426, 1656, "Input"],
-Cell[18897, 450, 9583, 203, 852, "Output"]
+Cell[579, 22, 20792, 493, 1774, "Input"],
+Cell[21374, 517, 11215, 231, 884, "Output"]
 }, {2}]]
 }
 ]
