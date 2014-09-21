@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      4861,        132]
-NotebookOptionsPosition[      4453,        114]
-NotebookOutlinePosition[      4890,        131]
-CellTagsIndexPosition[      4847,        128]
+NotebookDataLength[     16934,        417]
+NotebookOptionsPosition[     16522,        399]
+NotebookOutlinePosition[     16960,        416]
+CellTagsIndexPosition[     16917,        413]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,79 +23,369 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"Plot", "[", 
+   RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{
-       RowBox[{"Sin", "[", "x", "]"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"Sum", "[", 
+      "f", ",", "DropDigits", ",", "nn", ",", 
+       "\[CurlyEpsilon]\[CurlyEpsilon]"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{
+      RowBox[{
+       RowBox[{"DropDigits", "[", 
+        RowBox[{"v_", ",", "len_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
         RowBox[{
-         RowBox[{
-          FractionBox[
-           SuperscriptBox[
-            RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-            RowBox[{"k", "+", "1"}]], 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"2", "k"}], "-", "1"}], ")"}], "!"}]], 
-          SuperscriptBox["x", 
-           RowBox[{
-            RowBox[{"2", "k"}], "-", "1"}]]}], ",", 
          RowBox[{"{", 
-          RowBox[{"k", ",", "1", ",", "n"}], "}"}]}], "]"}]}], "}"}], 
-     "\[IndentingNewLine]", ",", 
+          RowBox[{"m", ",", "e"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"m", ",", "e"}], "}"}], "=", 
+           RowBox[{"RealDigits", "[", 
+            RowBox[{"v", ",", "2", ",", "53"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"N", "[", 
+           RowBox[{
+            RowBox[{"Sign", "[", "v", "]"}], 
+            RowBox[{"FromDigits", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Take", "[", 
+                 RowBox[{"m", ",", "len"}], "]"}], ",", "e"}], "}"}], ",", 
+              "2"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"nn", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{"mainterr", ",", "\[Infinity]", ",", "n"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\[CurlyEpsilon]\[CurlyEpsilon]", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{"mainterr", ",", "\[CurlyEpsilon]", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"x_", ",", "n_", ",", "\[CurlyEpsilon]_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"z", ",", 
+           RowBox[{"sum", "=", "0"}], ",", 
+           RowBox[{"k", "=", "0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"z", "=", 
+           RowBox[{"DropDigits", "[", 
+            RowBox[{"x", ",", "bits"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", "z", "]"}], ">", "\[CurlyEpsilon]"}], "||", 
+               RowBox[{
+                RowBox[{"2", "k"}], "<", "x"}]}], ")"}], "&&", 
+             RowBox[{"k", "<", "n"}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"sum", "+=", "z"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"z", "*=", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"2", "k"}], "+", "2"}], ")"}], 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"2", "k"}], "+", "3"}], ")"}]}]]}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"z", "=", 
+              RowBox[{"DropDigits", "[", 
+               RowBox[{"z", ",", "bits"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"k", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+          "\[IndentingNewLine]", "sum"}]}], "\[IndentingNewLine]", "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Deploy", "@", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"show", "\[Equal]", "\"\<plot\>\""}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "x", "]"}], ",", 
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", "nn", ",", "\[CurlyEpsilon]\[CurlyEpsilon]"}],
+               "]"}]}], "}"}], "\[IndentingNewLine]", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "0", ",", "b"}], "}"}], "\[IndentingNewLine]", 
+           ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "\[IndentingNewLine]", 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", "\"\<Function plot\>\""}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Speed\>\""}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Sin", "[", "x", "]"}], "-", 
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", "nn", ",", "\[CurlyEpsilon]\[CurlyEpsilon]"}],
+               "]"}]}], "]"}], "\[IndentingNewLine]", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "0", ",", "b"}], "}"}], "\[IndentingNewLine]", 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", "\"\<Difference plot\>\""}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Speed\>\""}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "]"}]}]}]}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{
      RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "50"}], "}"}], "\[IndentingNewLine]", ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"-", "3"}], ",", "3"}], "}"}]}], ",", "\[IndentingNewLine]", 
-     RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}], "\[IndentingNewLine]", 
+      RowBox[{"b", ",", "10", ",", "\"\<t \[Element] [0, b] where b = \>\""}],
+       "}"}], ",", "1", ",", "50", ",", "Slider", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "5", ",", "\"\<Number of terms, n\>\""}], "}"}], ",", 
+     "1", ",", "50", ",", "1", ",", "Slider", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "[", 
+       RowBox[{"!", "mainterr"}], "]"}]}]}], "}"}], "\[IndentingNewLine]", 
    ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"n", ",", "1", ",", "\"\<Number of terms\>\""}], "}"}], ",", 
-     "1", ",", "100", ",", "1", ",", "Slider", ",", "\[IndentingNewLine]", 
-     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.5556506580695267`*^9, 3.555650790259989*^9}, {
-  3.555650826530034*^9, 3.5556508267564173`*^9}, {3.555650873040277*^9, 
-  3.55565101252815*^9}, {3.555651046394156*^9, 3.555651047518423*^9}, {
-  3.5556513481571083`*^9, 3.5556514643053637`*^9}, {3.555651538267578*^9, 
-  3.5556515390399446`*^9}}],
+      RowBox[{"\[CurlyEpsilon]", ",", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], ",", "\"\<Tolerance, \[CurlyEpsilon]\>\""}], 
+      "}"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "d"}]], ",", 
+       RowBox[{"{", 
+        RowBox[{"d", ",", "0", ",", "20"}], "}"}]}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Slider", "[", 
+          RowBox[{"##", ",", 
+           RowBox[{"Enabled", "\[Rule]", 
+            RowBox[{"Dynamic", "[", "mainterr", "]"}]}]}], "]"}], ",", 
+         RowBox[{"Spacer", "[", "10", "]"}], ",", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"Superscript", "[", 
+           RowBox[{"10", ",", 
+            RowBox[{"Log", "[", 
+             RowBox[{"10", ",", "\[CurlyEpsilon]"}], "]"}]}], "]"}], "]"}]}], 
+        "}"}], "]"}], "&"}]}], "}"}], "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "mainterr", ",", "False", ",", "\"\<Maintain given tolerance\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}], "\[IndentingNewLine]", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bits", ",", "23", ",", "\"\<Mantissa length (bits), K\>\""}], 
+      "}"}], ",", "1", ",", "52", ",", "1", ",", "Slider", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"show", ",", "\"\<plot\>\"", ",", "\"\<Show\>\""}], "}"}], ",", 
+     
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<plot\>\"", "\[Rule]", "\"\<Function\>\""}], ",", 
+       RowBox[{"\"\<diff\>\"", "\[Rule]", "\"\<Difference\>\""}]}], "}"}], 
+     ",", "RadioButtonBar"}], "}"}]}], "\[IndentingNewLine]", "]"}]], "Input"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`n$$ = 94, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`n$$], 1, "Number of terms"}, 1, 100, 1}}, 
-    Typeset`size$$ = {600., {185., 196.}}, Typeset`update$$ = 0, 
-    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`n$1735$$ =
-     0}, 
+   DynamicModuleBox[{$CellContext`b$$ = 10, $CellContext`bits$$ = 
+    23, $CellContext`mainterr$$ = False, $CellContext`n$$ = 
+    5, $CellContext`show$$ = "plot", $CellContext`\[CurlyEpsilon]$$ = 
+    Rational[1, 1000000], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`b$$], 10, "t \[Element] [0, b] where b = "}, 1, 
+      50}, {{
+       Hold[$CellContext`n$$], 5, "Number of terms, n"}, 1, 50, 1}, {{
+       Hold[$CellContext`\[CurlyEpsilon]$$], 
+       Rational[1, 1000000], "Tolerance, \[CurlyEpsilon]"}, {1, 
+       Rational[1, 10], 
+       Rational[1, 100], 
+       Rational[1, 1000], 
+       Rational[1, 10000], 
+       Rational[1, 100000], 
+       Rational[1, 1000000], 
+       Rational[1, 10000000], 
+       Rational[1, 100000000], 
+       Rational[1, 1000000000], 
+       Rational[1, 10000000000], 
+       Rational[1, 100000000000], 
+       Rational[1, 1000000000000], 
+       Rational[1, 10000000000000], 
+       Rational[1, 100000000000000], 
+       Rational[1, 1000000000000000], 
+       Rational[1, 10000000000000000], 
+       Rational[1, 100000000000000000], 
+       Rational[1, 1000000000000000000], 
+       Rational[1, 10000000000000000000], 
+       Rational[1, 100000000000000000000]}, 
+      Dynamic[Row[{
+         Slider[
+          SlotSequence[1], Enabled -> Dynamic[$CellContext`mainterr$$]], 
+         Spacer[10], 
+         Dynamic[
+          Superscript[10, 
+           Log[10, $CellContext`\[CurlyEpsilon]$$]]]}]& ]}, {{
+       Hold[$CellContext`mainterr$$], False, "Maintain given tolerance"}, {
+      False, True}}, {{
+       Hold[$CellContext`bits$$], 23, "Mantissa length (bits), K"}, 1, 52, 
+      1}, {{
+       Hold[$CellContext`show$$], "plot", "Show"}, {
+      "plot" -> "Function", "diff" -> "Difference"}}}, Typeset`size$$ = {
+    600., {196., 208.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`b$273888$$ = 
+    0, $CellContext`n$273889$$ = 0, $CellContext`\[CurlyEpsilon]$273890$$ = 
+    0, $CellContext`mainterr$273891$$ = False, $CellContext`bits$273892$$ = 
+    0, $CellContext`show$273893$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$1735$$, 0]}, 
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b$$ = 10, $CellContext`bits$$ = 
+        23, $CellContext`mainterr$$ = False, $CellContext`n$$ = 
+        5, $CellContext`show$$ = "plot", $CellContext`\[CurlyEpsilon]$$ = 
+        Rational[1, 1000000]}, "ControllerVariables" :> {
+        Hold[$CellContext`b$$, $CellContext`b$273888$$, 0], 
+        Hold[$CellContext`n$$, $CellContext`n$273889$$, 0], 
+        Hold[$CellContext`\[CurlyEpsilon]$$, \
+$CellContext`\[CurlyEpsilon]$273890$$, 0], 
+        Hold[$CellContext`mainterr$$, $CellContext`mainterr$273891$$, False], 
+        
+        Hold[$CellContext`bits$$, $CellContext`bits$273892$$, 0], 
+        Hold[$CellContext`show$$, $CellContext`show$273893$$, False]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Plot[{
-         Sin[$CellContext`x], 
-         Sum[((-1)^($CellContext`k + 1)/Factorial[
-           2 $CellContext`k - 1]) $CellContext`x^(2 $CellContext`k - 
-            1), {$CellContext`k, 1, $CellContext`n$$}]}, {$CellContext`x, 0, 
-         50}, PlotRange -> {-3, 3}, ImageSize -> 400], 
-      "Specifications" :> {{{$CellContext`n$$, 1, "Number of terms"}, 1, 100, 
-         1, ControlType -> Slider, Appearance -> "Labeled"}}, "Options" :> {},
-       "DefaultOptions" :> {}],
-     ImageSizeCache->{666., {247., 255.}},
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`f$, $CellContext`DropDigits$, $CellContext`nn$, \
+$CellContext`\[CurlyEpsilon]\[CurlyEpsilon]$}, $CellContext`DropDigits$[
+           Pattern[$CellContext`v, 
+            Blank[]], 
+           Pattern[$CellContext`len, 
+            Blank[]]] := 
+         Module[{$CellContext`m, $CellContext`e}, {$CellContext`m, \
+$CellContext`e} = RealDigits[$CellContext`v, 2, 53]; 
+           N[Sign[$CellContext`v] FromDigits[{
+                Take[$CellContext`m, $CellContext`len], $CellContext`e}, 
+               2]]]; $CellContext`nn$ = 
+         If[$CellContext`mainterr$$, 
+           Infinity, $CellContext`n$$]; $CellContext`\[CurlyEpsilon]\
+\[CurlyEpsilon]$ = 
+         If[$CellContext`mainterr$$, $CellContext`\[CurlyEpsilon]$$, 
+           0]; $CellContext`f$[
+           Pattern[$CellContext`x$, 
+            Blank[]], 
+           Pattern[$CellContext`n$, 
+            Blank[]], 
+           Pattern[$CellContext`\[CurlyEpsilon]$, 
+            Blank[]]] := 
+         Module[{$CellContext`z$, $CellContext`sum$ = 0, $CellContext`k$ = 
+            0}, $CellContext`z$ = $CellContext`DropDigits$[$CellContext`x$, \
+$CellContext`bits$$]; While[
+             And[
+              Or[
+              Abs[$CellContext`z$] > $CellContext`\[CurlyEpsilon]$, 
+               2 $CellContext`k$ < $CellContext`x$], $CellContext`k$ < \
+$CellContext`n$], AddTo[$CellContext`sum$, $CellContext`z$]; 
+             TimesBy[$CellContext`z$, -($CellContext`x$^2/((2 $CellContext`k$ + 
+                 2) (2 $CellContext`k$ + 
+                 3)))]; $CellContext`z$ = \
+$CellContext`DropDigits$[$CellContext`z$, $CellContext`bits$$]; 
+             Increment[$CellContext`k$]; Null]; $CellContext`sum$]; Deploy[
+          If[$CellContext`show$$ == "plot", 
+           Plot[{
+             Sin[$CellContext`x], 
+             $CellContext`f$[$CellContext`x, $CellContext`nn$, $CellContext`\
+\[CurlyEpsilon]\[CurlyEpsilon]$]}, {$CellContext`x, 0, $CellContext`b$$}, 
+            PlotRange -> {-3, 3}, PlotLabel -> "Function plot", 
+            PerformanceGoal -> "Speed", ImageSize -> 400], 
+           Plot[
+            Abs[
+            Sin[$CellContext`x] - $CellContext`f$[$CellContext`x, \
+$CellContext`nn$, $CellContext`\[CurlyEpsilon]\[CurlyEpsilon]$]], \
+{$CellContext`x, 0, $CellContext`b$$}, PlotLabel -> "Difference plot", 
+            PerformanceGoal -> "Speed", ImageSize -> 400]]]], 
+      "Specifications" :> {{{$CellContext`b$$, 10, 
+          "t \[Element] [0, b] where b = "}, 1, 50, ControlType -> Slider, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`n$$, 5, "Number of terms, n"}, 1, 50, 1, 
+         ControlType -> Slider, Appearance -> "Labeled", Enabled -> Dynamic[
+           Not[$CellContext`mainterr$$]]}, {{$CellContext`\[CurlyEpsilon]$$, 
+          Rational[1, 1000000], "Tolerance, \[CurlyEpsilon]"}, {1, 
+          Rational[1, 10], 
+          Rational[1, 100], 
+          Rational[1, 1000], 
+          Rational[1, 10000], 
+          Rational[1, 100000], 
+          Rational[1, 1000000], 
+          Rational[1, 10000000], 
+          Rational[1, 100000000], 
+          Rational[1, 1000000000], 
+          Rational[1, 10000000000], 
+          Rational[1, 100000000000], 
+          Rational[1, 1000000000000], 
+          Rational[1, 10000000000000], 
+          Rational[1, 100000000000000], 
+          Rational[1, 1000000000000000], 
+          Rational[1, 10000000000000000], 
+          Rational[1, 100000000000000000], 
+          Rational[1, 1000000000000000000], 
+          Rational[1, 10000000000000000000], 
+          Rational[1, 100000000000000000000]}, 
+         Dynamic[Row[{
+            Slider[
+             SlotSequence[1], Enabled -> Dynamic[$CellContext`mainterr$$]], 
+            Spacer[10], 
+            Dynamic[
+             Superscript[10, 
+              Log[
+              10, $CellContext`\[CurlyEpsilon]$$]]]}]& ]}, \
+{{$CellContext`mainterr$$, False, "Maintain given tolerance"}, {
+         False, True}}, {{$CellContext`bits$$, 23, 
+          "Mantissa length (bits), K"}, 1, 52, 1, ControlType -> Slider, 
+         Appearance -> "Labeled"}, {{$CellContext`show$$, "plot", "Show"}, {
+         "plot" -> "Function", "diff" -> "Difference"}, ControlType -> 
+         RadioButtonBar}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{666., {340., 349.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -104,16 +394,11 @@ Cell[BoxData[
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.55565092386042*^9, 3.555650958123489*^9, {3.5556509913963203`*^9, 
-   3.555651013095436*^9}, 3.555651048163191*^9, {3.5556513666274977`*^9, 
-   3.5556513728713837`*^9}, {3.555651410975342*^9, 3.555651430574586*^9}, 
-   3.555651465036509*^9, 3.555651540416362*^9}]
+  Manipulate`InterpretManipulate[1]]], "Output"]
 }, {2}]]
 },
-WindowSize->{796, 846},
-WindowMargins->{{-800, Automatic}, {Automatic, 52}},
+WindowSize->{1598, 852},
+WindowMargins->{{Automatic, 1282}, {Automatic, 24}},
 Magnification:>FEPrivate`If[
   FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
 FrontEndVersion->"8.0 for Linux x86 (64-bit) (October 10, 2011)",
@@ -131,8 +416,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 1742, 45, 1053, "Input"],
-Cell[2324, 69, 2116, 42, 526, "Output"]
+Cell[579, 22, 7921, 203, 1287, "Input"],
+Cell[8503, 227, 8006, 169, 713, "Output"]
 }, {2}]]
 }
 ]
