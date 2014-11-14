@@ -1,29 +1,19 @@
-\documentclass[professionalfonts,compress,unicode]{beamer}
+\documentclass[apectratio=43,unicode]{beamer}
+\usetheme{Moscow}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[main=russian,english]{babel}
 
 \usepackage{amsmath,amssymb}
-\usepackage[utf8]{inputenc}
-
-\usepackage[russian]{babel}
-
-\usepackage{multirow}
-\usepackage{colortbl}
-
-\usetheme{Warsaw}
-\usecolortheme{uranix}
-
-\setbeamertemplate{headline}
-{%
-  \begin{beamercolorbox}[sep=0.3cm,wd=\paperwidth]{section in head/foot}%
-    \usebeamerfont{frametitle}%
-    \vbox{}\vskip-1ex%
-    \strut\insertsectionhead\strut\par%
-    \vskip-1ex%
-  \end{beamercolorbox}%
-}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{}
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\hypersetup{
+	pdfauthor={Ivan Tsybulin}
+}
+
+\usepackage{euler}
+\usepackage{mathtools}
 
 \graphicspath{{images//}}
 
@@ -31,49 +21,32 @@
 \author[Цыбулин И.В.]{Скалько Юрий Иванович\\
 \textbf{Цыбулин Иван}}
 \date{}
-%\vspace{0.3cm}
+
+\newcommand{\colorhref}[2]{\href{#1}{\textcolor{miptbase!30!black}{#2}}}
 
 \begin{document}
 
-{
-\setbeamertemplate{headline}[default]
-\frame{
+\begin{frame}[plain]
 \titlepage
-}
-
-%\frame{
-%\frametitle{Содержание}
-%\small
-%%\tiny
-%\tableofcontents
-%}
-}
+\end{frame}
 
 \newcommand\myframe[2]{\subsection{#1}\frame{\frametitle{#1}{#2}}}
 
 \section{ }
 
-%\myframe{Материалы по курсу вычислительной математики}
-%{
-%\begin{itemize}
-	%\item 
-		%Материалы курса (методички, лекции, учебники и др.) можно найти 
-		%на сайте кафедры вычислительной математики
-		%{\color{blue} http://crec.mipt.ru/study/materials/compmath/}
-	%\item 
-		%Любые вопросы по курсу (и не только) можно присылать на почтовый ящик
-		%{\color{blue} tsybulinhome@gmail.com}
-%\end{itemize}
-%}
+\newcommand{\A}{{\mathbf{A}}}
+\newcommand{\x}{{\mathbf{x}}}
+\newcommand{\y}{{\mathbf{y}}}
+\renewcommand{\b}{{\mathbf{b}}}
 
-\def\A{{\bf A}}
-\def\x{{\bf x}}
-\def\y{{\bf y}}
-\def\b{{\bf b}}
+\newcommand{\one}{{\ell_1}}
+\newcommand{\tr}{{\mathsf{T}}}
 
 \section{СЛАУ}
-\myframe{Постановка задачи}
-{
+
+\subsection{Задача СЛАУ}
+\begin{frame}
+\frametitle{Постановка задачи}
 	Дана квадратная матрица $\A$ 	и столбец $\b$
 	$$
 	\A =
@@ -98,98 +71,57 @@
 	$$
 	\A\x = \b
 	$$
-}
+\end{frame}
 
-\myframe{Матрицы вырожденные и ``почти'' вырожденные}
-{
-Хорошо известно, что не все системы с вырожденными матрицами $\A$ имеют решение.
-Даже если некоторая система с вырожденной $\A$ имеет решение, достаточно немного изменить правую часть, чтобы 
-нарушить условие совместности.
+\subsection{<<Почти>> вырожденные матрицы}
+\begin{frame}
+\frametitle{Вырожденные матрицы}
+	Хорошо известно, что не все системы с вырожденными матрицами $\A$ имеют решение.
+	Даже если некоторая система с вырожденной $\A$ имеет решение, достаточно немного изменить правую часть, чтобы
+	нарушить условие совместности.
 
-Поскольку все вычисления производятся с некоторой точностью, то на практике матрица никогда не бывает строго вырожденной
-($\det \A = 0$). 
-}
+	Поскольку все вычисления производятся с некоторой точностью, то на практике матрица
+	никогда не бывает строго вырожденной ($\det \A = 0$).
+\end{frame}
 
-\myframe{Матрицы вырожденные и ``почти'' вырожденные}
-{
-Рассмотрим пример двух немного отличающихся систем
-$$
-\A = \begin{pmatrix}
-	1&2\\
-	2&4.0001\\
-\end{pmatrix}
-,\b = \begin{pmatrix}
-	1\\2\\
-\end{pmatrix}
-\qquad
-\A = \begin{pmatrix}
-	1&2\\
-	2&4.0001\\
-\end{pmatrix}
-,\b = \begin{pmatrix}
-	1\\2.0001\\
-\end{pmatrix}
-$$
-Решения этих систем отличаются уже существенно
-$$
-\x = \begin{pmatrix}
-	1\\0
-\end{pmatrix}
-\qquad\qquad
-\x = \begin{pmatrix}
-	-1\\1
-\end{pmatrix}
-$$
-Причина существенного различия в том, что матрица $\A$ ``близка'' к вырожденной матрице 
-$$
-\begin{pmatrix}
-	1&2\\
-	2&4
-\end{pmatrix}
-$$
-}
-
-\myframe{Матрицы вырожденные и ``почти'' вырожденные}
-{
-Взяв другую матрицу $\A$ получаем
-$$
-\A = \begin{pmatrix}
-	1&2\\
-	2&5.0001\\
-\end{pmatrix}
-,\b = \begin{pmatrix}
-	1\\2\\
-\end{pmatrix}
-\qquad
-\A = \begin{pmatrix}
-	1&2\\
-	2&5.0001\\
-\end{pmatrix}
-,\b = \begin{pmatrix}
-	1\\2.0001\\
-\end{pmatrix}
-$$
-Решения этих систем довольно близки
-$$
-\x = \begin{pmatrix}
-	1\\0
-\end{pmatrix}
-\qquad\qquad
-\x = \begin{pmatrix}
-	0.998002000\\0.000999001
-\end{pmatrix}
-$$
-Но все же, отличие систем в четвертом знаке после запятой привело к различию
-решений уже в третьем.
-$$
-\phantom{
-\begin{pmatrix}
-	1&2\\
-	2&4
-\end{pmatrix}
-}
-$$
-}
+\begin{frame}
+\frametitle{Система, близкая к вырожденной}
+	Рассмотрим пример двух немного отличающихся систем
+	$$
+	\A = \begin{pmatrix}
+		1&2\\
+		2&4.0001\\
+	\end{pmatrix}
+	,\b = \begin{pmatrix}
+		1\\2\\
+	\end{pmatrix}
+	\qquad
+	\A = \begin{pmatrix}
+		1&2\\
+		2&4.0001\\
+	\end{pmatrix}
+	,\b = \begin{pmatrix}
+		1\\2.0001\\
+	\end{pmatrix}
+	$$
+	Решения этих систем отличаются уже существенно
+	$$
+	\x = \begin{pmatrix}
+		1\\0
+	\end{pmatrix}
+	\qquad\qquad
+	\x = \begin{pmatrix}
+		-1\\1
+	\end{pmatrix}
+	$$
+	Причина существенного различия в том, что матрица $\A$ <<близка>> к вырожденной матрице 
+	$$
+	\begin{pmatrix}
+		1&2\\
+		2&4
+	\end{pmatrix}
+	$$
+\end{frame}
 
 \section{Нормы}
 \myframe{Векторные нормы}
@@ -199,284 +131,219 @@ $$
 	следующие три нормы:
 	\begin{align*}
 	\|\x\|_\infty &= \max_i |x_i|\\
-	\|\x\|_1 &= \sum_i |x_i|\\
-	\|\x\|_E &= \sqrt{(\x,\x)} = \sqrt{\sum_i x_i^2}\\
+	\|\x\|_\one &= \sum_i |x_i|\\
+	\|\x\|_E &= \sqrt{(\x,\x)} = \sqrt{\sum_i x_i^2}
 	\end{align*}
 	\pause
 	Например, для $\x = \begin{pmatrix}
-		-3\\4
+		3\\-4
 	\end{pmatrix}$
 	$$
 	\|\x\|_\infty = 4, \quad
-	\|\x\|_1 = 7, \quad
+	\|\x\|_\one = 7, \quad
 	\|\x\|_E = 5
 	$$
 }
 
-\myframe{Матричные нормы}
-{
-	Основное нетривиальное свойство векторной нормы - это неравенство треугольника
-	$$
-	\|\x + \y\| \leq \|\x\| + \|\y\|
-	$$
-	
-	Можно по аналогии ввести понятие \emph{матричной нормы}, со следующим свойством: если $\y = \A\x$, то
-	\begin{equation}
-	\| \y\| \leq \|\A\| \cdot \|\x\|
-	\label{eq:norm}
-	\end{equation}
-	здесь $\| \x\|,\| \y\|$ --- векторные нормы, а $\|\A\|$ --- матричная норма. 
+\subsection{Матричные нормы}
+\begin{frame}
+\frametitle{Подчиненные матричные нормы}
+	Определим норму матрицы $\|\A\|$ таким образом, чтобы для любого $\x$ было
+справедливо
+	\[
+		\|\y\| \leqslant \|\A\| \|\x\|, \qquad \y = \A\x,
+	\]
+	причем $\|\A\|$ --- минимальное такое число.
+
 	\begin{block}{Определение}
-	Матричная норма $\|\A\|$ --- это наименьшее число, при котором справедливо \eqref{eq:norm}
+	Норма матрицы $\|\A\|$ называется подчиненной векторной норме $\|\x\|$,
+если
+	\[
+		\|\A\| = \sup_{\|\x\| = 1} \|\A\x\|.
+	\]
+	В левой части равенства стоит матричная норма $\A$, а в правой ---
+векторные нормы $\x$ и $\A\x$
 	\end{block}
-}
+	Различные векторные нормы порождают различные матричные нормы.
+\end{frame}
 
-\myframe{Матричные нормы}
-{
-	Можно дать и другое (эквивалентное) определение матричной нормы:
-	\begin{block}{Определение}
-	Матричная норма $\|\A\|$ --- это наибольшее значение $\|\y\| = \|\A\x\|$, когда $\x$ пробегает все значения
-	$\|\x\| = 1$
+\begin{frame}
+\frametitle{Матричная норма $\|\cdot\|_\infty$}
+	\begin{columns}[T]
+	\begin{column}{0.6\textwidth}
+	Точка 
+	$\x = \begin{psmallmatrix}
+		1\\-1
+	\end{psmallmatrix}$
+	 с нормой $\|\x\|_\infty = 1$ переходит в точку $$\y = \A\x = \begin{pmatrix}
+		5\\-2
+	\end{pmatrix}$$
+	 с нормой $\|\y\|_\infty = 5$. 
+
+	Для остальных точек $\|\x\|_\infty = 1$ 
+	$$\|\A\x\|_\infty \leqslant 5$$
 	$$
-	\|\A\| = \sup_{\|\x\| = 1} \|\A\x\|
+	\|\A\|_\infty = 5
+	$$
+	\end{column}
+
+	\begin{column}{0.4\textwidth}
+	$$
+	\A = \begin{pmatrix}
+		2&-3\\
+		0&2
+	\end{pmatrix}
+	$$
+	\begin{figure}%
+	\includegraphics[width=\columnwidth]{infty.pdf}%
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\begin{block}{В общем случае}
+	$$
+	\|\A\|_\infty = \max_i \sum_j |a_{ij}|
 	$$
 	\end{block}
-	Заметим, что в определении матричной нормы участвует векторная норма $\|\cdot\|$. Разные векторные нормы будут порождать
-	разные матричные нормы. Эти матричные нормы называются \emph{индуцированными} или \emph{присоединенными к} 
-	соответствующей векторной норме
-}
+\end{frame}
 
-\myframe{Матричная норма $\|\cdot\|_\infty$}
-{
-\begin{columns}[T]
-\begin{column}{0.6\textwidth}
-Точка 
-$\x = \left(\begin{smallmatrix}
-	1\\-1
-\end{smallmatrix}\right)$
- с нормой $\|\x\|_\infty = 1$ переходит в точку $$\y = \A\x = \begin{pmatrix}
-	5\\-2
-\end{pmatrix}$$
- с нормой $\|\y\|_\infty = 5$. 
+\begin{frame}
+	\frametitle{Матричная норма $\|\cdot\|_\one$}
+	\begin{columns}[T]
+	\begin{column}{0.6\textwidth}
+	Точка
+	$\x = \begin{psmallmatrix}
+		0\\1
+	\end{psmallmatrix}$
+	 с нормой $\|\x\|_\one = 1$ переходит в точку $$\y = \A\x = \begin{pmatrix}
+		-3\\2
+	\end{pmatrix}$$
+	 с нормой $\|\y\|_\one = 5$.
 
-Для остальных точек $\|\x\|_\infty = 1$ 
-$$\|\A\x\|_\infty \leq 5$$
-$$
-\|\A\|_\infty = 5
-$$
-\end{column}
+	Для остальных точек $\|\x\|_\one = 1$
+	$$\|\A\x\|_\one \leqslant 5$$
+	$$
+	\|\A\|_\one = 5
+	$$
+	\end{column}
 
-\begin{column}{0.4\textwidth}
-$$
-\A = \begin{pmatrix}
-	2&-3\\
-	0&2
-\end{pmatrix}
-$$
-\begin{figure}%
-\includegraphics[width=\columnwidth]{infty.pdf}%
-\end{figure}
-\end{column}
-\end{columns}
-\begin{block}{В общем случае}
-$$
-\|\A\|_\infty = \max_i \sum_j |a_{ij}|
-$$
-\end{block}
-}
+	\begin{column}{0.4\textwidth}
+	$$
+	\A = \begin{pmatrix}
+		2&-3\\
+		0&2
+	\end{pmatrix}
+	$$
+	\begin{figure}%
+	\includegraphics[width=\columnwidth]{l1.pdf}%
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\begin{block}{В общем случае}
+	$$
+	\|\A\|_\one = \max_j \sum_i |a_{ij}| = \|\A^\tr\|_\infty
+	$$
+	\end{block}
+\end{frame}
 
-\myframe{Матричная норма $\|\cdot\|_1$}
-{
-\begin{columns}[T]
-\begin{column}{0.6\textwidth}
-Точка 
-$\x = \left(\begin{smallmatrix}
-	0\\1
-\end{smallmatrix}\right)$
- с нормой $\|\x\|_1 = 1$ переходит в точку $$\y = \A\x = \begin{pmatrix}
-	-3\\2
-\end{pmatrix}$$
- с нормой $\|\y\|_1 = 5$. 
+\begin{frame}
+\frametitle{Матричная норма $\|\cdot\|_E$}
+	\begin{columns}[T]
+	\begin{column}{0.6\textwidth}
+	Точка
+	$\x = \frac{1}{\sqrt{5}}\begin{psmallmatrix}
+		-1\\2
+	\end{psmallmatrix}$
+	 с нормой $\|\x\|_E = 1$ переходит в точку $$\y = \A\x = \frac{1}{\sqrt{5}}\begin{pmatrix}
+		-8\\4
+	\end{pmatrix}$$
+	 с нормой $\|\y\|_E = 4$.
 
-Для остальных точек $\|\x\|_1 = 1$ 
-$$\|\A\x\|_1 \leq 5$$
-$$
-\|\A\|_1 = 5
-$$
-\end{column}
+	Для остальных точек $\|\x\|_E = 1$
+	$$\|\A\x\|_E \leqslant 4$$
+	$$
+	\|\A\|_E = 4
+	$$
+	\end{column}
 
-\begin{column}{0.4\textwidth}
-$$
-\A = \begin{pmatrix}
-	2&-3\\
-	0&2
-\end{pmatrix}
-$$
-\begin{figure}%
-\includegraphics[width=\columnwidth]{l1.pdf}%
-\end{figure}
-\end{column}
-\end{columns}
-\begin{block}{В общем случае}
-$$
-\|\A\|_1 = \max_j \sum_i |a_{ij}| = \|\A^T\|_\infty
-$$
-\end{block}
-}
+	\begin{column}{0.4\textwidth}
+	$$
+	\A = \begin{pmatrix}
+		2&-3\\
+		0&2
+	\end{pmatrix}
+	$$
+	\begin{figure}%
+	\includegraphics[width=\columnwidth]{euclid.pdf}%
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\begin{block}{В общем случае}
+	$$
+	\|\A\|_E = \sigma_{\max}(\A) = \sqrt{\max \lambda(\A^\tr\A)}
+	$$
+	\end{block}
+\end{frame}
 
-\myframe{Матричная норма $\|\cdot\|_E$}
-{
-\begin{columns}[T]
-\begin{column}{0.6\textwidth}
-Точка 
-$\x = \frac{1}{\sqrt{5}}\left(\begin{smallmatrix}
-	-1\\2
-\end{smallmatrix}\right)$
- с нормой $\|\x\|_E = 1$ переходит в точку $$\y = \A\x = \frac{1}{\sqrt{5}}\begin{pmatrix}
-	-8\\4
-\end{pmatrix}$$
- с нормой $\|\y\|_E = 4$. 
-
-Для остальных точек $\|\x\|_E = 1$ 
-$$\|\A\x\|_E \leq 4$$
-$$
-\|\A\|_E = 4
-$$
-\end{column}
-
-\begin{column}{0.4\textwidth}
-$$
-\A = \begin{pmatrix}
-	2&-3\\
-	0&2
-\end{pmatrix}
-$$
-\begin{figure}%
-\includegraphics[width=\columnwidth]{euclid.pdf}%
-\end{figure}
-\end{column}
-\end{columns}
-\begin{block}{В общем случае}
-$$
-\|\A\|_E = \sqrt{\max \lambda(\A^T\A)}
-$$
-\end{block}
-}
-
-\myframe{Матричная норма $\|\cdot\|_E$}
-{
-	Докажем, что $\|\A\|_E = \sqrt{\max \lambda(\A^T\A)}$.
-	$$
-	\|\A\x\|_E = \sqrt{(\A\x,\A\x)} = \sqrt{\x^T\A^T\A\x} = \sqrt{(\x,\A^T\A\x)}
-	$$
-	\pause
-	Матрица $\A^T\A$ симметрична и положительно определена. Значит у нее 
-	существует ортонормированный базис из собственных векторов, 
-	причем все собственные числа неотрицательны
-	$$
-	\A^T\A \x_k = \lambda_k \x_k, \quad \lambda_k \geq 0
-	$$
-}
-
-\myframe{Матричная норма $\|\cdot\|_E$}
-{
-	$$
-	\A^T\A \x_k = \lambda_k \x_k, \quad \lambda_k \geq 0
-	$$
-	Разложим $\x$ по этому базису $\left\{\x_k\right\}$
-	\begin{align*}
-	\x = \sum_k \alpha_k \x_k\\
-	\A^T\A\x = \A^T\A \sum_k \alpha_k \x_k = \sum_k \alpha_k \lambda_k \x_k
-	\end{align*}
-	Учитывая, что базис ортонормированный $(\x_k,\x_m) = \delta_{km}$
-	$$
-	\left(\x,\A^T\A\x\right) = \sum_k \lambda_k \alpha_k^2 \leq \max_k \lambda_k \sum_k \alpha_k^2 = \left(\x,\x\right) \max_k \lambda_k 
-	$$
-	Возвращаясь к норме $\A\x$
-	$$
-	\|\A\x\|_E = \sqrt{(\x,\A^T\A\x)} \leq \sqrt{\max \lambda(\A^T\A)} \sqrt{(\x,\x)} = \sqrt{\max \lambda(\A^T\A)}
-	$$
-}
-
-\myframe{Матричная норма $\|\cdot\|_E$}
-{
-	$$
-	\|\A\x\|_E = \sqrt{(\x,\A^T\A\x)} \leq \sqrt{\max \lambda(\A^T\A)} \sqrt{(\x,\x)} = \sqrt{\max \lambda(\A^T\A)}
-	$$
-	Покажем, что норма $\|\A\|_E$ не может быть меньше $\sqrt{\max \lambda(\A^T\A)}$. Действительно, норма должна удовлетворять
-	$$
-	\|\A\|_E = \|\A\|_E \|\x_k\|_E \geq \|\A \x_k\|_E = \sqrt{(\x_k, \A^T\A \x_k)}= \sqrt{\lambda_k}
-	$$
-	Таким образом,
-	$$
-	\sqrt{\lambda_k} \leq \|\A\|_E \leq \sqrt{\max_k \lambda_k}
-	$$
-	Последнее возможно только при
-	$$
-	\|\A\|_E = \sqrt{\max_k \lambda_k}
-	$$
-}
-
-\myframe{Матричная норма $\|\cdot\|_E$}
-{
-	Еще раз вернемся к матрице 
+\begin{frame}
+\frametitle{Матричная норма $\|\cdot\|_E$}
 	$$
 	\A = \begin{pmatrix}
 		2&-3\\
 		0&2
 	\end{pmatrix},\qquad
-	\A^T\A = \begin{pmatrix}
+	\A^\tr\A = \begin{pmatrix}
 		4&-6\\
 		-6&13
 	\end{pmatrix}
 	$$
-	Собственные числа матрицы $\A^T\A$: $\lambda_1 = 1, \lambda_2 = 16$, ортонормированные собственные вектора
+	Собственные числа матрицы $\A^\tr\A$: $\lambda_1 = 1, \lambda_2 = 16$, ортонормированные собственные вектора
 	$$
 	\x_1 = \frac{1}{\sqrt{5}}\begin{pmatrix}
 		2\\1
 	\end{pmatrix}, \quad
 	\x_2 = \frac{1}{\sqrt{5}}\begin{pmatrix}
 		-1\\2
-	\end{pmatrix}, \quad	
+	\end{pmatrix}, \quad
 	$$
 	$$
 	\|\A\|_E = \sqrt{16} = 4
 	$$
-	Особенно просто норма $\|\cdot\|_E$ вычисляется в случае $\A = \A^T$
+	Особенно просто норма $\|\cdot\|_E$ вычисляется в случае $\A = \A^\tr$
 	$$
-	\|\A\|_E = \sqrt{\max\lambda(\A^T\A)} = \sqrt{\max\lambda(\A^2)} = \max|\lambda(\A)|
+	\|\A\|_E = \sqrt{\max\lambda(\A^\tr\A)} = \sqrt{\max\lambda(\A^2)} = \max|\lambda(\A)|
 	$$
-}
+\end{frame}
 
 \section{Обусловленность}
-\myframe{Фиксированная правая часть}
-{
-	Рассмотрим систему 
+\subsection{Фиксированная правая часть}
+\begin{frame}
+\frametitle{Число обусловленности системы}
+	Рассмотрим систему
 	$$
 	\A\x = \b
 	$$
-	и ``близкую'' к ней систему
+	и <<близкую>> к ней систему
 	$$
 	\A(\x+\delta \x) = \b + \delta \b
 	$$
 	Оценим относительную погрешность решения
 	$$
-	\frac{\|\delta\x\|}{\|\x\|} \leq \frac{\|\A^{-1}\|\|\delta \b\|}{\|\x\|} =
+	\frac{\|\delta\x\|}{\|\x\|} \leqslant \frac{\|\A^{-1}\|\|\delta \b\|}{\|\x\|} =
 	\frac{\|\A^{-1}\|\|\delta \b\|}{\|\A^{-1}\b\|} =
 	\frac{\|\A^{-1}\|\|\b\|}{\|\A^{-1}\b\|}\frac{\|\delta \b\|}{\|\b\|}
 	$$
 	Обозначим $\nu(\A,\b) = \frac{\|\A^{-1}\|\|\b\|}{\|\A^{-1}\b\|}$
 	\begin{block}{}
-	$$\frac{\|\delta\x\|}{\|\x\|} \leq \nu(\A,\b) \frac{\|\delta \b\|}{\|\b\|}$$
+	$$\frac{\|\delta\x\|}{\|\x\|} \leqslant \nu(\A,\b) \frac{\|\delta \b\|}{\|\b\|}$$
 	\end{block}
-}
+	Назовем $\nu(\A, \b)$ числом обусловленности системы $\A\x = \b$.
+\end{frame}
 
-\myframe{Фиксированная правая часть}
-{
+\begin{frame}{Свойства числа обусловленности}
 	\begin{block}{}
-	$$\frac{\|\delta\x\|}{\|\x\|} \leq \nu(\A,\b) \frac{\|\delta \b\|}{\|\b\|}, \quad \nu(\A,\b) = \frac{\|\A^{-1}\|\|\b\|}{\|\A^{-1}\b\|}$$
+	$$\frac{\|\delta\x\|}{\|\x\|} \leqslant \nu(\A,\b) \frac{\|\delta \b\|}{\|\b\|}, \quad \nu(\A,\b) = \frac{\|\A^{-1}\|\|\b\|}{\|\A^{-1}\b\|}$$
 	\end{block}
-	Поскольку $\|\A^{-1}\b\| \leq \|\A^{-1}\|\|\b\|$
+	Поскольку $\|\A^{-1}\b\| \leqslant \|\A^{-1}\|\|\b\|$
 	$$
 	\nu(\A,\b) \geq 1,
 	$$
@@ -485,11 +352,12 @@ $$
 	\| \A^{-1} \b \| = \|\A^{-1}\| \|\b\|
 	$$
 	При этом относительная погрешность решения не превосходит относительную погрешность правой части
-}
+\end{frame}
 
-\myframe{Произвольная правая часть}
-{
-	Посмотрим, какой может быть величина $\nu(\A,\b)$ в зависимости от $\b$. С одной стороны,
+\subsection{Произвольная правая часть}
+\begin{frame}
+\frametitle{Произвольная правая часть}
+	Посмотрим, насколько большой может быть величина $\nu(\A,\b)$ в зависимости от $\b$. С одной стороны,
 	$$
 	\nu(\A,\b) = \frac{\|\A^{-1}\|\|\b\|}{\|\A^{-1}\b\|} \geq 1
 	$$
@@ -502,41 +370,34 @@ $$
 	$$
 	Таким образом, для произвольной правой части
 	\begin{block}{}
-	$$\frac{\|\delta\x\|}{\|\x\|} \leq \mu(\A) \frac{\|\delta \b\|}{\|\b\|}, \quad \mu(\A) = \|\A\|\|\A^{-1}\|$$
-	\end{block}	
-}
+	$$\frac{\|\delta\x\|}{\|\x\|} \leqslant \mu(\A) \frac{\|\delta \b\|}{\|\b\|}, \quad \mu(\A) = \|\A\|\|\A^{-1}\|$$
+	\end{block}
+\end{frame}
 
-\myframe{Число обусловленности}
-{
+\begin{frame}
+\frametitle{Число обусловленности матрицы}
 	Число $\mu(\A)$ называется обусловленностью матрицы $\A$ и показывает,
-	насколько матрица ``близка'' к вырожденной. Поскольку
+	насколько матрица <<близка>> к вырожденной. Поскольку
 	$$
 	\mu(\A) \geq \nu(\A,\b) \geq 1,
 	$$
-	относительная погрешность решения никогда не меньше относительной погрешности правой части. Более того, для любой матрицы $\A$ 
+	относительная погрешность решения никогда не меньше относительной погрешности правой части. Более того, для любой матрицы $\A$
 	можно найти такие $\b$ и $\delta \b$, что относительная погрешность решения будет ровно в $\mu(\A)$ раз больше относительной
 	погрешности правой части.
-	
-	Эта погрешность связана с самой задачей решения СЛАУ, а не с конкретным методом ее решения, и ни один численный метод
-	не может решить эту задачу точнее. Поэтому данная погрешность называется \emph{неустранимой}
-}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%                            %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{
-\setbeamertemplate{headline}[default] 
-\frame{
-	\begin{center}
-	{\Huge Спасибо за внимание!}
-	\end{center}
-	\bigskip
-	\begin{center}
-	{\color{blue}{tsybulin@crec.mipt.ru}}
-	\end{center}
-	}
-}
+	Эта погрешность связана с самой задачей решения СЛАУ, а не с конкретным методом ее решения, и ни один численный метод
+	не может решить эту задачу точнее. Поэтому данная погрешность будет \emph{неустранимой}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{center}
+  {\Huge Спасибо за внимание!}
+  \vspace{8ex}
+
+  Цыбулин Иван
+
+  e-mail: \colorhref{mailto:tsybulin@crec.mipt.ru}{tsybulin@crec.mipt.ru}
+  \end{center}
+\end{frame}
 
 \end{document}
