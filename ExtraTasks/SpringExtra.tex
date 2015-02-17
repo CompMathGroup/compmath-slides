@@ -1,0 +1,333 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+
+\title{Дополнительные задачи для самостоятельного решения}
+\author{Цыбулин Иван}
+
+\begin{document}
+\maketitle
+
+Данные задачи предлагаются как альтернатива соответствующим лабораторным
+работам. Для реализации можно использовать любой язык программирования.
+
+\section{Задача Коши для обыкновенных дифференциальных уравнений}
+Решить одну из предложенных задач Коши
+\[
+\mathbf{y}'(t) = \mathbf{G}(t, \mathbf{y}), \quad \mathbf{y}(0) = \mathbf{y}_0
+\]
+имеющих периодические решения с периодом $T$:
+\begin{enumerate}
+\item[а)]
+\begin{equation*}
+\begin{cases}
+\varphi'(t) = \omega(t)\\
+\omega'(t) = -\sin \varphi(t) &\quad
+0 \leq t \leq T\\
+\varphi(0) = \frac{\pi}{2}, \quad \omega(0) = 0
+\end{cases},
+\end{equation*}
+где $T = 4 K\left(\frac{\pi}{4}\right)$
+\[
+K(\alpha) = \int_0^1 \frac{dt}{\sqrt{(1-t^2)(1-t^2 \sin^2 \alpha)}}, \qquad
+K\left(\frac{\pi}{4}\right) \approx 1.854074677301372
+\]
+\item[б)]
+\begin{equation*}
+\begin{cases}
+\rho'(t) = v(t)\\
+v'(t) = \rho(t)\omega^2(t) + \dfrac{1}{\rho^2(t)}\\
+\varphi'(t) = \omega(t) &\quad 0 \leq t \leq T\\
+\omega'(t) = -\dfrac{2\omega(t)v(t)}{\rho(t)}\\ 
+\varphi(0) = 0, \quad \omega(0) = 1 / \sqrt{3},
+\quad \rho(0) = 1, \quad v(0) = 0
+\end{cases},
+\end{equation*}
+где $T = \frac{\pi}{\sqrt{2}} \left(\frac{6}{5}\right)^{3/2} \approx 2.920160646701$
+\item[в)]
+\begin{equation*}
+\begin{cases}
+u'(t) = v(t)\\
+v'(t) = -u^3(t) &\quad
+0 \leq t \leq T\\
+u(0) = 1, \quad v(0) = 0
+\end{cases},
+\end{equation*}
+где $T = \sqrt{32\pi} \dfrac{\Gamma(5/4)}{\Gamma(3/4)} \approx 7.41629870920549$
+\end{enumerate}
+
+В качестве численного метода используйте один из методов Рунге-Кутты выше
+первого порядка, например:
+\begin{itemize}
+\item Метод Хойна третьего порядка
+
+\begin{tabular}{c|ccc}
+0 & 0 & 0 & 0\\
+1/3 & 1/3 & 0 & 0\\
+2/3 & 0 & 2/3 & 0\\
+\hline
+& 1/4 & 0 & 3/4
+\end{tabular}
+\item Метод Рунге третьего порядка
+
+\begin{tabular}{c|cccc}
+0 & 0 & 0 & 0 & 0\\
+1/2 & 1/2 & 0 & 0 & 0\\
+1 & 0 & 1 & 0 & 0\\
+1 & 0 & 0 & 1 & 0\\
+\hline
+& 1/6 & 2/3 & 0 & 1/6
+\end{tabular}
+\item <<Классический>> метод Рунге-Кутты четвертого порядка
+
+\begin{tabular}{c|cccc}
+0 & 0 & 0 & 0 & 0\\
+1/2 & 1/2 & 0 & 0 & 0\\
+1/2 & 0 & 1/2 & 0 & 0\\
+1 & 0 & 0 & 1 & 0\\
+\hline
+& 1/6 & 1/3 & 1/3 & 1/6
+\end{tabular}
+
+\end{itemize}
+
+Проверьте, что метод имеет указанный порядок. Для этого исследуйте зависимость
+отклонения за период численного решения 
+$\varepsilon = \|\mathbf{y}(T) - \mathbf{y}(0)\|$ от величины шага.
+
+\section{Жесткая задача Коши для ОДУ}
+
+Найти численное решение одной из следующих жестких задач
+\begin{itemize}
+\item[а)] <<Брюсселятор>>
+\begin{gather*}
+\frac{dx(t)}{dt} = A + x^2(t) y(t) - (B + 1) x(t),\\
+\frac{dy(t)}{dt} = B x(t) - x^2(t) y(t),\\
+x(0) = 2, y(0) = 3, A = 1, B = 3, \qquad 0 \leq t \leq 20
+\end{gather*}
+\item[б)]
+\begin{gather*}
+y'(t) = 50 (\cos t - y^3(t)), \qquad 0 \leq t \leq 20\\
+y(0) = 0
+\end{gather*}
+\end{itemize}
+
+В качестве численного метода используйте один из следующих неявных методов:
+\begin{itemize}
+\item Неявный метод Эйлера первого порядка
+\begin{gather*}
+\begin{cases}
+\dfrac{\mathbf{u}_{n+1} - \mathbf{u}_{n}}{\tau} = \mathbf{G}(t_{n+1},
+\mathbf{u}_{n+1})\\
+\mathbf{u}_0 = \mathbf{y}(0)
+\end{cases}
+\end{gather*}
+\item Диагонально-неявный метод Рунге-Кутты с таблицей Бутчера
+\begin{center}
+\begin{tabular}{c|cc}
+$1 - \frac{\sqrt{2}}{2}$ & $1 - \frac{\sqrt{2}}{2}$ & 0\\
+$1$ & $\frac{\sqrt{2}}{2}$ & $1 - \frac{\sqrt{2}}{2}$ \\
+\hline
+& $\frac{\sqrt{2}}{2}$ & $1 - \frac{\sqrt{2}}{2}$
+\end{tabular}
+\end{center}
+\item ФДН\footnote{Формула дифференцирования назад}-метод второго порядка
+\begin{gather*}
+\begin{cases}
+\dfrac{3\mathbf{u}_{n+1} - 4\mathbf{u}_{n} + \mathbf{u}_{n-1}}{2\tau} = \mathbf{G}(t_{n+1},
+\mathbf{u}_{n+1})\\
+\mathbf{u}_0 = \mathbf{y}(0)\\
+\mathbf{u}_1 = \mathbf{u}_0 + \tau \mathbf{G}(\tau, \mathbf{u}_1)
+\end{cases}
+\end{gather*}
+\end{itemize}
+
+Для решения нелинейных уравнений используйте метод Ньютона.
+
+Определить максимальный шаг по времени, при котором \emph{явный} метод Эйлера
+для данной задачи Коши устойчив. Убедиться, что используемый метод устойчив при
+гораздо больших шагах по времени.
+
+\section{Нелинейная краевая задача}
+Форму волн на поверхности воды в некотором приближении можно описать 
+уравнением
+\begin{gather*}
+\phi''(x) + 3 \phi^2(x) - \phi(x) = 0
+\end{gather*}
+
+Найдите методом линеаризации решение, удовлетворяющее условиям
+\begin{gather*}
+\phi(0) = 0.027923117357796894 \qquad
+\phi(5) = 0.498518924361681638
+\end{gather*}
+
+Проверить, что решение дополнительно удовлетворяет условиям \[\phi'(0) =
+\phi'(5) = 0.\]
+Последнее означает, что решение можно периодически продолжить на всю числовую
+ось.
+
+\section{Спектральная задача для оператора Штурма-Лиувилля}
+Найти волновую функцию $\psi(x)$ и уровень энергии $E$ основного состояния в одной из следующих
+задач для уравнения Шрёдингера:
+\begin{itemize}
+\item Квантовый гармонический осциллятор
+\begin{gather*}
+-\frac{1}{2}\psi''(x) + \frac{x^2}{2} \psi(x) = E\psi(x)
+\end{gather*}
+Волновая функция основного состояния удовлетворяет условию $\psi'(0) = 0$, а
+также условию асимптотики на бесконечности
+\[
+\lim_{x\rightarrow +\infty} \psi'(x) + \sqrt{x^2 - 2E} \psi(x) = 0,
+\]
+которое для простоты можно перенести в конечную точку $x = L \equiv 5$
+\begin{gather*}
+-\frac{1}{2}\psi''(x) + \frac{x^2}{2} \psi(x) = E\psi(x)\\
+\psi'(0) = 0\qquad
+\psi(L) + \sqrt{L^2 - 2E} \psi(L) = 0
+\end{gather*}
+
+Найти нетривиальное решение с минимальным $E > 0$.
+\item Треугольная потенциальная яма
+\[
+U(x) = 
+\begin{cases}
++\infty, &x < 0\\
+x, &x \geq 0
+\end{cases}
+\]
+Уравнение Шрёдингера принимает вид
+\begin{gather*}
+-\frac{1}{2}\psi''(x) + x \psi(x) = E\psi(x)
+\end{gather*}
+Поскольку при $x < 0$ волновая функция равна нулю, $\psi(0) = 0$.
+Также должно выполняться условие асимптотики на бесконечности
+\[
+\lim_{x\rightarrow +\infty} \psi'(x) + \sqrt{2x - 2E} \psi(x) = 0,
+\]
+которое для простоты можно перенести в конечную точку $x = L \equiv 5$
+\begin{gather*}
+-\frac{1}{2}\psi''(x) + x \psi(x) = E\psi(x)\\
+\psi(0) = 0\qquad
+\psi(L) + \sqrt{2L - 2E} \psi(L) = 0
+\end{gather*}
+
+Найти нетривиальное решение с минимальным $E > 0$.
+
+\end{itemize}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\section{Уравнение переноса}
+
+Решить уравнение переноса
+\begin{gather*}
+\pd{u}{t} + \pd{u}{x} = 0, \qquad 0 \leqslant x \leqslant 1, \quad 0 \leqslant t
+\leqslant 0.5\\
+u\big|_{t = 0} = 
+\begin{cases}
+0, &x > 0.2\\
+1, &x \leqslant 0.2
+\end{cases}\\
+u\big|_{x = 0} = 1,
+\end{gather*}
+используя следующую разностную схему:
+\begin{gather*}
+u_0^{n+1} = u_1^{n+1} = 1,\\
+u_{m}^{n+1} = (1 - \sigma)u_m^n + 
+\sigma u_{m-1}^n + \frac{\sigma (\sigma - 1)}{2}
+\left(
+	f(u_{m-1}^n, u_{m}^n, u_{m+1}^n) -
+	f(u_{m-2}^n, u_{m-1}^n, u_{m}^n)
+\right),\\
+\frac{u_M^{n+1} - u_M^n}{\tau} + 
+\frac{u_M^n - u_{M-1}^n}{h} = 0.
+\end{gather*}
+Пусть $M = 100, h = \dfrac{1}{M}, \tau = \dfrac{h}{2}, \sigma = \dfrac{\tau}{h}
+= \frac{1}{2}$.
+
+\smallskip
+Использовать одну из следующих функций $f(x, y, z)$:
+\begin{itemize}
+\item Схема Лакса-Вендроффа
+\[
+f(x, y, z) = z - y
+\]
+\item Схема Бима-Уорминга
+\[
+f(x, y, z) = y - x
+\]
+\item Схема Фромма
+\[
+f(x, y, z) = \frac{z - x}{2}
+\]
+\item TVD схема с ограничителем minmod
+\[
+f(x, y, z) = \operatorname{minmod}(z - y, y - x)
+\]
+\item TVD схема с ограничителем superbee
+\[
+f(x, y, z) = \operatorname{maxmod}
+\Big[\operatorname{minmod}\big(2(z - y), y -
+x\big),
+\operatorname{minmod}\big(z - y, 2 (y - x)\big)
+\Big]
+\]
+\item TVD схема с ограничителем ван Альбада
+\[
+f(x, y, z) = \frac{(z-x) \max(0, (z-y)(y-x))}{(z-y)^2 + (y-x)^2 + 10^{-14}}
+\]
+\item TVD схема с ограничителем ван Лира
+\[
+f(x, y, z) = \frac{|z-y|(y-x) + |y-x|(z-y)}{|z-y| + |y-x| + 10^{-14}}
+\]
+\end{itemize}
+Здесь
+\begin{gather*}
+\operatorname{minmod}(a,b) = 
+\begin{cases}
+0, &ab\leqslant 0\\\min(a,b), &a>0, b>0\\\max(a,b), &a<0, b<0
+\end{cases}\\
+\operatorname{maxmod}(a,b) = 
+\begin{cases}
+0, &ab\leqslant 0\\\max(a,b), &a>0, b>0\\\min(a,b), &a<0, b<0
+\end{cases}
+\end{gather*}
+
+Провести сравнение решения с решением по схеме с $f(x,y,z) \equiv 0$ (левый уголок).
+
+\section{Параболическое уравнение}
+Решить нестационарное уравнение Шрёдинрега
+\[
+\pd{\Psi}{t} = \frac{i}{200} \pd{{}^2\Psi}{x^2}, \qquad 0 \leqslant x \leqslant
+1,\quad 0 \leqslant x \leqslant 1, \quad i = \sqrt{-1}
+\]
+с начальным условием
+\[
+\Psi\big|_{t = 0} = \exp\left\{100ix - \frac{(x-0.3)^2}{0.01}\right\}
+\]
+и граничными условиями
+\[
+\Psi\big|_{x=0} = \Psi\big|_{x=1} = 0.
+\]
+Использовать одну из следующих схем:
+\begin{itemize}
+\item Схема Кранка-Никольсон
+\begin{gather*}
+\frac{\Psi^{n+1}_m - \Psi^{n}_m}{\tau} = \frac{i}{400}
+\left[
+\frac{\Psi^{n+1}_{m-1} -2\Psi^{n+1}_m + \Psi^{n+1}_{m+1}}{h^2} + 
+\frac{\Psi^n_{m-1} -2\Psi^n_m + \Psi^n_{m+1}}{h^2}\right]\\
+\Psi^{n+1}_0 = \Psi^{n+1}_M = 0
+\end{gather*}
+\item Неявная схема
+\begin{gather*}
+\frac{\Psi^{n+1}_m - \Psi^{n}_m}{\tau} = \frac{i}{200}
+\frac{\Psi^{n+1}_{m-1} -2\Psi^{n+1}_m + \Psi^{n+1}_{m+1}}{h^2}\\
+\Psi^{n+1}_0 = \Psi^{n+1}_M = 0
+\end{gather*}
+\end{itemize}
+Принять $M = 1000, h = \dfrac{1}{M}, \tau = h$
+
+\end{document}
