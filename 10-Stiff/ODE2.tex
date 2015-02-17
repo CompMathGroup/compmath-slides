@@ -26,8 +26,10 @@
 \titlepage
 \end{frame}
 
-\def\L{\mathcal{L}}
+\renewcommand{\L}{\mathcal{L}}
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\tr}{\mathsf{T}}
 
 \section{Обыкновенные дифференциальные уравнения}
 \begin{frame}\frametitle{Задача Коши}
@@ -172,6 +174,329 @@ G_t]_n + \frac{\tau}{2}[\vec G_y]_n [\vec G]_n + O(\tau^2)
 
 	Условия $2$-го порядка аппроксимации: $\displaystyle \sum_{j=1}^s b_j c_j = \sum_{i,j=1}^s b_i a_{ij} = \frac{1}{2}$.
 \end{frame}
+
+\begin{frame}\frametitle{Автономизация}
+	Каждой неавтономной задаче Коши
+	\begin{align*}
+		&\frac{d\vec y}{dt} = \vec g(t, \vec y)\\
+		&\vec y\big|_{t=0} = \vec y_0
+	\end{align*}
+	можно поставить в соответствие эквивалентную автономную задачу
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	\begin{align*}
+		&\frac{dt}{ds} = 1\\
+		&\frac{d\vec y}{ds} = \vec g(t, \vec y)\\
+		&\vec t\big|_{s=0} = 0\\
+		&\vec y\big|_{s=0} = \vec y_0.
+	\end{align*}
+	\end{column}
+	\begin{column}{.5\textwidth}
+	\begin{align*}
+		&\frac{d\vec Y}{ds} = \vec G(\vec Y)\\
+		&\vec Y\big|_{s=0} = \vec Y_0\\
+		&\vec Y = (t, \vec y)^\tr\\
+		&\vec G = (1, \vec g)^\tr.
+	\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Правило Кутты}
+	Применим метод Рунге-Кутты к автономной системе (заметим, что коэффициенты
+$c_i$ для автономной системы не используются)
+	\begin{align*}
+		&\frac{d\vec Y}{ds} = \vec G(\vec Y)\\
+		&\vec Y\big|_{s=0} = \vec Y_0.
+	\end{align*}
+	Наклоны вычисляются по упрощенным формулам (без явного времени)
+	\[
+		\vec K_i = \vec G(\vec U_{n} + \tau \sum_{j} a_{ij} \vec K_j) =
+\begin{pmatrix}
+1\\
+\vec g(\vec U_n + \tau \sum_j a_{ij} \vec K_j)
+\end{pmatrix}
+\equiv
+\begin{pmatrix}
+1\\
+\vec k_j
+\end{pmatrix}
+	\]
+	Заметим, что первая компонента всех $\vec K_i$ всегда равна $1$.
+	\[
+	\vec U_n + \tau \sum_j a_{ij} \vec K_i = \begin{pmatrix}
+t_n + \tau \sum_j a_{ij}\\
+\vec u_n + \tau \sum_j a_{ij} \vec k_j
+\end{pmatrix}
+	\]
+\end{frame}
+
+\begin{frame}\frametitle{Правило Кутты}
+	В результате применения метода Рунге-Кутты к автономной системе
+	\begin{align*}
+		&\frac{d\vec Y}{ds} = \vec G(\vec Y)\\
+		&\vec Y\big|_{s=0} = \vec Y_0.
+	\end{align*}
+	получаются формулы, аналогичные методу Рунге-Кутты для системы
+	\begin{align*}
+		&\frac{d\vec y}{dt} = \vec g(t, \vec y)\\
+		&\vec y\big|_{t=0} = \vec y_0.
+	\end{align*}
+	с тем отличием, что вместо коэффициентов $c_i$ в нем стоят величины $\sum_j
+a_{ij}$. Получается, что если имеется метод Рунге-Кутты, имеющий $p$-й порядок
+аппроксимации на автономных системах уравнений, универсальный метод Рунге-Кутты
+того же порядка получается из него, если положить $c_i = \sum_j a_{ij}$.
+Последнее условие называется правилом Кутты.
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	Намного проще выводить условия порядка для автономных систем, так как в этом
+случае отсутствуют частные производные по времени.
+	\begin{multline*}
+	\vec k_i = \vec G([\vec y]_n + \tau \sum_j a_{ij} \vec k_j) = [\vec G]_n
+	+ \tau [\vec G_y]_n \sum_j a_{ij} \vec k_j + \frac{\tau^2}{2} [\vec
+G_{yy}]_n
+	\sum_j a_{ij} \vec k_j \sum_{\ell} a_{i\ell} \vec k_\ell + \\ +
+	\frac{\tau^3}{6} [\vec G_{yyy}]_n \sum_j a_{ij} \vec k_j \sum_\ell a_{i\ell} \vec
+k_\ell \sum_{m} a_{im} \vec k_m + O(\tau^4).
+	\end{multline*}
+	Запись $[\vec G_{yyy}]\vec \xi\vec \eta\vec \zeta$ следует понимать как
+свертку
+	\[
+	[\vec G_{yyy}]\vec \xi\vec \eta\vec \zeta = \sum_{j,\ell,m}\pd{{}^3 G_i}{y_j
+\partial y_\ell \partial y_m} \xi_j \eta_\ell \zeta_m.
+	\]
+	В общем случае, за производной порядка $q$ следует $q$ векторов, с которой
+она сворачивается. Из-за равенства смешанных производных, порядок векторов не
+важен.
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	Из разложения до порядка $O(\tau^4)$
+	\[
+	\vec k_i = [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y] \vec k_j
+	+ \frac{\tau^2}{2} \sum_{j\ell} a_{ij}a_{i\ell}[\vec G_{yy}] \vec k_j \vec k_\ell
+	+ \frac{\tau^3}{6} \sum_{j\ell m} a_{ij} a_{i\ell} a_{im} [\vec G_{yyy}] \vec k_j
+	\vec k_\ell \vec k_m + O(\tau^4).
+	\]
+	отбрасыванием степеней можно получить более грубые разложения
+	\begin{align}
+	\label{eq:third}
+	\vec k_i &= [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y] \vec k_j
+	+ \frac{\tau^2}{2} \sum_{j\ell} a_{ij}a_{i\ell}[\vec G_{yy}] \vec k_j \vec k_\ell
+	+ O(\tau^3)\\
+	\label{eq:second}
+	\vec k_i &= [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y] \vec k_j +
+O(\tau^2)\\
+	\label{eq:first}
+	\vec k_i &= [\vec G]_n + O(\tau)
+	\end{align}
+	Подставим \eqref{eq:first} в \eqref{eq:second}:
+	\[
+	\textstyle
+	\vec k_i = [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y]_n ([\vec G]_n + O(\tau))
++ O(\tau^2) =
+	[\vec G]_n + \tau \sum_j a_{ij} [\vec G_y \vec G]_n + O(\tau^2)
+	\]
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	Постепенно избавляемся от $\vec k_i$ в правой части разложений
+	\begin{align}
+	\label{eq:4}
+	\vec k_i &= [\vec G]_n + O(\tau)\\
+	\label{eq:5}
+	\vec k_i &= [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y \vec G]_n +
+O(\tau^2)\\
+	\label{eq:6}
+	\vec k_i &= [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y]_n \vec k_j
+	+ \frac{\tau^2}{2} \sum_{j\ell} a_{ij}a_{i\ell}[\vec G_{yy}]_n \vec k_j \vec k_\ell
+	+ O(\tau^3)
+	\end{align}
+	В произведении $[\vec G_yy]_n\vec k_j\vec k_\ell$ из \eqref{eq:6} величины $\vec k_j$ u
+$\vec k_\ell$ могут быть взяты с погрешностью $O(\tau)$, так как умножаются на
+$\tau^2$, а величина $[\vec G_y]_n\vec k_j$ требует значения $\vec k_j$ с точностю
+до $O(\tau^2)$ так как умножается всего лишь на первую степень $\tau$.
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	Постепенно избавляемся от $\vec k_i$ в правой части разложений.
+	Величины вида $\sum_j a_{ij}$ сразу для краткости заменим на $c_i$:
+	\begin{align*}
+	\vec k_i &= [\vec G]_n + O(\tau)\\
+	\vec k_i &= [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y \vec G]_n +
+O(\tau^2) = [\vec G]_n + \tau c_i [\vec G_y \vec G]_n + O(\tau^2)
+	\end{align*}
+	\begin{multline*}
+	\vec k_i = [\vec G]_n + \tau \sum_j a_{ij} [\vec G_y]_n \vec k_j
+	+ \frac{\tau^2}{2} \sum_{j\ell} a_{ij}a_{i\ell}[\vec G_{yy}]_n \vec k_j \vec k_\ell
+	+ O(\tau^3) = [\vec G]_n + \\ \tau \sum_j a_{ij} [\vec G_y]_n([\vec G]_n + \tau c_i [\vec
+G_y\vec G]_n + O(\tau^2)) + \frac{\tau^2}{2} \sum_{j\ell} a_{ij} a_{i\ell} [\vec
+G_{yy}]_n ([\vec G]_n + O(\tau)) ([\vec G]_n + O(\tau)) + O(\tau^3) = \\ =
+	[\vec G]_n + c_i \tau [\vec G_y\vec G]_n + \tau^2 \sum_j a_{ij} c_j [\vec G_y \vec
+G_y \vec G]_n + \frac{\tau^2 c_i^2}{2} [\vec G_{yy} \vec G\vec G]_n + O(\tau^3)
+	\end{multline*}
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	На данный момент получены разложения $\vec k_i$ до третьего порядка:
+	\begin{align*}
+	\vec k_i &= [\vec G]_n + O(\tau)\\
+	\vec k_i &= [\vec G]_n + \tau c_i [\vec G_y \vec G]_n + O(\tau^2)\\
+	\vec k_i &= [\vec G]_n + \tau c_i [\vec G_y \vec G]_n + \tau^2 \sum_j a_{ij} c_j [\vec G_y \vec
+G_y \vec G]_n + \frac{\tau^2 c_i^2}{2} [\vec G_{yy} \vec G\vec G]_n + O(\tau^3)
+	\end{align*}
+	Проделывая аналогичные подстановки в разложения четвертого порядка, получаем
+	\begin{multline*}
+	\vec k_i = [\vec G]_n + \tau c_i [\vec G_y\vec G]_n + \tau^2 \sum_j a_{ij} c_j [\vec
+G_y \vec G_y \vec G]_n + \frac{\tau^2 c_i^2}{2} [\vec G_{yy} \vec G\vec G]_n +
+	\tau^3 \sum_{j\ell} a_{ij} a_{j\ell} c_\ell [\vec G_y \vec G_y \vec G_y \vec
+G]_n + \\ +
+	\frac{\tau^3}{2} \sum_{j} a_{ij} c_j^2 [\vec G_y \vec G_{yy} \vec G \vec
+G]_n +
+	\tau^3 c_i \sum_{j} a_{ij} c_j [\vec G_{yy} \vec G_y \vec G \vec G]_n
+	+ \frac{\tau^3}{6} c_i^3 [\vec G_{yyy} \vec G \vec G \vec G]_n + O(\tau^4).
+	\end{multline*}
+	В последнем выражении учтено, что $[\vec G_{yy} (\vec G_{y} \vec G) \vec
+G]_n = [\vec G_{yy} \vec G (\vec G_y \vec G)]_n$ из-за симметрии $\vec G_{yy}$.
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	В выражении
+	\begin{multline*}
+	\vec k_i = [\vec G]_n + \tau c_i [\vec G_y\vec G]_n + \tau^2 \sum_j a_{ij} c_j [\vec
+G_y \vec G_y \vec G]_n + \frac{\tau^2 c_i^2}{2} [\vec G_{yy} \vec G\vec G]_n +
+	\tau^3 \sum_{j\ell} a_{ij} a_{j\ell} c_\ell [\vec G_y \vec G_y \vec G_y \vec
+G]_n + \\ +
+	\frac{\tau^3}{2} \sum_{j} a_{ij} c_j^2 [\vec G_y \vec G_{yy} \vec G \vec
+G]_n +
+	\tau^3 c_i \sum_{j} a_{ij} c_j [\vec G_{yy} \vec G_y \vec G \vec G]_n
+	+ \frac{\tau^3}{6} c_i^3 [\vec G_{yyy} \vec G \vec G \vec G]_n + O(\tau^4).
+	\end{multline*}
+	имеются $8$ разных произведений, сожержащих $\vec G$ и ее производные. Соберем
+коэффициенты перед ними в таблицу:
+
+	\begin{center}
+	\footnotesize
+	\begin{tabular}{c|c|c|c|c|c|c|c|c}
+	&$\vec G$ &
+	$\tau\vec G_y \vec G$ &
+	$\tau^2\vec G_y \vec G_y \vec G$ & $\tau^2 \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_y \vec G_y \vec G_y \vec G$ &
+	$\tau^3 \vec G_y \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_{yy} \vec G_y \vec G \vec G$ &
+	$\tau^3 \vec G_{yyy} \vec G \vec G \vec G$\\\hline
+	$\sum_i b_i \vec k_i$ &
+	$\sum_i b_i$ &
+	$\sum_i b_i c_i$ &
+	$\sum_{ij} b_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^2}{2}$ &
+	$\sum_{ij\ell} b_i a_{ij} a_{j\ell} c_\ell$ &
+	$\sum_{j} b_i a_{ij} \frac{c_j^2}{2}$ &
+	$\sum_{ij} b_i c_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^3}{6}$
+	\end{tabular}
+	\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	\begin{center}
+	\footnotesize
+	\begin{tabular}{c|c|c|c|c|c|c|c|c}
+	&$\vec G$ &
+	$\tau\vec G_y \vec G$ &
+	$\tau^2\vec G_y \vec G_y \vec G$ & $\tau^2 \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_y \vec G_y \vec G_y \vec G$ &
+	$\tau^3 \vec G_y \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_{yy} \vec G_y \vec G \vec G$ &
+	$\tau^3 \vec G_{yyy} \vec G \vec G \vec G$\\\hline
+	$\sum_i b_i \vec k_i$ &
+	$\sum_i b_i$ &
+	$\sum_i b_i c_i$ &
+	$\sum_{ij} b_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^2}{2}$ &
+	$\sum_{ij\ell} b_i a_{ij} a_{j\ell} c_\ell$ &
+	$\sum_{j} b_i a_{ij} \frac{c_j^2}{2}$ &
+	$\sum_{ij} b_i c_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^3}{6}$
+	\end{tabular}
+	\end{center}
+	Разложим аналогично $\frac{[\vec y]_{n+1}-[\vec y]_n}{\tau}$:
+	\[
+	\frac{[\vec y]_{n+1}-[\vec y]_n}{\tau} = [\vec y']_n + \frac{\tau}{2} [\vec
+y'']_n + \frac{\tau^2}{6} [\vec y''']_n + \frac{\tau^3}{24} [\vec y^{IV}]_n +
+O(\tau^4)
+	\]
+	и учтем, что
+	\begin{align*}
+	\vec y'(t) &= \vec G(\vec y(t)) = \vec G\\
+	\vec y''(t) &= \frac{d}{dt}\vec G(\vec y(t)) = \vec G_y \vec y'(t) = \vec G_y
+\vec G\\
+	\vec y'''(t) &= (\vec G_y \vec G)' = \vec G_{yy} \vec G \vec G + \vec G_y
+\vec G_y \vec G\\
+	\vec y^{IV}(t) &= (\vec G_{yy} \vec G \vec G + \vec G_y\vec G_y \vec G)' = 
+	\vec G_{yyy} \vec G \vec G \vec G + 3 \vec G_{yy} \vec G_{y} \vec G \vec G
+	+ \vec G_y \vec G_{yy} \vec G \vec G + \vec G_y \vec G_y \vec G_y \vec G
+	\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Аппроксимация высших порядков}
+	Допишем в таблицу коэффициенты разожения $\frac{[\vec y]_{n+1}-[\vec
+y]_n}{\tau}$
+	\begin{center}
+	\footnotesize
+	\begin{tabular}{p{3em}|c|c|c|c|c|c|c|c}
+	&$\vec G$ &
+	$\tau\vec G_y \vec G$ &
+	$\tau^2\vec G_y \vec G_y \vec G$ & $\tau^2 \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_y \vec G_y \vec G_y \vec G$ &
+	$\tau^3 \vec G_y \vec G_{yy} \vec G \vec G$ &
+	$\tau^3 \vec G_{yy} \vec G_y \vec G \vec G$ &
+	$\tau^3 \vec G_{yyy} \vec G \vec G \vec G$\\\hline
+	$\sum_i b_i \vec k_i$ &
+	$\sum_i b_i$ &
+	$\sum_i b_i c_i$ &
+	$\sum_{ij} b_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^2}{2}$ &
+	$\sum_{ij\ell} b_i a_{ij} a_{j\ell} c_\ell$ &
+	$\sum_{j} b_i a_{ij} \frac{c_j^2}{2}$ &
+	$\sum_{ij} b_i c_i a_{ij} c_j$ &
+	$\sum_i b_i \frac{c_i^3}{6}$\\
+	$\hspace{-.5em}\frac{[\vec y]_{n+1}-[\vec y]_n}{\tau}$&
+	$1$&
+	$\frac{1}{2}$&
+	$\frac{1}{6}$&
+	$\frac{1}{6}$&
+	$\frac{1}{24}$&
+	$\frac{1}{24}$&
+	$\frac{3}{24}$&
+	$\frac{1}{24}$
+	\end{tabular}
+	\end{center}
+	Из этой таблицы можно получить условия аппроксимации вплоть до четвертого
+порядка. Для этого необходимо приравнять выражения во второй строке со
+значениями третьей. Для аппроксимации порядка $p$ нужно оставить только столбцы
+с $\tau^q$ где $q < p$.
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	\begin{align*}
+	O(\tau  ) \qquad &\textstyle \sum_i b_i = 1\\
+	O(\tau^2) \qquad &\textstyle \sum_i b_i c_i = 1/2\\
+	O(\tau^3) \qquad &\textstyle \sum_{ij} b_i a_{ij} c_j = 1/6\\
+	O(\tau^3) \qquad &\textstyle \sum_i b_i c_i^2 = 1/3
+	\end{align*}
+	\end{column}
+	\begin{column}{.5\textwidth}
+	\begin{align*}
+	O(\tau^4) \qquad &\textstyle \sum_{ij\ell} b_i a_{ij} a_{j\ell} c_\ell = 1/24\\
+	O(\tau^4) \qquad &\textstyle \sum_{ij} b_i a_{ij} c_j^2 = 1/12\\
+	O(\tau^4) \qquad &\textstyle \sum_{ij} b_i c_i a_{ij} c_j = 1/8\\
+	O(\tau^4) \qquad &\textstyle \sum_{i} b_i c_i^3 = 1/4
+	\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
 
 \begin{frame}\frametitle{Барьеры Бутчера}
 	Бутчер доказал несколько теорем о связи порядка аппроксимации и количества стадий у методов Рунге-Кутты.
@@ -346,8 +671,14 @@ G_t]_n + \frac{\tau}{2}[\vec G_y]_n [\vec G]_n + O(\tau^2)
 	\centering
 	\only<1>{\includegraphics[height=.6\textheight]{fine-coarse.png}}%
 	\only<2>{\includegraphics[height=.6\textheight]{coarse.png}}%
-	\caption{Решение жесткой задачи разными методами с ограничением шага в
-погранслое и без}
+	\only<1>{\caption{Решение жесткой задачи разными методами с ограничением шага в
+погранслое (красный --- не A-устойчивый явный метод Эйлера, зеленый --- A-, но не
+L-устойчивый неявный метод средней точки, синий --- A- и L-устойчивый неявный
+метод Эйлера)}}
+	\only<2>{\caption{Решение жесткой задачи разными методами с большим шагом
+(красный --- не A-устойчивый явный метод Эйлера, зеленый --- A-, но не
+L-устойчивый неявный метод средней точки, синий --- A- и L-устойчивый неявный
+метод Эйлера)}}
 	\end{figure}
 \end{frame}
 
@@ -363,7 +694,7 @@ G_t]_n + \frac{\tau}{2}[\vec G_y]_n [\vec G]_n + O(\tau^2)
 	Если $s = p$, то $r(z)$ есть просто первые $s+1$ членов ряда Тейлора функции $e^z$.
 \end{frame}
 
-\begin{frame}\frametitle{Области устойчивости методов Рунге-Кутты 1-4 порядка}
+\begin{frame}\frametitle{Области устойчивости методов Рунге-Кутты 1--4 порядка}
 \begin{figure}%
 \includegraphics[height=.4\textheight]{rk1.png}%
 \includegraphics[height=.4\textheight]{rk2.png}%
