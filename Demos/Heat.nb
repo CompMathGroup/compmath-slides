@@ -1,3 +1,22 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     70065,       1438]
+NotebookOptionsPosition[     69726,       1421]
+NotebookOutlinePosition[     70086,       1437]
+CellTagsIndexPosition[     70043,       1434]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
@@ -148,8 +167,16 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
         "2", "\[Rule]", 
          "\"\<\:041d\:0435\:044f\:0432\:043d\:0430\:044f \:0441\:0445\:0435\
 \:043c\:0430 O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
-\:0448\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]\>\""}]}], 
-       "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+\:0448\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+        "3", "\[Rule]", 
+         "\"\<\:041d\:0435\:044f\:0432\:043d\:0430\:044f \:0441\:0445\:0435\
+\:043c\:0430 O(\!\(\*SuperscriptBox[\(\[Tau]\), \
+\(2\)]\)+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
+\:0448\:0435\:0441\:0442\:0438\:0442\:043e\:0447\:0435\:0447\:043d\:043e\:043c\
+ \:0448\:0430\:0431\:043b\:043e\:043d\:0435\>\""}]}], "\[IndentingNewLine]", 
+       "}"}], ",", "\[IndentingNewLine]", 
       RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"{", 
@@ -584,6 +611,7 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
               RowBox[{"If", "[", 
                RowBox[{
                 RowBox[{"sch", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+                
                 RowBox[{"Do", "[", "\[IndentingNewLine]", 
                  RowBox[{
                   RowBox[{
@@ -686,6 +714,85 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
                    RowBox[{"{", 
                     RowBox[{"j", ",", "steps"}], "}"}]}], "]"}]}]}], "]"}], 
               ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"sch", "\[Equal]", "3"}], ",", "\[IndentingNewLine]", 
+                
+                RowBox[{
+                 RowBox[{"a", "=", 
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "r"}], "/", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Length", "[", "u", "]"}], "}"}]}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{
+                  "a", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+                   "=", 
+                  RowBox[{
+                   RowBox[{"a", "\[LeftDoubleBracket]", 
+                    RowBox[{"-", "1"}], "\[RightDoubleBracket]"}], "=", 
+                   "0."}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"c", "=", "a"}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"b", "=", 
+                  RowBox[{"1.", "-", "a", "-", "c"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"c1", "=", 
+                  RowBox[{"r", "/", "2"}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"c2", "=", 
+                  RowBox[{"1.", "-", 
+                   RowBox[{"2", 
+                    RowBox[{"r", "/", "2"}]}]}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"c3", "=", 
+                  RowBox[{"r", "/", "2"}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"Do", "[", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "d", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "=", 
+                    RowBox[{"bcl", "\[LeftDoubleBracket]", 
+                    RowBox[{"j", "+", "1"}], "\[RightDoubleBracket]"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"Do", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "d", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], "=", 
+                    RowBox[{
+                    RowBox[{"c1", " ", 
+                    RowBox[{"u", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", "-", "1"}], "\[RightDoubleBracket]"}]}], "+", 
+                    RowBox[{"c2", " ", 
+                    RowBox[{
+                    "u", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}]}], "+", 
+                    RowBox[{"c3", " ", 
+                    RowBox[{"u", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", "+", "1"}], "\[RightDoubleBracket]"}]}]}]}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "2", ",", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "u", "]"}], "-", "1"}]}], "}"}]}], 
+                    "]"}], ";", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"d", "\[LeftDoubleBracket]", 
+                    RowBox[{"-", "1"}], "\[RightDoubleBracket]"}], "=", 
+                    RowBox[{"bcr", "\[LeftDoubleBracket]", 
+                    RowBox[{"j", "+", "1"}], "\[RightDoubleBracket]"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"u", "=", 
+                    RowBox[{"SolveTDM", "[", 
+                    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}]}]}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{"j", ",", "steps"}], "}"}]}], "]"}]}]}], "]"}], 
+              ";", "\[IndentingNewLine]", 
               RowBox[{"Return", "[", "u", "]"}], ";"}]}], 
             "\[IndentingNewLine]", "]"}], ",", 
            RowBox[{"CompilationTarget", "\[Rule]", "\"\<WVM\>\""}]}], 
@@ -696,27 +803,19 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`M$$ = 25, $CellContext`scheme$$ = 
-    1, $CellContext`T$$ = 0.0014720000000000002`, $CellContext`\[Sigma]$$ = 
-    0.46, $CellContext`\[CurlyPhi]$$ = 
+   DynamicModuleBox[{$CellContext`M$$ = 50, $CellContext`scheme$$ = 
+    3, $CellContext`T$$ = 0.1376, $CellContext`\[Sigma]$$ = 
+    0.5, $CellContext`\[CurlyPhi]$$ = 
     Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
-     Piecewise[{{((1 + Sign[$CellContext`\[Xi] - 4/10])/
-         2) ((1 + Sign[6/10 - $CellContext`\[Xi]])/2), $CellContext`\[Eta] == 
-        0}, {(1/2) (-
-          Erf[(-3 + 5 $CellContext`\[Xi])/(
-            10 $CellContext`\[Eta]^Rational[1, 2])] + 
-         Erf[(-2 + 5 $CellContext`\[Xi])/(
-           10 $CellContext`\[Eta]^Rational[1, 2])]), 
-        Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, 
-      Sum[((
-         2 ((Cos[2 ((Pi + (3 $CellContext`n) Pi)/5)] + 
-           Sin[(Pi + (8 $CellContext`n) Pi)/10])/((2 $CellContext`n - 1) Pi)))
-          Sin[((2 $CellContext`n - 1) Pi) $CellContext`\[Xi]]) 
-       Exp[((-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2) 
-         Pi^2], {$CellContext`n, 1, 6}]]], Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
+     Piecewise[{{0, $CellContext`\[Eta] == 0}, {
+       1 - Erf[$CellContext`\[Xi]/(2 $CellContext`\[Eta]^Rational[1, 2])], 
+        Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
+       1 - $CellContext`\[Xi]) - 
+      Sum[(2/(Pi $CellContext`n)) Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+       Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], {$CellContext`n, 1, 
+        15}]]], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`scheme$$], 1, 
        "\:0422\:0438\:043f \:0441\:0445\:0435\:043c\:044b"}, {
       1 -> "\:042f\:0432\:043d\:0430\:044f \:0441\:0445\:0435\:043c\:0430 O(\
@@ -724,17 +823,25 @@ Cell[BoxData[
 \:043b\:043e\:043d\:0435 \[UpTee]", 2 -> 
        "\:041d\:0435\:044f\:0432\:043d\:0430\:044f \:0441\:0445\:0435\:043c\
 \:0430 O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \:0448\
-\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]"}}, {{
+\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]", 3 -> 
+       "\:041d\:0435\:044f\:0432\:043d\:0430\:044f \:0441\:0445\:0435\:043c\
+\:0430 O(\!\(\*SuperscriptBox[\(\[Tau]\), \
+\(2\)]\)+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
+\:0448\:0430\:0431\:043b\:043e\:043d\:0435 \!\(\*\nStyleBox[ButtonBox[\"\
+\[ErrorIndicator]\",\nBaseStyle->\"Link\",\n\
+ButtonData->\"paclet:ref/character/ErrorIndicator\"], \
+\"GuideCharacterImage\"]\)"}}, {{
        Hold[$CellContext`\[CurlyPhi]$$], 
        Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
         Piecewise[{{0, $CellContext`\[Eta] == 0}, {
           1 - Erf[$CellContext`\[Xi]/(2 $CellContext`\[Eta]^Rational[1, 2])], 
+           
            Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
           1 - $CellContext`\[Xi]) - 
-         Sum[((2/(Pi $CellContext`n)) 
-           Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-          Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
-{$CellContext`n, 1, 15}]]], 
+         Sum[(2/(Pi $CellContext`n)) 
+          Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+          Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], {$CellContext`n, 
+           1, 15}]]], 
        "\:041d\:0430\:0447\:0430\:043b\:044c\:043d\:044b\:0435 \:0438 \:0433\
 \:0440\:0430\:043d\:0438\:0447\:043d\:044b\:0435 \:0443\:0441\:043b\:043e\
 \:0432\:0438\:044f"}, {Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
@@ -742,10 +849,10 @@ Cell[BoxData[
            1 - Erf[$CellContext`\[Xi]/(2 $CellContext`\[Eta]^Rational[1, 2])], 
             Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
            1 - $CellContext`\[Xi]) - 
-          Sum[((2/(Pi $CellContext`n)) 
-            Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-           Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
-{$CellContext`n, 1, 15}]]] -> 
+          Sum[(2/(Pi $CellContext`n)) 
+           Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+           Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], {$CellContext`n,
+             1, 15}]]] -> 
        "\:0422\:0435\:043f\:043b\:043e\:0432\:0430\:044f \:0432\:043e\:043b\
 \:043d\:0430 \:0441\:043b\:0435\:0432\:0430", 
        Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
@@ -759,10 +866,10 @@ Cell[BoxData[
                10 $CellContext`\[Eta]^Rational[1, 2])]), 
             Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, 
           
-          Sum[((2 ((Cos[2 ((Pi + (3 $CellContext`n) Pi)/5)] + 
-               Sin[(Pi + (8 $CellContext`n) Pi)/10])/((2 $CellContext`n - 1) 
-              Pi))) Sin[((2 $CellContext`n - 1) Pi) $CellContext`\[Xi]]) 
-           Exp[((-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2) 
+          Sum[(2 (Cos[2 (Pi + 3 $CellContext`n Pi)/5] + 
+             Sin[(Pi + 8 $CellContext`n Pi)/10])/((2 $CellContext`n - 1) Pi)) 
+           Sin[(2 $CellContext`n - 1) Pi $CellContext`\[Xi]] 
+           Exp[(-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2 
              Pi^2], {$CellContext`n, 1, 6}]]] -> 
        "\:0420\:0430\:043f\:0430\:0434 \:0441\:0442\:0443\:043f\:0435\:043d\
 \:044c\:043a\:0438"}}, {{
@@ -778,10 +885,10 @@ Cell[BoxData[
        Hold[$CellContext`\[Sigma]$$], 0.5, 
        "\:0427\:0438\:0441\:043b\:043e \:041a\:0443\:0440\:0430\:043d\:0442\
 \:0430 (\[Sigma]=\[Tau]/h)"}, 0.01, 2, 0.01}}, Typeset`size$$ = {
-    576., {179., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`scheme$3183$$ = 
-    False, $CellContext`\[CurlyPhi]$3184$$ = False, $CellContext`M$3185$$ = 
-    0, $CellContext`T$3186$$ = 0, $CellContext`\[Sigma]$3187$$ = 0}, 
+    1678.300000000001, {207., 22.}}, Typeset`update$$ = 0, Typeset`initDone$$,
+     Typeset`skipInitDone$$ = False, $CellContext`scheme$40190$$ = 
+    False, $CellContext`\[CurlyPhi]$40191$$ = False, $CellContext`M$40192$$ = 
+    0, $CellContext`T$40193$$ = 0, $CellContext`\[Sigma]$40194$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`M$$ = 50, $CellContext`scheme$$ = 
@@ -794,16 +901,16 @@ Cell[BoxData[
               2 $CellContext`\[Eta]^Rational[1, 2])], 
              Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
             1 - $CellContext`\[Xi]) - 
-           Sum[((2/(Pi $CellContext`n)) 
-             Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-            Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+           Sum[(2/(Pi $CellContext`n)) 
+            Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+            Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]]}, "ControllerVariables" :> {
-        Hold[$CellContext`scheme$$, $CellContext`scheme$3183$$, False], 
-        Hold[$CellContext`\[CurlyPhi]$$, $CellContext`\[CurlyPhi]$3184$$, 
+        Hold[$CellContext`scheme$$, $CellContext`scheme$40190$$, False], 
+        Hold[$CellContext`\[CurlyPhi]$$, $CellContext`\[CurlyPhi]$40191$$, 
          False], 
-        Hold[$CellContext`M$$, $CellContext`M$3185$$, 0], 
-        Hold[$CellContext`T$$, $CellContext`T$3186$$, 0], 
-        Hold[$CellContext`\[Sigma]$$, $CellContext`\[Sigma]$3187$$, 0]}, 
+        Hold[$CellContext`M$$, $CellContext`M$40192$$, 0], 
+        Hold[$CellContext`T$$, $CellContext`T$40193$$, 0], 
+        Hold[$CellContext`\[Sigma]$$, $CellContext`\[Sigma]$40194$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -853,8 +960,14 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
 \:0448\:0430\:0431\:043b\:043e\:043d\:0435 \[UpTee]", 2 -> 
           "\:041d\:0435\:044f\:0432\:043d\:0430\:044f \
 \:0441\:0445\:0435\:043c\:0430 O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \
-\:043d\:0430 \:0448\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]"}, 
-         ControlType -> PopupMenu}, {{$CellContext`\[CurlyPhi]$$, 
+\:043d\:0430 \:0448\:0430\:0431\:043b\:043e\:043d\:0435 \[DownTee]", 3 -> 
+          "\:041d\:0435\:044f\:0432\:043d\:0430\:044f \
+\:0441\:0445\:0435\:043c\:0430 O(\!\(\*SuperscriptBox[\(\[Tau]\), \(2\)]\)+\!\
+\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \:0448\:0430\:0431\:043b\
+\:043e\:043d\:0435 \!\(\*\nStyleBox[ButtonBox[\"\[ErrorIndicator]\",\n\
+BaseStyle->\"Link\",\nButtonData->\"paclet:ref/character/ErrorIndicator\"], \
+\"GuideCharacterImage\"]\)"}, ControlType -> 
+         PopupMenu}, {{$CellContext`\[CurlyPhi]$$, 
           Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
            
            Piecewise[{{0, $CellContext`\[Eta] == 0}, {
@@ -862,9 +975,9 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
                2 $CellContext`\[Eta]^Rational[1, 2])], 
               Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
              1 - $CellContext`\[Xi]) - 
-            Sum[((2/(Pi $CellContext`n)) 
-              Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-             Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+            Sum[(2/(Pi $CellContext`n)) 
+             Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+             Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]], 
           "\:041d\:0430\:0447\:0430\:043b\:044c\:043d\:044b\:0435 \:0438 \
 \:0433\:0440\:0430\:043d\:0438\:0447\:043d\:044b\:0435 \:0443\:0441\:043b\
@@ -876,9 +989,9 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
                 2 $CellContext`\[Eta]^Rational[1, 2])], 
                Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
               1 - $CellContext`\[Xi]) - 
-             Sum[((2/(Pi $CellContext`n)) 
-               Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-              Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+             Sum[(2/(Pi $CellContext`n)) 
+              Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+              Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]] -> 
           "\:0422\:0435\:043f\:043b\:043e\:0432\:0430\:044f \
 \:0432\:043e\:043b\:043d\:0430 \:0441\:043b\:0435\:0432\:0430", 
@@ -894,11 +1007,10 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
                   10 $CellContext`\[Eta]^Rational[1, 2])]), 
                Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, 
              
-             Sum[((2 ((Cos[2 ((Pi + (3 $CellContext`n) Pi)/5)] + 
-                  Sin[(Pi + (8 $CellContext`n) Pi)/10])/((2 $CellContext`n - 
-                  1) Pi))) 
-               Sin[((2 $CellContext`n - 1) Pi) $CellContext`\[Xi]]) 
-              Exp[((-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2) 
+             Sum[(2 (Cos[2 (Pi + 3 $CellContext`n Pi)/5] + 
+                Sin[(Pi + 8 $CellContext`n Pi)/10])/((2 $CellContext`n - 1) 
+               Pi)) Sin[(2 $CellContext`n - 1) Pi $CellContext`\[Xi]] 
+              Exp[(-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2 
                 Pi^2], {$CellContext`n, 1, 6}]]] -> 
           "\:0420\:0430\:043f\:0430\:0434 \
 \:0441\:0442\:0443\:043f\:0435\:043d\:044c\:043a\:0438"}, ControlType -> 
@@ -918,22 +1030,22 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
          0.01, ControlType -> Manipulator, ContinuousAction -> False, 
          Appearance -> "Labeled", AppearanceElements -> "InputField"}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{625., {281., 286.}},
+     ImageSizeCache->{1745., {244., 253.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
     Initialization:>({{$CellContext`TMax := 
-         Switch[FE`\[CurlyPhi]$$897, $CellContext`Wave, 
-           0.5, $CellContext`Step, 0.05], FE`\[CurlyPhi]$$897 = 
+         Switch[FE`\[CurlyPhi]$$67, $CellContext`Wave, 0.5, $CellContext`Step,
+            0.05], FE`\[CurlyPhi]$$67 = 
          Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
            
            Piecewise[{{0, $CellContext`\[Eta] == 0}, {
              1 - Erf[$CellContext`\[Xi]/(2 Sqrt[$CellContext`\[Eta]])], 
               Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
              1 - $CellContext`\[Xi]) - 
-            Sum[((2/(Pi $CellContext`n)) 
-              Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-             Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+            Sum[(2/(Pi $CellContext`n)) 
+             Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+             Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]], $CellContext`Wave = 
          Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
            
@@ -941,9 +1053,9 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
              1 - Erf[$CellContext`\[Xi]/(2 Sqrt[$CellContext`\[Eta]])], 
               Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
              1 - $CellContext`\[Xi]) - 
-            Sum[((2/(Pi $CellContext`n)) 
-              Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-             Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+            Sum[(2/(Pi $CellContext`n)) 
+             Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+             Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]], $CellContext`Step = 
          Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
            
@@ -957,12 +1069,12 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
                  Sqrt[$CellContext`\[Eta]])]), 
               Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, 
             
-            Sum[(((2 (Cos[(2 (Pi + (3 $CellContext`n) Pi))/5] + 
-                 Sin[(Pi + (8 $CellContext`n) Pi)/10]))/((2 $CellContext`n - 
-                1) Pi)) Sin[((2 $CellContext`n - 1) Pi) $CellContext`\[Xi]]) 
-             Exp[((-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2) 
+            Sum[((2 (Cos[(2 (Pi + 3 $CellContext`n Pi))/5] + 
+                Sin[(Pi + 8 $CellContext`n Pi)/10]))/((2 $CellContext`n - 1) 
+              Pi)) Sin[(2 $CellContext`n - 1) Pi $CellContext`\[Xi]] 
+             Exp[(-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2 
                Pi^2], {$CellContext`n, 1, 6}]]], $CellContext`DoSteps = 
-         CompiledFunction[{8, 8., 5468}, {
+         CompiledFunction[{10, 10., 5468}, {
             Blank[Integer], 
             Blank[Real], 
             Blank[Integer], {
@@ -970,31 +1082,73 @@ O(\[Tau]+\!\(\*SuperscriptBox[\(h\), \(2\)]\)) \:043d\:0430 \
              Blank[Real], 1}, {
              Blank[Real], 1}}, {{2, 0, 0}, {3, 0, 0}, {2, 0, 1}, {3, 1, 0}, {
            3, 1, 1}, {3, 1, 2}, {3, 1, 
-           3}}, {{0, {2, 0, 7}}, {2, {2, 0, 9}}, {1, {2, 0, 5}}, {
-            1., {3, 0, 6}}, {-1, {2, 0, 10}}, {0., {3, 0, 3}}}, {1, 12, 12, 0,
-            10}, {{33, 0, 8}, {6, 7, 6}, {35, 8, 3, 6}, {6, 7, 4}, {3, 3}, {
-            38, 0, 0, 4, 0, 5}, {36, 6, 5, 3, 6}, {4, 4, 8, -2}, {7, 3, 2}, {
-            7, 3, 5}, {7, 3, 1}, {7, 3, 4}, {7, 3, 7}, {24, 0, 5, 0}, {2, 0, 
-            38}, {6, 1, 2}, {6, 7, 3}, {3, 33}, {7, 0, 2}, {10, 9, 8}, {16, 8,
-             0, 8}, {19, 8, 9}, {10, 5, 8}, {13, 8, 9, 8}, {7, 8, 5}, {7, 0, 
-            1}, {38, 6, 0, 5, 0, 8}, {7, 8, 7}, {33, 6, 8}, {12, 8, 10, 8}, {
-            6, 5, 4}, {3, 12}, {38, 6, 0, 4, 0, 8}, {7, 8, 4}, {16, 2, 7, 
-            8}, {38, 6, 0, 4, 0, 9}, {16, 5, 9, 10}, {12, 4, 5, 11}, {38, 6, 
-            0, 11, 0, 9}, {16, 1, 9, 11}, {13, 8, 10, 11, 8}, {39, 6, 0, 4, 0,
-             8}, {7, 4, 7}, {4, 4, 8, -11}, {12, 3, 5, 6}, {38, 1, 0, 6, 0, 
-            8}, {39, 6, 0, 5, 0, 8}, {12, 3, 5, 6}, {38, 2, 0, 6, 0, 10}, {39,
-             6, 0, 10, 0, 10}, {4, 3, 2, -32}, {3, 1}, {24, 0, 9, 0}, {2, 0, 
-            30}, {33, 6, 6}, {6, 7, 4}, {35, 6, 3, 5}, {6, 7, 8}, {3, 3}, {19,
-             0, 8}, {36, 4, 8, 3, 5}, {4, 8, 6, -2}, {39, 5, 0, 10, 0, 3}, {
-            39, 5, 0, 5, 0, 3}, {42, "CopyTensor", 3, 1, 5, 3, 1, 8}, {40, 43,
-             3, 1, 5, 3, 1, 4}, {40, 43, 3, 1, 8, 3, 1, 3}, {41, 257, 3, 0, 6,
-             3, 1, 4, 3, 1, 9}, {41, 257, 3, 1, 9, 3, 1, 3, 3, 1, 9}, {6, 1, 
-            2}, {6, 7, 3}, {3, 10}, {42, "CopyTensor", 3, 1, 6, 3, 1, 4}, {12,
-             3, 5, 4}, {38, 1, 0, 4, 0, 10}, {39, 4, 0, 5, 0, 10}, {12, 3, 5, 
-            4}, {38, 2, 0, 4, 0, 8}, {39, 4, 0, 10, 0, 8}, {
+           3}}, {{0, {2, 0, 7}}, {1., {3, 0, 6}}, {
+            2, {2, 0, 9}}, {-1, {2, 0, 10}}, {1, {2, 0, 5}}, {
+            3, {2, 0, 12}}, {0., {3, 0, 3}}}, {1, 13, 12, 0, 
+           11}, {{33, 0, 11}, {6, 7, 4}, {35, 11, 3, 6}, {6, 7, 6}, {3, 3}, {
+            38, 0, 0, 6, 0, 2}, {36, 4, 2, 3, 6}, {4, 6, 11, -2}, {7, 3, 1}, {
+            7, 3, 2}, {7, 3, 4}, {7, 3, 5}, {7, 3, 7}, {24, 0, 5, 0}, {2, 0, 
+            38}, {6, 1, 3}, {6, 7, 8}, {3, 33}, {7, 0, 1}, {10, 9, 8}, {16, 8,
+             0, 8}, {19, 8, 9}, {10, 5, 8}, {13, 8, 9, 8}, {7, 8, 2}, {7, 0, 
+            4}, {38, 6, 0, 5, 0, 8}, {7, 8, 7}, {33, 6, 11}, {12, 11, 10, 
+            11}, {6, 5, 6}, {3, 12}, {38, 6, 0, 6, 0, 8}, {7, 8, 5}, {16, 1, 
+            7, 8}, {38, 6, 0, 6, 0, 9}, {16, 2, 9, 10}, {12, 6, 5, 2}, {38, 6,
+             0, 2, 0, 9}, {16, 4, 9, 11}, {13, 8, 10, 11, 8}, {39, 6, 0, 6, 0,
+             8}, {7, 5, 7}, {4, 6, 11, -11}, {12, 8, 5, 4}, {38, 1, 0, 4, 0, 
+            8}, {39, 6, 0, 5, 0, 8}, {12, 8, 5, 4}, {38, 2, 0, 4, 0, 10}, {39,
+             6, 0, 10, 0, 10}, {4, 8, 3, -32}, {3, 1}, {24, 0, 9, 0}, {2, 0, 
+            30}, {33, 6, 4}, {6, 7, 6}, {35, 4, 3, 5}, {6, 7, 11}, {3, 3}, {
+            19, 0, 8}, {36, 6, 8, 3, 5}, {4, 11, 4, -2}, {39, 5, 0, 10, 0, 
+            3}, {39, 5, 0, 5, 0, 3}, {42, "CopyTensor", 3, 1, 5, 3, 1, 8}, {
+            40, 43, 3, 1, 5, 3, 1, 4}, {40, 43, 3, 1, 8, 3, 1, 3}, {41, 257, 
+            3, 0, 6, 3, 1, 4, 3, 1, 9}, {41, 257, 3, 1, 9, 3, 1, 3, 3, 1, 
+            9}, {6, 1, 3}, {6, 7, 8}, {3, 10}, {
+            42, "CopyTensor", 3, 1, 6, 3, 1, 4}, {12, 8, 5, 6}, {38, 1, 0, 6, 
+            0, 10}, {39, 4, 0, 5, 0, 10}, {12, 8, 5, 6}, {38, 2, 0, 6, 0, 
+            8}, {39, 4, 0, 10, 0, 8}, {
             47, $CellContext`SolveTDM, 3, 1, 5, 3, 1, 9, 3, 1, 8, 3, 1, 4, 3, 
-             1, 7}, {42, "CopyTensor", 3, 1, 7, 3, 1, 6}, {4, 3, 2, -9}, {3, 
-            1}, {42, "CopyTensor", 3, 1, 6, 3, 1, 3}, {1}, {49}}, 
+             1, 10}, {42, "CopyTensor", 3, 1, 10, 3, 1, 6}, {4, 8, 3, -9}, {3,
+             1}, {24, 0, 12, 0}, {2, 0, 48}, {33, 6, 6}, {6, 7, 4}, {35, 6, 3,
+             10}, {6, 7, 11}, {3, 6}, {19, 0, 11}, {10, 9, 8}, {40, 60, 3, 0, 
+            8, 3, 0, 9}, {16, 11, 9, 11}, {36, 4, 11, 3, 10}, {4, 11, 
+            6, -5}, {42, "CopyTensor", 3, 1, 10, 3, 1, 5}, {39, 5, 0, 10, 0, 
+            3}, {39, 5, 0, 5, 0, 3}, {42, "CopyTensor", 3, 1, 5, 3, 1, 8}, {
+            40, 43, 3, 1, 5, 3, 1, 10}, {40, 43, 3, 1, 8, 3, 1, 3}, {41, 257, 
+            3, 0, 6, 3, 1, 10, 3, 1, 7}, {41, 257, 3, 1, 7, 3, 1, 3, 3, 1, 
+            7}, {42, "CopyTensor", 3, 1, 7, 3, 1, 9}, {10, 9, 10}, {40, 60, 3,
+             0, 10, 3, 0, 11}, {16, 0, 11, 10}, {7, 10, 1}, {10, 9, 10}, {40, 
+            60, 3, 0, 10, 3, 0, 11}, {16, 0, 11, 10}, {10, 9, 11}, {16, 11, 
+            10, 11}, {19, 11, 10}, {10, 5, 11}, {13, 11, 10, 11}, {7, 11, 
+            2}, {10, 9, 11}, {40, 60, 3, 0, 11, 3, 0, 10}, {16, 0, 10, 11}, {
+            7, 11, 4}, {6, 1, 3}, {6, 7, 8}, {3, 6}, {46, 
+             
+             Function[{$CellContext`sch, $CellContext`r, $CellContext`steps, \
+$CellContext`ic, $CellContext`bcl, $CellContext`bcr}, Part[$CellContext`d, 
+                Span[2, -2]] = $CellContext`c1 Part[$CellContext`u, 
+                  Span[1, -3]] + $CellContext`c2 Part[$CellContext`u, 
+                  Span[2, -2]] + $CellContext`c3 Part[$CellContext`u, 
+                  Span[3, All]]], {$CellContext`u, 3, 1, 6, 
+              Module}, {$CellContext`d, 6, 0, 34, Module}, {$CellContext`c3, 
+              3, 0, 4, Module}, {$CellContext`c2, 3, 0, 2, 
+              Module}, {$CellContext`c1, 3, 0, 1, Module}, {$CellContext`j, 2,
+               0, 8, Block}, 2, 0, 0, 3, 0, 0, 2, 0, 1, 3, 1, 0, 3, 1, 1, 3, 
+             1, 2, 6, 0, 17}, {46, 
+             
+             Function[{$CellContext`sch, $CellContext`r, $CellContext`steps, \
+$CellContext`ic, $CellContext`bcl, $CellContext`bcr}, Part[$CellContext`d, 1] = 
+              Part[$CellContext`bcl, $CellContext`j + 1]], {$CellContext`d, 6,
+               0, 34, Module}, {$CellContext`j, 2, 0, 8, Block}, 2, 0, 0, 3, 
+             0, 0, 2, 0, 1, 3, 1, 0, 3, 1, 1, 3, 1, 2, 6, 0, 17}, {46, 
+             
+             Function[{$CellContext`sch, $CellContext`r, $CellContext`steps, \
+$CellContext`ic, $CellContext`bcl, $CellContext`bcr}, 
+              Part[$CellContext`d, -1] = 
+              Part[$CellContext`bcr, $CellContext`j + 1]], {$CellContext`d, 6,
+               0, 34, Module}, {$CellContext`j, 2, 0, 8, Block}, 2, 0, 0, 3, 
+             0, 0, 2, 0, 1, 3, 1, 0, 3, 1, 1, 3, 1, 2, 6, 0, 17}, {
+            47, $CellContext`SolveTDM, 3, 1, 5, 3, 1, 9, 3, 1, 8, 6, 0, 34, 3,
+              1, 10}, {42, "CopyTensor", 3, 1, 10, 3, 1, 6}, {4, 8, 3, -5}, {
+            3, 1}, {42, "CopyTensor", 3, 1, 6, 3, 1, 3}, {1}, {49}}, 
            
            Function[{$CellContext`sch, $CellContext`r, $CellContext`steps, \
 $CellContext`ic, $CellContext`bcl, $CellContext`bcr}, 
@@ -1008,8 +1162,7 @@ $CellContext`ic, $CellContext`bcl, $CellContext`bcr},
 $CellContext`d}, If[$CellContext`sch == 1, 
                
                Do[$CellContext`c1 = $CellContext`r; $CellContext`c2 = 
-                 1 - 
-                  2 $CellContext`r; $CellContext`c3 = $CellContext`r; \
+                 1 - 2 $CellContext`r; $CellContext`c3 = $CellContext`r; \
 $CellContext`w = Part[$CellContext`u, 1]; 
                 Do[$CellContext`q = Part[$CellContext`u, $CellContext`i]; 
                   Part[$CellContext`u, $CellContext`i] = $CellContext`c1 \
@@ -1037,23 +1190,43 @@ $CellContext`w + $CellContext`c2
                     1]; $CellContext`u = \
 $CellContext`SolveTDM[$CellContext`a, $CellContext`b, $CellContext`c, \
 $CellContext`d], {$CellContext`j, $CellContext`steps}]]; 
+             If[$CellContext`sch == 
+               3, $CellContext`a = Table[-$CellContext`r/2, {
+                   Length[$CellContext`u]}]; 
+               Part[$CellContext`a, 1] = (Part[$CellContext`a, -1] = 
+                 0.); $CellContext`c = $CellContext`a; $CellContext`b = 
+                1. - $CellContext`a - $CellContext`c; $CellContext`c1 = \
+$CellContext`r/2; $CellContext`c2 = 
+                1 - 2 ($CellContext`r/2); $CellContext`c3 = $CellContext`r/2; 
+               Do[Part[$CellContext`d, 
+                    Span[2, -2]] = $CellContext`c1 Part[$CellContext`u, 
+                    Span[1, -3]] + $CellContext`c2 Part[$CellContext`u, 
+                    Span[2, -2]] + $CellContext`c3 Part[$CellContext`u, 
+                    Span[3, All]]; 
+                 Part[$CellContext`d, 1] = 
+                  Part[$CellContext`bcl, $CellContext`j + 1]; 
+                 Part[$CellContext`d, -1] = 
+                  Part[$CellContext`bcr, $CellContext`j + 
+                    1]; $CellContext`u = \
+$CellContext`SolveTDM[$CellContext`a, $CellContext`b, $CellContext`c, \
+$CellContext`d], {$CellContext`j, $CellContext`steps}]]; 
              Return[$CellContext`u]; Null]], Evaluate], $CellContext`SolveTDM = 
-         CompiledFunction[{8, 8., 1368}, {{
+         CompiledFunction[{10, 10., 5464}, {{
              Blank[Real], 1}, {
              Blank[Real], 1}, {
              Blank[Real], 1}, {
              Blank[Real], 1}}, {{3, 1, 0}, {3, 1, 1}, {3, 1, 2}, {3, 1, 3}, {
-           3, 1, 9}}, {{0, {2, 0, 4}}, {2, {2, 0, 6}}, {
-            1, {2, 0, 2}}, {-1, {2, 0, 7}}, {0., {3, 0, 0}}}, {1, 10, 8, 0, 
+           3, 1, 9}}, {{0, {2, 0, 4}}, {2, {2, 0, 6}}, {-1, {2, 0, 7}}, {
+            1, {2, 0, 2}}, {0., {3, 0, 0}}}, {1, 10, 8, 0, 
            10}, {{33, 3, 5}, {41, 259, 3, 0, 0, 3, 1, 3, 3, 1, 5}, {41, 259, 
             3, 0, 0, 3, 1, 3, 3, 1, 4}, {6, 5, 3}, {6, 4, 1}, {35, 3, 3, 9}, {
             6, 4, 0}, {3, 2}, {36, 1, 0, 3, 9}, {4, 0, 3, -1}, {38, 2, 0, 2, 
-            0, 1}, {19, 1, 2}, {38, 1, 0, 2, 0, 1}, {40, 58, 3, 0, 1, 3, 0, 
+            0, 1}, {19, 1, 2}, {38, 1, 0, 2, 0, 1}, {40, 60, 3, 0, 1, 3, 0, 
             3}, {16, 2, 3, 2}, {39, 5, 0, 2, 0, 2}, {38, 3, 0, 2, 0, 3}, {38, 
-            1, 0, 2, 0, 1}, {40, 58, 3, 0, 1, 3, 0, 4}, {16, 3, 4, 3}, {39, 4,
+            1, 0, 2, 0, 1}, {40, 60, 3, 0, 1, 3, 0, 4}, {16, 3, 4, 3}, {39, 4,
              0, 2, 0, 3}, {6, 6, 1}, {26, 1, 5, 0}, {2, 0, 25}, {38, 0, 0, 1, 
             0, 4}, {12, 1, 7, 3}, {38, 5, 0, 3, 0, 1}, {16, 4, 1, 4}, {38, 1, 
-            0, 1, 0, 1}, {13, 4, 1, 4}, {40, 58, 3, 0, 4, 3, 0, 1}, {19, 1, 
+            0, 1, 0, 1}, {13, 4, 1, 4}, {40, 60, 3, 0, 4, 3, 0, 1}, {19, 1, 
             4}, {38, 2, 0, 1, 0, 5}, {16, 4, 5, 4}, {39, 5, 0, 1, 0, 4}, {38, 
             3, 0, 1, 0, 5}, {38, 0, 0, 1, 0, 6}, {12, 1, 7, 3}, {38, 4, 0, 3, 
             0, 7}, {16, 6, 7, 6}, {19, 6, 7}, {13, 5, 7, 5}, {16, 1, 5, 7}, {
@@ -1066,7 +1239,7 @@ $CellContext`d], {$CellContext`j, $CellContext`steps}]];
            
            Function[{$CellContext`a, $CellContext`b, $CellContext`c, \
 $CellContext`d}, 
-            Block[{Compile`$37}, 
+            Block[{Compile`$91}, 
              
              Module[{$CellContext`P, $CellContext`Q, $CellContext`u, \
 $CellContext`q, $CellContext`j, $CellContext`m}, $CellContext`m = 
@@ -1074,7 +1247,7 @@ $CellContext`q, $CellContext`j, $CellContext`m}, $CellContext`m =
                0. $CellContext`d; $CellContext`Q = 
                0. $CellContext`d; $CellContext`u = 
                Table[0., {$CellContext`m}]; 
-              Part[$CellContext`P, 1] = (-Part[$CellContext`c, 1])/
+              Part[$CellContext`P, 1] = -Part[$CellContext`c, 1]/
                 Part[$CellContext`b, 1]; 
               Part[$CellContext`Q, 1] = 
                Part[$CellContext`d, 1]/Part[$CellContext`b, 1]; 
@@ -1095,12 +1268,12 @@ $CellContext`q, $CellContext`j, $CellContext`m}, $CellContext`m =
               For[$CellContext`j = $CellContext`m, $CellContext`j > 1, 
                 Decrement[$CellContext`j], 
                 Part[$CellContext`u, $CellContext`j - 1] = (
-                  Compile`$37 = $CellContext`j - 1; 
-                  Part[$CellContext`P, Compile`$37] 
+                  Compile`$91 = $CellContext`j - 1; 
+                  Part[$CellContext`P, Compile`$91] 
                     Part[$CellContext`u, $CellContext`j] + 
-                   Part[$CellContext`Q, Compile`$37]); 
+                   Part[$CellContext`Q, Compile`$91]); 
                 Null]; $CellContext`u]]], Evaluate], 
-         Attributes[Compile`$37] = {Temporary}}; 
+         Attributes[Compile`$91] = {Temporary}}; 
        Module[{}, $CellContext`Step = 
           Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
             
@@ -1114,11 +1287,10 @@ $CellContext`q, $CellContext`j, $CellContext`m}, $CellContext`m =
                   10 $CellContext`\[Eta]^Rational[1, 2])]), 
                Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, 
              
-             Sum[((2 ((Cos[2 ((Pi + (3 $CellContext`n) Pi)/5)] + 
-                  Sin[(Pi + (8 $CellContext`n) Pi)/10])/((2 $CellContext`n - 
-                  1) Pi))) 
-               Sin[((2 $CellContext`n - 1) Pi) $CellContext`\[Xi]]) 
-              Exp[((-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2) 
+             Sum[(2 (Cos[2 (Pi + 3 $CellContext`n Pi)/5] + 
+                Sin[(Pi + 8 $CellContext`n Pi)/10])/((2 $CellContext`n - 1) 
+               Pi)) Sin[(2 $CellContext`n - 1) Pi $CellContext`\[Xi]] 
+              Exp[(-$CellContext`\[Eta]) (2 $CellContext`n - 1)^2 
                 Pi^2], {$CellContext`n, 1, 6}]]]; $CellContext`Wave = 
           Function[{$CellContext`\[Xi], $CellContext`\[Eta]}, 
             
@@ -1127,9 +1299,9 @@ $CellContext`q, $CellContext`j, $CellContext`m}, $CellContext`m =
                 2 $CellContext`\[Eta]^Rational[1, 2])], 
                Inequality[0, Less, $CellContext`\[Eta], LessEqual, 1/200]}}, (
               1 - $CellContext`\[Xi]) - 
-             Sum[((2/(Pi $CellContext`n)) 
-               Sin[(Pi $CellContext`n) $CellContext`\[Xi]]) 
-              Exp[((-Pi^2) $CellContext`n^2) $CellContext`\[Eta]], \
+             Sum[(2/(Pi $CellContext`n)) 
+              Sin[Pi $CellContext`n $CellContext`\[Xi]] 
+              Exp[(-Pi^2) $CellContext`n^2 $CellContext`\[Eta]], \
 {$CellContext`n, 1, 15}]]]; $CellContext`TMax := 
           Switch[$CellContext`\[CurlyPhi]$$, $CellContext`Wave, 
             0.5, $CellContext`Step, 0.05]; $CellContext`SolveTDM = 
@@ -1215,20 +1387,61 @@ $CellContext`w + $CellContext`c2
                     1]; $CellContext`u = \
 $CellContext`SolveTDM[$CellContext`a, $CellContext`b, $CellContext`c, \
 $CellContext`d], {$CellContext`j, $CellContext`steps}]]; 
+             If[$CellContext`sch == 
+               3, $CellContext`a = Table[(-$CellContext`r)/2, {
+                   Length[$CellContext`u]}]; 
+               Part[$CellContext`a, 1] = (Part[$CellContext`a, -1] = 
+                 0.); $CellContext`c = $CellContext`a; $CellContext`b = 
+                1. - $CellContext`a - $CellContext`c; $CellContext`c1 = \
+$CellContext`r/2; $CellContext`c2 = 
+                1. - 2 ($CellContext`r/2); $CellContext`c3 = $CellContext`r/2; 
+               Do[Part[$CellContext`d, 1] = 
+                  Part[$CellContext`bcl, $CellContext`j + 1]; 
+                 Do[Part[$CellContext`d, $CellContext`i] = $CellContext`c1 
+                    Part[$CellContext`u, $CellContext`i - 
+                    1] + $CellContext`c2 
+                    Part[$CellContext`u, $CellContext`i] + $CellContext`c3 
+                    Part[$CellContext`u, $CellContext`i + 1], {$CellContext`i,
+                     2, Length[$CellContext`u] - 1}]; 
+                 Part[$CellContext`d, -1] = 
+                  Part[$CellContext`bcr, $CellContext`j + 
+                    1]; $CellContext`u = \
+$CellContext`SolveTDM[$CellContext`a, $CellContext`b, $CellContext`c, \
+$CellContext`d], {$CellContext`j, $CellContext`steps}]]; 
              Return[$CellContext`u]; Null], CompilationTarget -> "WVM"]; 
          Null]}; Typeset`initDone$$ = True),
     SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output"]
-}, {2}]]
+}, Open  ]]
 },
-WindowSize->{1584, 775},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{1920, 1033},
+WindowMargins->{{Automatic, 0}, {-12, Automatic}},
 ShowSelection->True,
-FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (October 6, 2011)",
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
+(* End of Notebook Content *)
 
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 33694, 778, 4175, "Input"],
+Cell[34277, 802, 35433, 616, 521, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
