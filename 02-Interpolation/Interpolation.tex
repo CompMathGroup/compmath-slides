@@ -1,4 +1,4 @@
-\documentclass[aspectratio=43,unicode]{beamer}
+\documentclass[aspectratio=169,unicode]{beamer}
 \usetheme{Moscow}
 
 \usepackage[utf8]{inputenc}
@@ -277,8 +277,9 @@
 \subsection{Форма Лагранжа}
 \begin{frame}
 \frametitle{Базисные интерполяционные полиномы}
-	Решим вспомогательную
-	\begin{block}{Задачу о базисном интерполяционном многочлене}
+%	Решим вспомогательную
+%	\begin{block}{Задачу о базисном интерполяционном многочлене}
+	\begin{block}{Задача о базисном интерполяционном многочлене}
 		Необходимо построить многочлен, который во всех точках $x_k$, кроме точки $x_j$ обращался в 0,
 		а в точке $x_j$ был равен $1$
 		\[
@@ -324,6 +325,7 @@
 
 \begin{frame}
 \frametitle{Пример вычисления базисных многочленов}
+	\vspace{-2ex}
 	\[
 	\begin{array}{|c||c|c|c|}
 	\hline
@@ -566,26 +568,26 @@
 	\begin{column}[c]{0.75\textwidth}
 
 	% comments MATTER!!!!! Keep 'em ----------------------------VVV
-	\only<1>{\includegraphics[width=1.00\textwidth]{sense0.png}}%
-	\only<2>{\includegraphics[width=1.00\textwidth]{sense2.png}}%
-	\only<3>{\includegraphics[width=1.00\textwidth]{sense4.png}}%
-	\only<4>{\includegraphics[width=1.00\textwidth]{sense6.png}}%
-	\only<5>{\includegraphics[width=1.00\textwidth]{sense8.png}}%
-	\only<6>{\includegraphics[width=1.00\textwidth]{sense10.png}}%
-	\only<7>{\includegraphics[width=1.00\textwidth]{sense12.png}}%
-	\only<8>{\includegraphics[width=1.00\textwidth]{sense14.png}}%
-	\only<9>{\includegraphics[width=1.00\textwidth]{sense16.png}}%
-	\only<10>{\includegraphics[width=1.00\textwidth]{sense18.png}}%
-%	\only<11>{\includegraphics[width=1.00\textwidth]{sense10.png}}%
-%	\only<12>{\includegraphics[width=1.00\textwidth]{sense11.png}}%
-%	\only<13>{\includegraphics[width=1.00\textwidth]{sense12.png}}%
-%	\only<14>{\includegraphics[width=1.00\textwidth]{sense13.png}}%
-%	\only<15>{\includegraphics[width=1.00\textwidth]{sense14.png}}%
-%	\only<16>{\includegraphics[width=1.00\textwidth]{sense15.png}}%
-%	\only<17>{\includegraphics[width=1.00\textwidth]{sense16.png}}%
-%	\only<18>{\includegraphics[width=1.00\textwidth]{sense17.png}}%
-%	\only<19>{\includegraphics[width=1.00\textwidth]{sense18.png}}%
-%	\only<20>{\includegraphics[width=1.00\textwidth]{sense19.png}}%
+	\only<1 >{\includegraphics[height=.7\textheight]{sense0.png}}%
+	\only<2 >{\includegraphics[height=.7\textheight]{sense2.png}}%
+	\only<3 >{\includegraphics[height=.7\textheight]{sense4.png}}%
+	\only<4 >{\includegraphics[height=.7\textheight]{sense6.png}}%
+	\only<5 >{\includegraphics[height=.7\textheight]{sense8.png}}%
+	\only<6 >{\includegraphics[height=.7\textheight]{sense10.png}}%
+	\only<7 >{\includegraphics[height=.7\textheight]{sense12.png}}%
+	\only<8 >{\includegraphics[height=.7\textheight]{sense14.png}}%
+	\only<9 >{\includegraphics[height=.7\textheight]{sense16.png}}%
+	\only<10>{\includegraphics[height=.7\textheight]{sense18.png}}%
+%	\only<11>{\includegraphics[height=.7\textheight]{sense10.png}}%
+%	\only<12>{\includegraphics[height=.7\textheight]{sense11.png}}%
+%	\only<13>{\includegraphics[height=.7\textheight]{sense12.png}}%
+%	\only<14>{\includegraphics[height=.7\textheight]{sense13.png}}%
+%	\only<15>{\includegraphics[height=.7\textheight]{sense14.png}}%
+%	\only<16>{\includegraphics[height=.7\textheight]{sense15.png}}%
+%	\only<17>{\includegraphics[height=.7\textheight]{sense16.png}}%
+%	\only<18>{\includegraphics[height=.7\textheight]{sense17.png}}%
+%	\only<19>{\includegraphics[height=.7\textheight]{sense18.png}}%
+%	\only<20>{\includegraphics[height=.7\textheight]{sense19.png}}%
 
 	\end{column}
 	\begin{column}[c]{0.25\textwidth}
@@ -706,7 +708,7 @@
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 	\center
-	\includegraphics[width=\textwidth]{spline1_1.png}%
+	\includegraphics[height=.7\textheight]{spline1_1.png}%
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
@@ -726,7 +728,7 @@
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 	\center
-	\includegraphics[width=\textwidth]{spline2_2.png}%
+	\includegraphics[height=.7\textheight]{spline2_2.png}%
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
@@ -773,7 +775,7 @@
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 	\center
-	\includegraphics[width=\textwidth]{spline2_1.png}%
+	\includegraphics[height=.7\textheight]{spline2_1.png}%
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
@@ -816,7 +818,7 @@
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 	\center
-	\includegraphics[width=\textwidth]{spline3_1.png}%
+	\includegraphics[height=.7\textheight]{spline3_1.png}%
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
