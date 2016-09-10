@@ -31,3 +31,4 @@
 *.xdy
 *.tdo
 *-converted-to.pdf
+.ipynb_checkpoints
