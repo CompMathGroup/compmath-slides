@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0//css/reveal.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0//css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = '//cdn.jsdelivr.net/reveal.js/3.0.0//css/print/pdf.css';
+        link.href = 'reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="//cdn.jsdelivr.net/reveal.js/3.0.0//lib/js/html5shiv.js"></script>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
@@ -9580,6 +9580,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 .prompt {
+  display: none;
   /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
   min-width: 14ex;
   /* This padding is tuned to match the padding on the CodeMirror editor. */
@@ -11634,6 +11635,7 @@ ul.typeahead-list > li > a {
   margin-top: 20px;
 }
 /*# sourceMappingURL=style.min.css.map */
+
     </style>
 <style type="text/css">
     .highlight .hll { background-color: #ffffcc }
@@ -12042,10 +12044,10 @@ $$
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_547b9292-ea1c-49f5-b734-07df684ae537" hidden><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_9c29ef6e-4125-4f7a-a865-027619116b63" hidden><div class="highlight hl-ipython3">
 	<span class="n">Show code</span>
 	</div>
-	</div><div class="input_area spoiler_code" id="code_547b9292-ea1c-49f5-b734-07df684ae537"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">myexp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+	</div><div class="input_area spoiler_code" id="code_9c29ef6e-4125-4f7a-a865-027619116b63"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">myexp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">S</span> <span class="o">=</span> <span class="mf">0.</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -12057,15 +12059,15 @@ $$
 	</div>
 </div>
 <script type="text/javascript">
-$('#spoiler_547b9292-ea1c-49f5-b734-07df684ae537').click(function() {
+$('#spoiler_9c29ef6e-4125-4f7a-a865-027619116b63').click(function() {
 	console.log('spid');
-	$('#spoiler_547b9292-ea1c-49f5-b734-07df684ae537').hide();
-	$('#code_547b9292-ea1c-49f5-b734-07df684ae537').show();
+	$('#spoiler_9c29ef6e-4125-4f7a-a865-027619116b63').hide();
+	$('#code_9c29ef6e-4125-4f7a-a865-027619116b63').show();
 });
-$('#code_547b9292-ea1c-49f5-b734-07df684ae537').click(function() {
+$('#code_9c29ef6e-4125-4f7a-a865-027619116b63').click(function() {
 	console.log('coid');
-	$('#spoiler_547b9292-ea1c-49f5-b734-07df684ae537').show()
-	$('#code_547b9292-ea1c-49f5-b734-07df684ae537').hide()
+	$('#spoiler_9c29ef6e-4125-4f7a-a865-027619116b63').show()
+	$('#code_9c29ef6e-4125-4f7a-a865-027619116b63').hide()
 });
 </script>
 </div>
@@ -12074,10 +12076,10 @@ $('#code_547b9292-ea1c-49f5-b734-07df684ae537').click(function() {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_35dff2eb-fc5a-44ab-a143-8cf14009f5e7"><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_42acb094-2618-4369-be92-ec5af38695d5"><div class="highlight hl-ipython3">
 	<span class="n">Show code</span>
 	</div>
-	</div><div class="input_area spoiler_code" id="code_35dff2eb-fc5a-44ab-a143-8cf14009f5e7" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+	</div><div class="input_area spoiler_code" id="code_42acb094-2618-4369-be92-ec5af38695d5" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">gamma</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -12103,15 +12105,15 @@ $('#code_547b9292-ea1c-49f5-b734-07df684ae537').click(function() {
 	</div>
 </div>
 <script type="text/javascript">
-$('#spoiler_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').click(function() {
+$('#spoiler_42acb094-2618-4369-be92-ec5af38695d5').click(function() {
 	console.log('spid');
-	$('#spoiler_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').hide();
-	$('#code_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').show();
+	$('#spoiler_42acb094-2618-4369-be92-ec5af38695d5').hide();
+	$('#code_42acb094-2618-4369-be92-ec5af38695d5').show();
 });
-$('#code_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').click(function() {
+$('#code_42acb094-2618-4369-be92-ec5af38695d5').click(function() {
 	console.log('coid');
-	$('#spoiler_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').show()
-	$('#code_35dff2eb-fc5a-44ab-a143-8cf14009f5e7').hide()
+	$('#spoiler_42acb094-2618-4369-be92-ec5af38695d5').show()
+	$('#code_42acb094-2618-4369-be92-ec5af38695d5').hide()
 });
 </script>
 </div>
@@ -12720,10 +12722,10 @@ bNolSZIkSRpRNu2SJEmSJI2o/wcNaMfQETQ/3AAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_09aa3a12-f474-44d5-a28d-89340d72d7fb"><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_634878a2-92e1-41ed-9088-397d208e07e4"><div class="highlight hl-ipython3">
 	<span class="n">Show code</span>
 	</div>
-	</div><div class="input_area spoiler_code" id="code_09aa3a12-f474-44d5-a28d-89340d72d7fb" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">loggamma</span>
+	</div><div class="input_area spoiler_code" id="code_634878a2-92e1-41ed-9088-397d208e07e4" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">loggamma</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">errs</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
@@ -12744,15 +12746,15 @@ bNolSZIkSRpRNu2SJEmSJI2o/wcNaMfQETQ/3AAAAABJRU5ErkJggg==
 	</div>
 </div>
 <script type="text/javascript">
-$('#spoiler_09aa3a12-f474-44d5-a28d-89340d72d7fb').click(function() {
+$('#spoiler_634878a2-92e1-41ed-9088-397d208e07e4').click(function() {
 	console.log('spid');
-	$('#spoiler_09aa3a12-f474-44d5-a28d-89340d72d7fb').hide();
-	$('#code_09aa3a12-f474-44d5-a28d-89340d72d7fb').show();
+	$('#spoiler_634878a2-92e1-41ed-9088-397d208e07e4').hide();
+	$('#code_634878a2-92e1-41ed-9088-397d208e07e4').show();
 });
-$('#code_09aa3a12-f474-44d5-a28d-89340d72d7fb').click(function() {
+$('#code_634878a2-92e1-41ed-9088-397d208e07e4').click(function() {
 	console.log('coid');
-	$('#spoiler_09aa3a12-f474-44d5-a28d-89340d72d7fb').show()
-	$('#code_09aa3a12-f474-44d5-a28d-89340d72d7fb').hide()
+	$('#spoiler_634878a2-92e1-41ed-9088-397d208e07e4').show()
+	$('#code_634878a2-92e1-41ed-9088-397d208e07e4').hide()
 });
 </script>
 </div>
@@ -13601,10 +13603,10 @@ $$
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_6328ed03-aafa-45cb-8d31-b16e8ccebd1b" hidden><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_26fe86fb-cc73-4413-a61b-2169ab1f2829" hidden><div class="highlight hl-ipython3">
 	<span class="n">Show code</span>
 	</div>
-	</div><div class="input_area spoiler_code" id="code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">diff1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+	</div><div class="input_area spoiler_code" id="code_26fe86fb-cc73-4413-a61b-2169ab1f2829"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">diff1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 
 <span class="k">def</span> <span class="nf">diff2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
@@ -13614,15 +13616,15 @@ $$
 	</div>
 </div>
 <script type="text/javascript">
-$('#spoiler_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').click(function() {
+$('#spoiler_26fe86fb-cc73-4413-a61b-2169ab1f2829').click(function() {
 	console.log('spid');
-	$('#spoiler_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').hide();
-	$('#code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').show();
+	$('#spoiler_26fe86fb-cc73-4413-a61b-2169ab1f2829').hide();
+	$('#code_26fe86fb-cc73-4413-a61b-2169ab1f2829').show();
 });
-$('#code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').click(function() {
+$('#code_26fe86fb-cc73-4413-a61b-2169ab1f2829').click(function() {
 	console.log('coid');
-	$('#spoiler_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').show()
-	$('#code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').hide()
+	$('#spoiler_26fe86fb-cc73-4413-a61b-2169ab1f2829').show()
+	$('#code_26fe86fb-cc73-4413-a61b-2169ab1f2829').hide()
 });
 </script>
 </div>
@@ -13631,10 +13633,10 @@ $('#code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').click(function() {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_773b1032-a658-4ca5-bee5-bf8804f3784d"><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_21e388ba-d94d-41ec-a773-253f6868e5ff"><div class="highlight hl-ipython3">
 	<span class="n">Show code</span>
 	</div>
-	</div><div class="input_area spoiler_code" id="code_773b1032-a658-4ca5-bee5-bf8804f3784d" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="n">hs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># h = 1e-16 ... 1</span>
+	</div><div class="input_area spoiler_code" id="code_21e388ba-d94d-41ec-a773-253f6868e5ff" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="n">hs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># h = 1e-16 ... 1</span>
 <span class="n">errs1</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">errs2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hs</span><span class="p">:</span>
@@ -13657,15 +13659,15 @@ $('#code_6328ed03-aafa-45cb-8d31-b16e8ccebd1b').click(function() {
 	</div>
 </div>
 <script type="text/javascript">
-$('#spoiler_773b1032-a658-4ca5-bee5-bf8804f3784d').click(function() {
+$('#spoiler_21e388ba-d94d-41ec-a773-253f6868e5ff').click(function() {
 	console.log('spid');
-	$('#spoiler_773b1032-a658-4ca5-bee5-bf8804f3784d').hide();
-	$('#code_773b1032-a658-4ca5-bee5-bf8804f3784d').show();
+	$('#spoiler_21e388ba-d94d-41ec-a773-253f6868e5ff').hide();
+	$('#code_21e388ba-d94d-41ec-a773-253f6868e5ff').show();
 });
-$('#code_773b1032-a658-4ca5-bee5-bf8804f3784d').click(function() {
+$('#code_21e388ba-d94d-41ec-a773-253f6868e5ff').click(function() {
 	console.log('coid');
-	$('#spoiler_773b1032-a658-4ca5-bee5-bf8804f3784d').show()
-	$('#code_773b1032-a658-4ca5-bee5-bf8804f3784d').hide()
+	$('#spoiler_21e388ba-d94d-41ec-a773-253f6868e5ff').show()
+	$('#code_21e388ba-d94d-41ec-a773-253f6868e5ff').hide()
 });
 </script>
 </div>
@@ -14775,8 +14777,8 @@ require(
       waitSeconds: 15
     },
     [
-      "//cdn.jsdelivr.net/reveal.js/3.0.0//lib/js/head.min.js",
-      "//cdn.jsdelivr.net/reveal.js/3.0.0//js/reveal.js"
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -14792,9 +14794,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "//cdn.jsdelivr.net/reveal.js/3.0.0//lib/js/classList.js",
+                { src: "reveal.js/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "//cdn.jsdelivr.net/reveal.js/3.0.0//plugin/notes/notes.js",
+                { src: "reveal.js/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
