@@ -16,7 +16,6 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="../reveal.js/css/reveal.css">
-<link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -12029,10 +12028,10 @@ $$</p>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_9767d081-3606-4ac8-9936-548e91dc28c2" hidden><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_9767d081-3606-4ac8-9936-548e91dc28c2"><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+   </div><div class="input_area spoiler_code" id="code_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f"><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="k">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">inv</span>
 
 <span class="k">def</span> <span class="nf">nu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
@@ -12049,13 +12048,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_9767d081-3606-4ac8-9936-548e91dc28c2').click(function() {
-   $('#spoiler_9767d081-3606-4ac8-9936-548e91dc28c2').hide();
-   $('#code_9767d081-3606-4ac8-9936-548e91dc28c2').show();
+$('#spoiler_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').click(function() {
+   $('#spoiler_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').hide();
+   $('#code_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').show();
 });
-$('#code_9767d081-3606-4ac8-9936-548e91dc28c2').click(function() {
-   $('#spoiler_9767d081-3606-4ac8-9936-548e91dc28c2').show()
-   $('#code_9767d081-3606-4ac8-9936-548e91dc28c2').hide()
+$('#code_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').click(function() {
+   $('#spoiler_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').show()
+   $('#code_c4e34eba-fb7f-45e2-8dca-63c46bff5a8f').hide()
 });
 </script>
 </div>
@@ -12100,10 +12099,10 @@ $$
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_76756d4d-f889-4eb3-9a88-11d9b8851dbe" hidden><div class="highlight hl-ipython3">
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_dcffa47f-f4db-421c-bfff-b73cd64f68df" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_76756d4d-f889-4eb3-9a88-11d9b8851dbe"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_dcffa47f-f4db-421c-bfff-b73cd64f68df"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">norm</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">kind</span><span class="p">)</span> <span class="o">*</span> <span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
 
 <span class="n">eps</span> <span class="o">=</span> <span class="mf">0.0001</span>
@@ -12116,13 +12115,13 @@ $$
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_76756d4d-f889-4eb3-9a88-11d9b8851dbe').click(function() {
-   $('#spoiler_76756d4d-f889-4eb3-9a88-11d9b8851dbe').hide();
-   $('#code_76756d4d-f889-4eb3-9a88-11d9b8851dbe').show();
+$('#spoiler_dcffa47f-f4db-421c-bfff-b73cd64f68df').click(function() {
+   $('#spoiler_dcffa47f-f4db-421c-bfff-b73cd64f68df').hide();
+   $('#code_dcffa47f-f4db-421c-bfff-b73cd64f68df').show();
 });
-$('#code_76756d4d-f889-4eb3-9a88-11d9b8851dbe').click(function() {
-   $('#spoiler_76756d4d-f889-4eb3-9a88-11d9b8851dbe').show()
-   $('#code_76756d4d-f889-4eb3-9a88-11d9b8851dbe').hide()
+$('#code_dcffa47f-f4db-421c-bfff-b73cd64f68df').click(function() {
+   $('#spoiler_dcffa47f-f4db-421c-bfff-b73cd64f68df').show()
+   $('#code_dcffa47f-f4db-421c-bfff-b73cd64f68df').hide()
 });
 </script>
 </div>

@@ -9,5 +9,5 @@ for path in jupyter-slides/*; do
 
 	jupyter-nbconvert --to slides jupyter-slides/$num-$name/$name.ipynb --reveal-prefix=../reveal.js --output `pwd`/$num/$name
 	find $path \( -not -name '*.ipynb' \) -type f -exec cp {} $num \;
-	echo '.prompt { display: none; }' >> $num/custom.css
+	echo '.prompt { display: none; }' > $num/custom.css
 done
