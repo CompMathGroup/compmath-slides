@@ -1,6 +1,13 @@
 #!/bin/bash
-fn=$(echo $1 | cut -f 2 -d '/' || $1)
-num=$(echo $fn | cut -f 1 -d '-')
-name=$(echo $fn | cut -f 2 -d '-')
+for path in jupyter-slides/*; do
+	fn=$(echo $path | cut -f 2 -d '/' || $1)
+	num=$(echo $fn | cut -f 1 -d '-')
+	name=$(echo $fn | cut -f 2 -d '-')
 
-jupyter-nbconvert --to slides jupyter-slides/$num-$name/$name.ipynb --reveal-prefix=../reveal.js --output `pwd`/$num/$name
+	echo "Processing #$num aka $name"
+	mkdir -p $num
+
+	jupyter-nbconvert --to slides jupyter-slides/$num-$name/$name.ipynb --reveal-prefix=../reveal.js --output `pwd`/$num/$name
+	find $path \( -not -name '*.ipynb' \) -type f -exec cp {} $num \;
+	echo '.prompt { display: none; }' >> $num/custom.css
+done
