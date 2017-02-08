@@ -11932,29 +11932,30 @@ $$</p>
 <tr>
 <td>$0$</td>
 <td>Прямоугольников</td>
-<td>$(b-a) f(a)$</td>
+<td>$(b-a) f(x_1)$</td>
 <td>$\frac{(b-a)^2}{2} f'(\xi)$</td>
 </tr>
 <tr>
 <td>$1$</td>
 <td>Трапеций</td>
-<td>$(b-a) \frac{f(a) + f(b)}{2}$</td>
+<td>$(b-a) \frac{f(x_1) + f(x_2)}{2}$</td>
 <td>$-\frac{(b-a)^3}{12} f''(\xi)$</td>
 </tr>
 <tr>
 <td>$2$</td>
 <td>Симпсона</td>
-<td>$(b-a) \frac{f(a) + 4f\big((a+b)/2\big) + f(b))}{6}$</td>
+<td>$(b-a) \frac{f(x_1) + 4f(x_2) + f(x_3))}{6}$</td>
 <td>$-\frac{(b-a)^5}{2880} f^{(4)}(\xi)$</td>
 </tr>
 <tr>
 <td>$3$</td>
 <td>Формула 3/8</td>
-<td>$(b-a) \frac{f(a) + 3f\big((2a+b)/3\big) + 3f\big((a+2b)/3\big) + f(b)}{8}$</td>
+<td>$(b-a) \frac{f(x_1) + 3f(x_2) + 3f(x_3) + f(x_4)}{8}$</td>
 <td>$-\frac{(b-a)^5}{6480} f^{(4)}(\xi)$</td>
 </tr>
 </tbody>
 </table>
+<p>Здесь $x_1, \dots, x_p$ &mdash; равномерная сетка на $[a,b]$.</p>
 
 </div>
 </div>
@@ -12094,11 +12095,11 @@ $$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[124]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_4e63fe84-d5e3-4e03-807f-6023bd71aa0f" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_08d4656d-f24a-49a2-8f9c-e6849a3c4572" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rectangle</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_08d4656d-f24a-49a2-8f9c-e6849a3c4572"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rectangle</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">h</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">trapezoid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
@@ -12118,13 +12119,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').click(function() {
-   $('#spoiler_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').hide();
-   $('#code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').show();
+$('#spoiler_08d4656d-f24a-49a2-8f9c-e6849a3c4572').click(function() {
+   $('#spoiler_08d4656d-f24a-49a2-8f9c-e6849a3c4572').hide();
+   $('#code_08d4656d-f24a-49a2-8f9c-e6849a3c4572').show();
 });
-$('#code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').click(function() {
-   $('#spoiler_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').show()
-   $('#code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').hide()
+$('#code_08d4656d-f24a-49a2-8f9c-e6849a3c4572').click(function() {
+   $('#spoiler_08d4656d-f24a-49a2-8f9c-e6849a3c4572').show()
+   $('#code_08d4656d-f24a-49a2-8f9c-e6849a3c4572').hide()
 });
 </script>
 </div>
@@ -12132,11 +12133,11 @@ $('#code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0ddcdefc-292b-4f67-9a1f-0a55e75371dd"><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0d6e41a3-21f0-4e61-a706-504858451621"><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_0ddcdefc-292b-4f67-9a1f-0a55e75371dd" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+   </div><div class="input_area spoiler_code" id="code_0d6e41a3-21f0-4e61-a706-504858451621" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;size&#39;</span> <span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
@@ -12173,13 +12174,13 @@ $('#code_4e63fe84-d5e3-4e03-807f-6023bd71aa0f').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').click(function() {
-   $('#spoiler_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').hide();
-   $('#code_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').show();
+$('#spoiler_0d6e41a3-21f0-4e61-a706-504858451621').click(function() {
+   $('#spoiler_0d6e41a3-21f0-4e61-a706-504858451621').hide();
+   $('#code_0d6e41a3-21f0-4e61-a706-504858451621').show();
 });
-$('#code_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').click(function() {
-   $('#spoiler_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').show()
-   $('#code_0ddcdefc-292b-4f67-9a1f-0a55e75371dd').hide()
+$('#code_0d6e41a3-21f0-4e61-a706-504858451621').click(function() {
+   $('#spoiler_0d6e41a3-21f0-4e61-a706-504858451621').show()
+   $('#code_0d6e41a3-21f0-4e61-a706-504858451621').hide()
 });
 </script>
 </div>
@@ -13004,7 +13005,8 @@ $$
 <p>В этом случае необходимо узлы взять в корнях многочленов $H_j(x)$, ортогональных с этим весом:
 $$
 \int_a^b H_i(x) H_j(x) \omega(x) = 0, \; i \neq j, \quad \deg H_j(x) = j, H_j(x) = x^j + \dots
-$$</p>
+$$
+Веса определяются по формуле $w_k = \int_a^b \ell_k(x) \omega(x) dx$.</p>
 
 </div>
 </div>
@@ -13073,11 +13075,11 @@ $$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_a7eaed75-f52d-496a-995b-8c73ce1e6015" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_79b65a1e-8e34-4c76-853a-0985c5bd915d" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_a7eaed75-f52d-496a-995b-8c73ce1e6015"><div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Интегрировать f(x) на отрезке [a,b] используя n вычислений f(x)</span>
+   </div><div class="input_area spoiler_code" id="code_79b65a1e-8e34-4c76-853a-0985c5bd915d"><div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Интегрировать f(x) на отрезке [a,b] используя n вычислений f(x)</span>
 <span class="k">def</span> <span class="nf">gauss2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
     <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
@@ -13092,13 +13094,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_a7eaed75-f52d-496a-995b-8c73ce1e6015').click(function() {
-   $('#spoiler_a7eaed75-f52d-496a-995b-8c73ce1e6015').hide();
-   $('#code_a7eaed75-f52d-496a-995b-8c73ce1e6015').show();
+$('#spoiler_79b65a1e-8e34-4c76-853a-0985c5bd915d').click(function() {
+   $('#spoiler_79b65a1e-8e34-4c76-853a-0985c5bd915d').hide();
+   $('#code_79b65a1e-8e34-4c76-853a-0985c5bd915d').show();
 });
-$('#code_a7eaed75-f52d-496a-995b-8c73ce1e6015').click(function() {
-   $('#spoiler_a7eaed75-f52d-496a-995b-8c73ce1e6015').show()
-   $('#code_a7eaed75-f52d-496a-995b-8c73ce1e6015').hide()
+$('#code_79b65a1e-8e34-4c76-853a-0985c5bd915d').click(function() {
+   $('#spoiler_79b65a1e-8e34-4c76-853a-0985c5bd915d').show()
+   $('#code_79b65a1e-8e34-4c76-853a-0985c5bd915d').hide()
 });
 </script>
 </div>
@@ -13106,11 +13108,11 @@ $('#code_a7eaed75-f52d-496a-995b-8c73ce1e6015').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_e0a10643-ec9f-47fa-b820-53b89c2ffe2e"><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_dca42c4a-f731-46cc-afe6-a059b354b869"><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_e0a10643-ec9f-47fa-b820-53b89c2ffe2e" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">4</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_dca42c4a-f731-46cc-afe6-a059b354b869" hidden><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">4</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="n">exact</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
 <span class="n">ns</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -13137,13 +13139,13 @@ $('#code_a7eaed75-f52d-496a-995b-8c73ce1e6015').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').click(function() {
-   $('#spoiler_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').hide();
-   $('#code_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').show();
+$('#spoiler_dca42c4a-f731-46cc-afe6-a059b354b869').click(function() {
+   $('#spoiler_dca42c4a-f731-46cc-afe6-a059b354b869').hide();
+   $('#code_dca42c4a-f731-46cc-afe6-a059b354b869').show();
 });
-$('#code_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').click(function() {
-   $('#spoiler_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').show()
-   $('#code_e0a10643-ec9f-47fa-b820-53b89c2ffe2e').hide()
+$('#code_dca42c4a-f731-46cc-afe6-a059b354b869').click(function() {
+   $('#spoiler_dca42c4a-f731-46cc-afe6-a059b354b869').show()
+   $('#code_dca42c4a-f731-46cc-afe6-a059b354b869').hide()
 });
 </script>
 </div>
@@ -13713,6 +13715,588 @@ AhUREREREUkcBSoiIiIiIpI4ClRERERERCRxFKiIiIiIiEji/H+ie/CIUNgbJQAAAABJRU5ErkJg
 gg==
 "
 >
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1072;&#1103;-&#1086;&#1094;&#1077;&#1085;&#1082;&#1072;-&#1087;&#1086;&#1075;&#1088;&#1077;&#1096;&#1085;&#1086;&#1089;&#1090;&#1080;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1072;&#1103; &#1086;&#1094;&#1077;&#1085;&#1082;&#1072; &#1087;&#1086;&#1075;&#1088;&#1077;&#1096;&#1085;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1072;&#1103;-&#1086;&#1094;&#1077;&#1085;&#1082;&#1072;-&#1087;&#1086;&#1075;&#1088;&#1077;&#1096;&#1085;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Не всегда на практике удается воспользоваться априорной оценкой вида
+$$
+\varepsilon \leqslant C M_p h^p,
+$$
+так как не всегда удается оценить $M_p$ для подынтегральной функции. В этом случае, обычно, пользуются правилом Рунге для определения подходящего шага $h$.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;-&#1056;&#1091;&#1085;&#1075;&#1077;">&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086; &#1056;&#1091;&#1085;&#1075;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;-&#1056;&#1091;&#1085;&#1075;&#1077;">&#182;</a></h3><p>Предположим, что нам известен порядок метода, которым мы хотим найти значение интеграла с заданной точностью $\varepsilon$. Тогда результат, вычисленный этим методом с шагом $h$ будет иметь вид
+$$
+I_h = I^* + \underbrace{C_1 h^p + C_2 h^{p+1} + \dots}_\text{ошибка интегрирования}.
+$$
+Здесь $I^*$ &mdash; точное значение интеграла. Для достаточно малых $h$ можно записать
+$$
+I_h = I^* + C_h h^p,
+$$
+где $C_h$ &mdash; почти константа, то есть слабо зависит от $h$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вычислим интеграл с шагом $h$ и с шагом $h/2$:
+$$
+I_h = I^* + C_1 h^p + C_2 h^{p+1} + \dots\\
+I_{h/2} = I^* + C_1 \left(\frac{h}{2}\right)^p + C_2 \left(\frac{h}{2}\right)^{p+1} + \dots
+$$
+Тогда
+$$
+I_h - I_{h/2} = C_h h^p - C_{h/2} \left(\frac{h}{2}\right)^p \approx (2^p - 1) C_{h/2} \left(\frac{h}{2}\right)^p = (2^p - 1) (I_{h/2} - I^*)\\
+\frac{2^p I_{h/2} - I_h}{2^p - 1} = I^* + O(h^{p+1})
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Таким образом, погрешность интегрирования на сетке $h/2$ может быть оценена как
+$$
+I_{h/2} - I^* \approx \frac{I_h - I_{h/2}}{2^p - 1}.
+$$
+Величина $$
+\frac{2^p I_{h/2} - I_h}{2^p -1} = I_{h/2} - \frac{I_h - I_{h/2}}{2^p - 1},
+$$
+называется экстраполяцией результата по Ричардсону и характеризуется тем, что приближает ответ $I^*$ с большим порядком $O(h^{p+1})$, чем исходный метод $O(h^p)$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;-&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1072;-&#1056;&#1091;&#1085;&#1075;&#1077;">&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1072; &#1056;&#1091;&#1085;&#1075;&#1077;<a class="anchor-link" href="#&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;-&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1072;-&#1056;&#1091;&#1085;&#1075;&#1077;">&#182;</a></h3><p>Алгоритм применения правила Ругне следующий:</p>
+<ol>
+<li>Задать небольшое число интевалов, скажем $n = 10$</li>
+<li>Вычислить $I_h, I_{h/2}$ и оценить ошибку
+$$
+\Delta_{h/2} = \frac{I_h - I_{h/2}}{2^p - 1}.
+$$</li>
+<li>Если $|\Delta_{h/2}| < \varepsilon$, прекратить вычисления. Иначе измельчить сетку вдвое $h := h/2$ и перейти к шагу 2.</li>
+<li>Ответом служит либо $I_{h/2}$, либо экстраполированное по Ричардсону значение $I_{h/2} - \Delta_{h/2}$.</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_6d450345-2f71-4089-8d62-379b95351a04" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_6d450345-2f71-4089-8d62-379b95351a04"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">runge</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="n">richardson</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">Ih</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">Ih_2</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+        <span class="n">Dh_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ih</span> <span class="o">-</span> <span class="n">Ih_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># p = 4 для Симпсона</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I(h) = </span><span class="si">%.16f</span><span class="s1">, err(h) = </span><span class="si">%.6e</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Ih_2</span><span class="p">,</span> <span class="n">Dh_2</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Dh_2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">Ih</span> <span class="o">=</span> <span class="n">Ih_2</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Too large n&#39;</span><span class="p">);</span> <span class="k">break</span>
+    <span class="k">return</span> <span class="n">Ih_2</span> <span class="o">-</span> <span class="n">Dh_2</span> <span class="k">if</span> <span class="n">richardson</span> <span class="k">else</span> <span class="n">Ih_2</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_6d450345-2f71-4089-8d62-379b95351a04').click(function() {
+   $('#spoiler_6d450345-2f71-4089-8d62-379b95351a04').hide();
+   $('#code_6d450345-2f71-4089-8d62-379b95351a04').show();
+});
+$('#code_6d450345-2f71-4089-8d62-379b95351a04').click(function() {
+   $('#spoiler_6d450345-2f71-4089-8d62-379b95351a04').show()
+   $('#code_6d450345-2f71-4089-8d62-379b95351a04').hide()
+});
+</script>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_55b93443-3a65-43d8-aed6-29e0bb842617" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_55b93443-3a65-43d8-aed6-29e0bb842617"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">runge</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_55b93443-3a65-43d8-aed6-29e0bb842617').click(function() {
+   $('#spoiler_55b93443-3a65-43d8-aed6-29e0bb842617').hide();
+   $('#code_55b93443-3a65-43d8-aed6-29e0bb842617').show();
+});
+$('#code_55b93443-3a65-43d8-aed6-29e0bb842617').click(function() {
+   $('#spoiler_55b93443-3a65-43d8-aed6-29e0bb842617').show()
+   $('#code_55b93443-3a65-43d8-aed6-29e0bb842617').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 0.4636479223346336, err(h) = 3.157185e-07
+I(h) = 0.4636476285453064, err(h) = 1.958596e-08
+I(h) = 0.4636476102217171, err(h) = 1.221573e-09
+I(h) = 0.4636476090771032, err(h) = 7.630759e-11
+I(h) = 0.4636476090055746, err(h) = 4.768578e-12
+I(h) = 0.4636476090011042, err(h) = 2.980246e-13
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.9809488211185453e-13</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;&#1099;">&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077; &#1087;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;&#1099;<a class="anchor-link" href="#&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;&#1099;">&#182;</a></h3><p>Правилом Рунге и экстраполяцией Ричардсона можно пользоваться лишь в том случае, когда вы можете гарантировать, что используемый численный метод интегрирования действительно имеет порядок $p$.</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_67e7fc99-72b1-4b77-aef0-392af9018048" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_67e7fc99-72b1-4b77-aef0-392af9018048"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">b</span><span class="o">**</span><span class="mf">1.5</span>
+
+<span class="n">runge</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_67e7fc99-72b1-4b77-aef0-392af9018048').click(function() {
+   $('#spoiler_67e7fc99-72b1-4b77-aef0-392af9018048').hide();
+   $('#code_67e7fc99-72b1-4b77-aef0-392af9018048').show();
+});
+$('#code_67e7fc99-72b1-4b77-aef0-392af9018048').click(function() {
+   $('#spoiler_67e7fc99-72b1-4b77-aef0-392af9018048').show()
+   $('#code_67e7fc99-72b1-4b77-aef0-392af9018048').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 5.3046342406801887, err(h) = -3.494941e-03
+I(h) = 5.3231855090252225, err(h) = -1.236751e-03
+I(h) = 5.3297454619694369, err(h) = -4.373302e-04
+I(h) = 5.3320648246268956, err(h) = -1.546242e-04
+I(h) = 5.3328848474901243, err(h) = -5.466819e-05
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.00044848584320877904</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1080;">&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1080;<a class="anchor-link" href="#&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1080;">&#182;</a></h3><p>Для проверки корректности использования правила Рунге достаточно проверять условия</p>
+<ul>
+<li>что метод фактически сходится с порядком $p$,
+$$
+\frac{\Delta_{h}}{\Delta_{h/2}} \approx 2^p
+$$</li>
+<li>что константа $C_h$ слабо зависит от $h$:
+$$
+C_h = \frac{\Delta_h}{h^p} \to C = \mathrm{const}
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_07c9c7a9-e409-4bcb-b453-45375a10deb3" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_07c9c7a9-e409-4bcb-b453-45375a10deb3"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">runge_checks</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="n">richardson</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">Ih</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">Dh</span> <span class="o">=</span> <span class="kc">None</span><span class="p">;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">h_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">Ih_2</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">h_2</span><span class="p">)</span>
+        <span class="n">Dh_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ih</span> <span class="o">-</span> <span class="n">Ih_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># p = 4 для Симпсона</span>
+        <span class="n">Ch_2</span> <span class="o">=</span> <span class="n">Dh_2</span> <span class="o">/</span> <span class="n">h_2</span><span class="o">**</span><span class="mi">4</span><span class="p">;</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">Dh</span> <span class="o">/</span> <span class="n">Dh_2</span><span class="p">)</span> <span class="k">if</span> <span class="n">Dh</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I(h) = </span><span class="si">%.16f</span><span class="s1">, err(h) = </span><span class="si">%.6e</span><span class="s1">, p* = </span><span class="si">%4.2f</span><span class="s1">, C = </span><span class="si">%.6e</span><span class="s1">&#39;</span> <span class="o">%</span> \
+              <span class="p">(</span><span class="n">Ih_2</span><span class="p">,</span> <span class="n">Dh_2</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">Ch_2</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Dh_2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">Ih</span> <span class="o">=</span> <span class="n">Ih_2</span><span class="p">;</span> <span class="n">Dh</span> <span class="o">=</span> <span class="n">Dh_2</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Too large n&#39;</span><span class="p">);</span> <span class="k">break</span>
+    <span class="k">return</span> <span class="n">Ih_2</span> <span class="o">-</span> <span class="n">Dh_2</span> <span class="k">if</span> <span class="n">richardson</span> <span class="k">else</span> <span class="n">Ih_2</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_07c9c7a9-e409-4bcb-b453-45375a10deb3').click(function() {
+   $('#spoiler_07c9c7a9-e409-4bcb-b453-45375a10deb3').hide();
+   $('#code_07c9c7a9-e409-4bcb-b453-45375a10deb3').show();
+});
+$('#code_07c9c7a9-e409-4bcb-b453-45375a10deb3').click(function() {
+   $('#spoiler_07c9c7a9-e409-4bcb-b453-45375a10deb3').show()
+   $('#code_07c9c7a9-e409-4bcb-b453-45375a10deb3').hide()
+});
+</script>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_ceeb001c-caea-442a-b4a6-158a6789c7c9" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_ceeb001c-caea-442a-b4a6-158a6789c7c9"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">runge_checks</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_ceeb001c-caea-442a-b4a6-158a6789c7c9').click(function() {
+   $('#spoiler_ceeb001c-caea-442a-b4a6-158a6789c7c9').hide();
+   $('#code_ceeb001c-caea-442a-b4a6-158a6789c7c9').show();
+});
+$('#code_ceeb001c-caea-442a-b4a6-158a6789c7c9').click(function() {
+   $('#spoiler_ceeb001c-caea-442a-b4a6-158a6789c7c9').show()
+   $('#code_ceeb001c-caea-442a-b4a6-158a6789c7c9').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 0.4636479223346336, err(h) = 3.157185e-07, p* =  nan, C = 2.069093e-02
+I(h) = 0.4636476285453064, err(h) = 1.958596e-08, p* = 4.01, C = 2.053736e-02
+I(h) = 0.4636476102217171, err(h) = 1.221573e-09, p* = 4.00, C = 2.049459e-02
+I(h) = 0.4636476090771032, err(h) = 7.630759e-11, p* = 4.00, C = 2.048366e-02
+I(h) = 0.4636476090055746, err(h) = 4.768578e-12, p* = 4.00, C = 2.048089e-02
+I(h) = 0.4636476090011042, err(h) = 2.980246e-13, p* = 4.00, C = 2.048009e-02
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[79]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.9809488211185453e-13</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_ca0597dd-124b-4cce-9ff5-35a267af7369" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_ca0597dd-124b-4cce-9ff5-35a267af7369"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">b</span><span class="o">**</span><span class="mf">1.5</span>
+
+<span class="n">runge_checks</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_ca0597dd-124b-4cce-9ff5-35a267af7369').click(function() {
+   $('#spoiler_ca0597dd-124b-4cce-9ff5-35a267af7369').hide();
+   $('#code_ca0597dd-124b-4cce-9ff5-35a267af7369').show();
+});
+$('#code_ca0597dd-124b-4cce-9ff5-35a267af7369').click(function() {
+   $('#spoiler_ca0597dd-124b-4cce-9ff5-35a267af7369').show()
+   $('#code_ca0597dd-124b-4cce-9ff5-35a267af7369').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 5.3046342406801887, err(h) = -3.494941e-03, p* =  nan, C = -5.591906e-02
+I(h) = 5.3231855090252225, err(h) = -1.236751e-03, p* = 1.50, C = -3.166083e-01
+I(h) = 5.3297454619694369, err(h) = -4.373302e-04, p* = 1.50, C = -1.791304e+00
+I(h) = 5.3320648246268956, err(h) = -1.546242e-04, p* = 1.50, C = -1.013345e+01
+I(h) = 5.3328848474901243, err(h) = -5.466819e-05, p* = 1.50, C = -5.732375e+01
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[80]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.00044848584320877904</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1053;&#1077;&#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077;-&#1080;&#1085;&#1090;&#1077;&#1075;&#1088;&#1072;&#1083;&#1099;">&#1053;&#1077;&#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1080;&#1085;&#1090;&#1077;&#1075;&#1088;&#1072;&#1083;&#1099;<a class="anchor-link" href="#&#1053;&#1077;&#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077;-&#1080;&#1085;&#1090;&#1077;&#1075;&#1088;&#1072;&#1083;&#1099;">&#182;</a></h3><p>Рассмотрим случай несобственного интеграла
+$$
+\int_a^b f(x) dx,
+$$
+у которого в точке $a$ функция обращается в бесконечность. При этом отрезок $[a,b]$ остается конечным, и других особых точек у $f(x)$ нет. Любой несобственный интеграл можно свести к такой постановке заменой переменных и разбиением отрезка на участки с одной особенностью.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1056;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;">&#1056;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;<a class="anchor-link" href="#&#1056;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;">&#182;</a></h3><p>Разобъем подынтегральную функцию $f(x)$, на часть $\varphi(x)$, содержащую особенность, и часть $R(x) = f(x) - \varphi(x)$, в которой особенности нет.
+$$
+\int_a^b f(x) dx = \int_a^b \varphi(x) dx + \int_a^b R(x) dx
+$$
+Выберем простую функцию $\varphi(x)$, так, чтобы первый интеграл вычислялся аналитически. Ко второму применим правило Рунге. Рассмотрим на примере
+$$
+\int_0^{\pi/2} \frac{\sqrt{x} dx}{\sin x} \approx 2.75314193394808172860366757084
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0f701161-e0d6-4e30-bb43-132aa509bf15" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_0f701161-e0d6-4e30-bb43-132aa509bf15"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="mf">2.75314193394808172860366757084</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">runge_checks</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">14</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_0f701161-e0d6-4e30-bb43-132aa509bf15').click(function() {
+   $('#spoiler_0f701161-e0d6-4e30-bb43-132aa509bf15').hide();
+   $('#code_0f701161-e0d6-4e30-bb43-132aa509bf15').show();
+});
+$('#code_0f701161-e0d6-4e30-bb43-132aa509bf15').click(function() {
+   $('#spoiler_0f701161-e0d6-4e30-bb43-132aa509bf15').show()
+   $('#code_0f701161-e0d6-4e30-bb43-132aa509bf15').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 0.2465669562957238, err(h) = 2.423191e-05, p* =  nan, C = 1.630302e-02
+I(h) = 0.2465215993654357, err(h) = 3.023795e-06, p* = 3.00, C = 3.255014e-02
+I(h) = 0.2465149658115324, err(h) = 4.422369e-07, p* = 2.77, C = 7.616850e-02
+I(h) = 0.2465138841057180, err(h) = 7.211372e-08, p* = 2.62, C = 1.987276e-01
+I(h) = 0.2465136986662544, err(h) = 1.236263e-08, p* = 2.54, C = 5.450938e-01
+I(h) = 0.2465136662487450, err(h) = 2.161167e-09, p* = 2.52, C = 1.524645e+00
+I(h) = 0.2465136605409121, err(h) = 3.805222e-10, p* = 2.51, C = 4.295170e+00
+I(h) = 0.2465136595333304, err(h) = 6.717212e-11, p* = 2.50, C = 1.213136e+01
+I(h) = 0.2465136593553030, err(h) = 1.186850e-11, p* = 2.50, C = 3.429541e+01
+I(h) = 0.2465136593238377, err(h) = 2.097687e-12, p* = 2.50, C = 9.698419e+01
+I(h) = 0.2465136593182757, err(h) = 3.707997e-13, p* = 2.50, C = 2.742961e+02
+I(h) = 0.2465136593172924, err(h) = 6.555127e-14, p* = 2.50, C = 7.758564e+02
+Too large n
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[81]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.1083135237631723e-13</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1053;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086;&#1077;-&#1074;&#1099;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080;">&#1053;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086;&#1077; &#1074;&#1099;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1053;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086;&#1077;-&#1074;&#1099;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Хотя $R(x)$ теперь и не содержит особенности, она еще недостаточно регулярна для применения к ней метода Симпсона. Для него требуется, чтобы $R(x)$ имела ограниченную четвертую производную.</p>
+$$
+\frac{\sqrt{x}}{\sin x} = \color{red}{\frac{1}{\sqrt{x}}+\frac{x^{3/2}}{6}+\frac{7 x^{7/2}}{360}}+\frac{31x^{11/2}}{15120}+O\left(x^{15/2}\right)
+$$<p>Все слагаемые, отмеченные красным, имеют неограниченную вторую производную, и все они должны быть вынесены в $\varphi(x)$.</p>
+$$
+\varphi(x) = \frac{1}{\sqrt{x}}+\frac{x^{3/2}}{6}+\frac{7 x^{7/2}}{360}, \quad
+R(x) = \begin{cases}\frac{\sqrt{x}}{\sin x} - \varphi(x), &x > 0\\
+0, & x = 0\end{cases}
+$$
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_4ff8f61a-6936-4b26-a502-e4b38c09d5ef" hidden><div class="highlight hl-ipython3">
+   <span class="n">Show code</span>
+   </div>
+   </div><div class="input_area spoiler_code" id="code_4ff8f61a-6936-4b26-a502-e4b38c09d5ef"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mf">1.5</span><span class="o">/</span><span class="mf">6.</span> <span class="o">+</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mf">3.5</span><span class="p">)</span><span class="o">/</span><span class="mf">360.</span>
+<span class="n">exphi</span> <span class="o">=</span> <span class="mf">2.7457604543273544586</span> <span class="c1"># Вычисляется аналитически</span>
+
+<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">-</span> <span class="n">phi</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">exact</span> <span class="o">=</span> <span class="mf">2.75314193394808172860366757084</span> <span class="o">-</span> <span class="n">exphi</span>
+
+<span class="n">runge_checks</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">14</span><span class="p">)</span> <span class="o">-</span> <span class="n">exact</span>
+</pre></div>
+
+   </div>
+</div>
+<script type="text/javascript">
+$('#spoiler_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').click(function() {
+   $('#spoiler_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').hide();
+   $('#code_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').show();
+});
+$('#code_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').click(function() {
+   $('#spoiler_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').show()
+   $('#code_4ff8f61a-6936-4b26-a502-e4b38c09d5ef').hide()
+});
+</script>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I(h) = 0.0073926725777687, err(h) = 9.908375e-06, p* =  nan, C = 6.666270e-03
+I(h) = 0.0073822021936242, err(h) = 6.980256e-07, p* = 3.83, C = 7.514010e-03
+I(h) = 0.0073815251641254, err(h) = 4.513530e-08, p* = 3.95, C = 7.773860e-03
+I(h) = 0.0073814824732734, err(h) = 2.846057e-09, p* = 3.99, C = 7.843031e-03
+I(h) = 0.0073814797991069, err(h) = 1.782778e-10, p* = 4.00, C = 7.860634e-03
+I(h) = 0.0073814796318775, err(h) = 1.114863e-11, p* = 4.00, C = 7.865056e-03
+I(h) = 0.0073814796214242, err(h) = 6.968866e-13, p* = 4.00, C = 7.866155e-03
+I(h) = 0.0073814796207708, err(h) = 4.355775e-14, p* = 4.00, C = 7.866576e-03
+I(h) = 0.0073814796207300, err(h) = 2.721897e-15, p* = 4.00, C = 7.865240e-03
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[82]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.787700625894729e-15</pre>
 </div>
 
 </div>
