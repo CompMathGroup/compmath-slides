@@ -11854,11 +11854,11 @@ $$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_9b86a1df-3a38-4d93-b29b-85b0716883c8" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877"><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+   </div><div class="input_area spoiler_code" id="code_9b86a1df-3a38-4d93-b29b-85b0716883c8"><div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># Вычисляет правую часть системы ОДУ</span>
 <span class="c1"># du/dt = aren(t, u)</span>
 <span class="k">def</span> <span class="nf">aren</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
@@ -11877,13 +11877,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').click(function() {
-   $('#spoiler_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').hide();
-   $('#code_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').show();
+$('#spoiler_9b86a1df-3a38-4d93-b29b-85b0716883c8').click(function() {
+   $('#spoiler_9b86a1df-3a38-4d93-b29b-85b0716883c8').hide();
+   $('#code_9b86a1df-3a38-4d93-b29b-85b0716883c8').show();
 });
-$('#code_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').click(function() {
-   $('#spoiler_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').show()
-   $('#code_81d39f51-2a3f-4fb2-8e2f-6dd5736b6877').hide()
+$('#code_9b86a1df-3a38-4d93-b29b-85b0716883c8').click(function() {
+   $('#spoiler_9b86a1df-3a38-4d93-b29b-85b0716883c8').show()
+   $('#code_9b86a1df-3a38-4d93-b29b-85b0716883c8').hide()
 });
 </script>
 </div>
@@ -11927,11 +11927,11 @@ $$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_72b450a2-53c0-48f3-b9e1-7dfbed601705" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_61f9d834-6d83-4a0d-9cfd-07bc8a6314da" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_72b450a2-53c0-48f3-b9e1-7dfbed601705"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_61f9d834-6d83-4a0d-9cfd-07bc8a6314da"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
     <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">u</span> <span class="o">+</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">k1</span>
 <span class="n">euler</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">euler</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Явный метод Эйлера&#39;</span>
@@ -11954,13 +11954,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_72b450a2-53c0-48f3-b9e1-7dfbed601705').click(function() {
-   $('#spoiler_72b450a2-53c0-48f3-b9e1-7dfbed601705').hide();
-   $('#code_72b450a2-53c0-48f3-b9e1-7dfbed601705').show();
+$('#spoiler_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').click(function() {
+   $('#spoiler_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').hide();
+   $('#code_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').show();
 });
-$('#code_72b450a2-53c0-48f3-b9e1-7dfbed601705').click(function() {
-   $('#spoiler_72b450a2-53c0-48f3-b9e1-7dfbed601705').show()
-   $('#code_72b450a2-53c0-48f3-b9e1-7dfbed601705').hide()
+$('#code_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').click(function() {
+   $('#spoiler_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').show()
+   $('#code_61f9d834-6d83-4a0d-9cfd-07bc8a6314da').hide()
 });
 </script>
 </div>
@@ -11968,11 +11968,11 @@ $('#code_72b450a2-53c0-48f3-b9e1-7dfbed601705').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_b18e885d-3fba-47b8-b481-0268f783afc7" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_478d15f3-c66f-4287-bf58-37667e4f9f26" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_b18e885d-3fba-47b8-b481-0268f783afc7"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fixed_stepsize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_478d15f3-c66f-4287-bf58-37667e4f9f26"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fixed_stepsize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">y0</span>
     <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">name</span>
@@ -11990,13 +11990,13 @@ $('#code_72b450a2-53c0-48f3-b9e1-7dfbed601705').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_b18e885d-3fba-47b8-b481-0268f783afc7').click(function() {
-   $('#spoiler_b18e885d-3fba-47b8-b481-0268f783afc7').hide();
-   $('#code_b18e885d-3fba-47b8-b481-0268f783afc7').show();
+$('#spoiler_478d15f3-c66f-4287-bf58-37667e4f9f26').click(function() {
+   $('#spoiler_478d15f3-c66f-4287-bf58-37667e4f9f26').hide();
+   $('#code_478d15f3-c66f-4287-bf58-37667e4f9f26').show();
 });
-$('#code_b18e885d-3fba-47b8-b481-0268f783afc7').click(function() {
-   $('#spoiler_b18e885d-3fba-47b8-b481-0268f783afc7').show()
-   $('#code_b18e885d-3fba-47b8-b481-0268f783afc7').hide()
+$('#code_478d15f3-c66f-4287-bf58-37667e4f9f26').click(function() {
+   $('#spoiler_478d15f3-c66f-4287-bf58-37667e4f9f26').show()
+   $('#code_478d15f3-c66f-4287-bf58-37667e4f9f26').hide()
 });
 </script>
 </div>
@@ -12015,11 +12015,11 @@ $('#code_b18e885d-3fba-47b8-b481-0268f783afc7').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_a36a23f1-d9d3-4086-b301-0a5b0b37fc45" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">adaptive_stepsize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_a36a23f1-d9d3-4086-b301-0a5b0b37fc45"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">adaptive_stepsize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">y0</span>
     <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">order</span><span class="p">;</span> <span class="n">name</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">name</span>
@@ -12045,13 +12045,13 @@ $('#code_b18e885d-3fba-47b8-b481-0268f783afc7').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').click(function() {
-   $('#spoiler_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').hide();
-   $('#code_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').show();
+$('#spoiler_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').click(function() {
+   $('#spoiler_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').hide();
+   $('#code_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').show();
 });
-$('#code_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').click(function() {
-   $('#spoiler_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').show()
-   $('#code_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').hide()
+$('#code_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').click(function() {
+   $('#spoiler_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').show()
+   $('#code_a36a23f1-d9d3-4086-b301-0a5b0b37fc45').hide()
 });
 </script>
 </div>
@@ -12059,24 +12059,24 @@ $('#code_9dce59ab-8bc9-4363-a5bb-9b3f1f7fa1dc').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_f6ebdf8f-38b5-4369-b799-355f04103ab7" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_dbb637c1-2d3d-4a4f-b844-62ff661ea63a" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_f6ebdf8f-38b5-4369-b799-355f04103ab7"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_dbb637c1-2d3d-4a4f-b844-62ff661ea63a"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">orbit_plot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Отмечаем точкой каждый 20й шаг</span>
 </pre></div>
 
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_f6ebdf8f-38b5-4369-b799-355f04103ab7').click(function() {
-   $('#spoiler_f6ebdf8f-38b5-4369-b799-355f04103ab7').hide();
-   $('#code_f6ebdf8f-38b5-4369-b799-355f04103ab7').show();
+$('#spoiler_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').click(function() {
+   $('#spoiler_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').hide();
+   $('#code_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').show();
 });
-$('#code_f6ebdf8f-38b5-4369-b799-355f04103ab7').click(function() {
-   $('#spoiler_f6ebdf8f-38b5-4369-b799-355f04103ab7').show()
-   $('#code_f6ebdf8f-38b5-4369-b799-355f04103ab7').hide()
+$('#code_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').click(function() {
+   $('#spoiler_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').show()
+   $('#code_dbb637c1-2d3d-4a4f-b844-62ff661ea63a').hide()
 });
 </script>
 </div>
@@ -12595,24 +12595,24 @@ RU5ErkJggg==
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0d51984b-0d72-48a8-9c57-09d8769bb498" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_312b6e36-e072-4f01-908c-5621c3912b96" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_0d51984b-0d72-48a8-9c57-09d8769bb498"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_312b6e36-e072-4f01-908c-5621c3912b96"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">orbit_plot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Отмечаем точкой каждый 5й шаг</span>
 </pre></div>
 
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_0d51984b-0d72-48a8-9c57-09d8769bb498').click(function() {
-   $('#spoiler_0d51984b-0d72-48a8-9c57-09d8769bb498').hide();
-   $('#code_0d51984b-0d72-48a8-9c57-09d8769bb498').show();
+$('#spoiler_312b6e36-e072-4f01-908c-5621c3912b96').click(function() {
+   $('#spoiler_312b6e36-e072-4f01-908c-5621c3912b96').hide();
+   $('#code_312b6e36-e072-4f01-908c-5621c3912b96').show();
 });
-$('#code_0d51984b-0d72-48a8-9c57-09d8769bb498').click(function() {
-   $('#spoiler_0d51984b-0d72-48a8-9c57-09d8769bb498').show()
-   $('#code_0d51984b-0d72-48a8-9c57-09d8769bb498').hide()
+$('#code_312b6e36-e072-4f01-908c-5621c3912b96').click(function() {
+   $('#spoiler_312b6e36-e072-4f01-908c-5621c3912b96').show()
+   $('#code_312b6e36-e072-4f01-908c-5621c3912b96').hide()
 });
 </script>
 </div>
@@ -13150,24 +13150,24 @@ E9S5ERERERGRTFDnRkREREREMkGdGxERERERyYT/D1qUaVPyVws/AAAAAElFTkSuQmCC
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_25b23484-26c1-4883-a6da-206fdf6ba67b" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_93277c2c-8c21-45e9-8f11-aa67365764a7" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_25b23484-26c1-4883-a6da-206fdf6ba67b"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">rk4</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_93277c2c-8c21-45e9-8f11-aa67365764a7"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">rk4</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">orbit_plot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Отмечаем точкой каждый шаг</span>
 </pre></div>
 
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_25b23484-26c1-4883-a6da-206fdf6ba67b').click(function() {
-   $('#spoiler_25b23484-26c1-4883-a6da-206fdf6ba67b').hide();
-   $('#code_25b23484-26c1-4883-a6da-206fdf6ba67b').show();
+$('#spoiler_93277c2c-8c21-45e9-8f11-aa67365764a7').click(function() {
+   $('#spoiler_93277c2c-8c21-45e9-8f11-aa67365764a7').hide();
+   $('#code_93277c2c-8c21-45e9-8f11-aa67365764a7').show();
 });
-$('#code_25b23484-26c1-4883-a6da-206fdf6ba67b').click(function() {
-   $('#spoiler_25b23484-26c1-4883-a6da-206fdf6ba67b').show()
-   $('#code_25b23484-26c1-4883-a6da-206fdf6ba67b').hide()
+$('#code_93277c2c-8c21-45e9-8f11-aa67365764a7').click(function() {
+   $('#spoiler_93277c2c-8c21-45e9-8f11-aa67365764a7').show()
+   $('#code_93277c2c-8c21-45e9-8f11-aa67365764a7').hide()
 });
 </script>
 </div>
@@ -13701,24 +13701,24 @@ AAAAAElFTkSuQmCC
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_781de57f-93ff-4285-9e4e-a95c9325710c" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_781de57f-93ff-4285-9e4e-a95c9325710c"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">rk4</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="o">/</span><span class="mi">5000</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">aren</span><span class="p">,</span> <span class="n">aren_init</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="p">,</span> <span class="n">rk4</span><span class="p">,</span> <span class="n">aren_tmax</span><span class="o">/</span><span class="mi">5000</span><span class="p">)</span>
 <span class="n">orbit_plot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># Отмечаем точкой каждый 50й шаг</span>
 </pre></div>
 
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_781de57f-93ff-4285-9e4e-a95c9325710c').click(function() {
-   $('#spoiler_781de57f-93ff-4285-9e4e-a95c9325710c').hide();
-   $('#code_781de57f-93ff-4285-9e4e-a95c9325710c').show();
+$('#spoiler_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').click(function() {
+   $('#spoiler_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').hide();
+   $('#code_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').show();
 });
-$('#code_781de57f-93ff-4285-9e4e-a95c9325710c').click(function() {
-   $('#spoiler_781de57f-93ff-4285-9e4e-a95c9325710c').show()
-   $('#code_781de57f-93ff-4285-9e4e-a95c9325710c').hide()
+$('#code_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').click(function() {
+   $('#spoiler_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').show()
+   $('#code_7b6c47cc-c7a2-4af6-8941-3ef2b87f309a').hide()
 });
 </script>
 </div>
@@ -14227,11 +14227,11 @@ $$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_7e65729b-98b0-47de-aa5c-43cb17d7ad8f" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0362742e-6255-4f1e-acef-317c9124d9ce" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chem</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_0362742e-6255-4f1e-acef-317c9124d9ce"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chem</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">u</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">30</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="o">*</span><span class="n">y</span><span class="p">])</span>
 
@@ -14242,13 +14242,13 @@ $$</p>
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').click(function() {
-   $('#spoiler_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').hide();
-   $('#code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').show();
+$('#spoiler_0362742e-6255-4f1e-acef-317c9124d9ce').click(function() {
+   $('#spoiler_0362742e-6255-4f1e-acef-317c9124d9ce').hide();
+   $('#code_0362742e-6255-4f1e-acef-317c9124d9ce').show();
 });
-$('#code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').click(function() {
-   $('#spoiler_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').show()
-   $('#code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').hide()
+$('#code_0362742e-6255-4f1e-acef-317c9124d9ce').click(function() {
+   $('#spoiler_0362742e-6255-4f1e-acef-317c9124d9ce').show()
+   $('#code_0362742e-6255-4f1e-acef-317c9124d9ce').hide()
 });
 </script>
 </div>
@@ -14256,11 +14256,11 @@ $('#code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_e1d03672-dd7a-4064-8a96-7a73cf2243a5" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_bebc5691-414b-45e7-bb6e-91b8d42152d9" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_e1d03672-dd7a-4064-8a96-7a73cf2243a5"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_bebc5691-414b-45e7-bb6e-91b8d42152d9"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">T2</span><span class="p">,</span> <span class="n">Y2</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">:</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> 
@@ -14271,13 +14271,13 @@ $('#code_7e65729b-98b0-47de-aa5c-43cb17d7ad8f').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_e1d03672-dd7a-4064-8a96-7a73cf2243a5').click(function() {
-   $('#spoiler_e1d03672-dd7a-4064-8a96-7a73cf2243a5').hide();
-   $('#code_e1d03672-dd7a-4064-8a96-7a73cf2243a5').show();
+$('#spoiler_bebc5691-414b-45e7-bb6e-91b8d42152d9').click(function() {
+   $('#spoiler_bebc5691-414b-45e7-bb6e-91b8d42152d9').hide();
+   $('#code_bebc5691-414b-45e7-bb6e-91b8d42152d9').show();
 });
-$('#code_e1d03672-dd7a-4064-8a96-7a73cf2243a5').click(function() {
-   $('#spoiler_e1d03672-dd7a-4064-8a96-7a73cf2243a5').show()
-   $('#code_e1d03672-dd7a-4064-8a96-7a73cf2243a5').hide()
+$('#code_bebc5691-414b-45e7-bb6e-91b8d42152d9').click(function() {
+   $('#spoiler_bebc5691-414b-45e7-bb6e-91b8d42152d9').show()
+   $('#code_bebc5691-414b-45e7-bb6e-91b8d42152d9').hide()
 });
 </script>
 </div>
@@ -14649,11 +14649,11 @@ jIiIiIiI5B0lMiIiIiIiknf+H92neD1NzxB1AAAAAElFTkSuQmCC
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_cf5ec87e-8144-49aa-8a96-3ca71f12d819" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_d153b50f-91d9-4f85-87a1-d97dce44eeea" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_cf5ec87e-8144-49aa-8a96-3ca71f12d819"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T1</span><span class="p">,</span> <span class="n">Y1</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_d153b50f-91d9-4f85-87a1-d97dce44eeea"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T1</span><span class="p">,</span> <span class="n">Y1</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">T2</span><span class="p">,</span> <span class="n">Y2</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">Y1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">chem_tmax</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">euler</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">Y1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T2</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Y2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
@@ -14664,13 +14664,13 @@ jIiIiIiI5B0lMiIiIiIiknf+H92neD1NzxB1AAAAAElFTkSuQmCC
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_cf5ec87e-8144-49aa-8a96-3ca71f12d819').click(function() {
-   $('#spoiler_cf5ec87e-8144-49aa-8a96-3ca71f12d819').hide();
-   $('#code_cf5ec87e-8144-49aa-8a96-3ca71f12d819').show();
+$('#spoiler_d153b50f-91d9-4f85-87a1-d97dce44eeea').click(function() {
+   $('#spoiler_d153b50f-91d9-4f85-87a1-d97dce44eeea').hide();
+   $('#code_d153b50f-91d9-4f85-87a1-d97dce44eeea').show();
 });
-$('#code_cf5ec87e-8144-49aa-8a96-3ca71f12d819').click(function() {
-   $('#spoiler_cf5ec87e-8144-49aa-8a96-3ca71f12d819').show()
-   $('#code_cf5ec87e-8144-49aa-8a96-3ca71f12d819').hide()
+$('#code_d153b50f-91d9-4f85-87a1-d97dce44eeea').click(function() {
+   $('#spoiler_d153b50f-91d9-4f85-87a1-d97dce44eeea').show()
+   $('#code_d153b50f-91d9-4f85-87a1-d97dce44eeea').hide()
 });
 </script>
 </div>
@@ -15031,12 +15031,12 @@ JnH0OWow4vUAAAAASUVORK5CYII=
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_b5d83585-f5ad-4526-a835-6d0c62ff3a3c" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_f0caf4ad-139b-4c4d-8e12-c5a755783b2a" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">dFdx</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+   </div><div class="input_area spoiler_code" id="code_f0caf4ad-139b-4c4d-8e12-c5a755783b2a"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">dFdx</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
         <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">dFdx</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="n">x</span> <span class="o">-=</span> <span class="n">dx</span>
@@ -15049,13 +15049,13 @@ JnH0OWow4vUAAAAASUVORK5CYII=
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').click(function() {
-   $('#spoiler_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').hide();
-   $('#code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').show();
+$('#spoiler_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').click(function() {
+   $('#spoiler_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').hide();
+   $('#code_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').show();
 });
-$('#code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').click(function() {
-   $('#spoiler_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').show()
-   $('#code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').hide()
+$('#code_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').click(function() {
+   $('#spoiler_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').show()
+   $('#code_f0caf4ad-139b-4c4d-8e12-c5a755783b2a').hide()
 });
 </script>
 </div>
@@ -15063,11 +15063,11 @@ $('#code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_572ede41-0709-42fc-8a70-9e47de4739df" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0eeb7a08-7f42-4261-89b7-9f40946df207" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_572ede41-0709-42fc-8a70-9e47de4739df"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">imeuler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+   </div><div class="input_area spoiler_code" id="code_0eeb7a08-7f42-4261-89b7-9f40946df207"><div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">imeuler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
     <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
     <span class="n">k1</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span>
         <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">k</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="n">u</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k</span><span class="p">),</span> <span class="c1"># Уравнение k-f(t+h,u+h*k) = 0</span>
@@ -15089,13 +15089,13 @@ $('#code_b5d83585-f5ad-4526-a835-6d0c62ff3a3c').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_572ede41-0709-42fc-8a70-9e47de4739df').click(function() {
-   $('#spoiler_572ede41-0709-42fc-8a70-9e47de4739df').hide();
-   $('#code_572ede41-0709-42fc-8a70-9e47de4739df').show();
+$('#spoiler_0eeb7a08-7f42-4261-89b7-9f40946df207').click(function() {
+   $('#spoiler_0eeb7a08-7f42-4261-89b7-9f40946df207').hide();
+   $('#code_0eeb7a08-7f42-4261-89b7-9f40946df207').show();
 });
-$('#code_572ede41-0709-42fc-8a70-9e47de4739df').click(function() {
-   $('#spoiler_572ede41-0709-42fc-8a70-9e47de4739df').show()
-   $('#code_572ede41-0709-42fc-8a70-9e47de4739df').hide()
+$('#code_0eeb7a08-7f42-4261-89b7-9f40946df207').click(function() {
+   $('#spoiler_0eeb7a08-7f42-4261-89b7-9f40946df207').show()
+   $('#code_0eeb7a08-7f42-4261-89b7-9f40946df207').hide()
 });
 </script>
 </div>
@@ -15103,11 +15103,11 @@ $('#code_572ede41-0709-42fc-8a70-9e47de4739df').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_3155138d-b538-4d45-85fd-33a42627b2b8" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_10a84cbb-2c44-4ade-bc91-450fccd4387a" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_3155138d-b538-4d45-85fd-33a42627b2b8"><div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Добавим вычисление производной, необходимой для метода Ньютона</span>
+   </div><div class="input_area spoiler_code" id="code_10a84cbb-2c44-4ade-bc91-450fccd4387a"><div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Добавим вычисление производной, необходимой для метода Ньютона</span>
 <span class="k">def</span> <span class="nf">chem</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">u</span>
     <span class="k">if</span> <span class="n">jac</span><span class="p">:</span>
@@ -15118,13 +15118,13 @@ $('#code_572ede41-0709-42fc-8a70-9e47de4739df').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_3155138d-b538-4d45-85fd-33a42627b2b8').click(function() {
-   $('#spoiler_3155138d-b538-4d45-85fd-33a42627b2b8').hide();
-   $('#code_3155138d-b538-4d45-85fd-33a42627b2b8').show();
+$('#spoiler_10a84cbb-2c44-4ade-bc91-450fccd4387a').click(function() {
+   $('#spoiler_10a84cbb-2c44-4ade-bc91-450fccd4387a').hide();
+   $('#code_10a84cbb-2c44-4ade-bc91-450fccd4387a').show();
 });
-$('#code_3155138d-b538-4d45-85fd-33a42627b2b8').click(function() {
-   $('#spoiler_3155138d-b538-4d45-85fd-33a42627b2b8').show()
-   $('#code_3155138d-b538-4d45-85fd-33a42627b2b8').hide()
+$('#code_10a84cbb-2c44-4ade-bc91-450fccd4387a').click(function() {
+   $('#spoiler_10a84cbb-2c44-4ade-bc91-450fccd4387a').show()
+   $('#code_10a84cbb-2c44-4ade-bc91-450fccd4387a').hide()
 });
 </script>
 </div>
@@ -15132,11 +15132,11 @@ $('#code_3155138d-b538-4d45-85fd-33a42627b2b8').click(function() {
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_e9f64748-1147-49ab-83ec-e1e0429cf5b2" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_25dbad27-b732-4dcd-96c6-366a4c8de8c1" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_e9f64748-1147-49ab-83ec-e1e0429cf5b2"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">imeuler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_25dbad27-b732-4dcd-96c6-366a4c8de8c1"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">imeuler</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15144,13 +15144,13 @@ $('#code_3155138d-b538-4d45-85fd-33a42627b2b8').click(function() {
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_e9f64748-1147-49ab-83ec-e1e0429cf5b2').click(function() {
-   $('#spoiler_e9f64748-1147-49ab-83ec-e1e0429cf5b2').hide();
-   $('#code_e9f64748-1147-49ab-83ec-e1e0429cf5b2').show();
+$('#spoiler_25dbad27-b732-4dcd-96c6-366a4c8de8c1').click(function() {
+   $('#spoiler_25dbad27-b732-4dcd-96c6-366a4c8de8c1').hide();
+   $('#code_25dbad27-b732-4dcd-96c6-366a4c8de8c1').show();
 });
-$('#code_e9f64748-1147-49ab-83ec-e1e0429cf5b2').click(function() {
-   $('#spoiler_e9f64748-1147-49ab-83ec-e1e0429cf5b2').show()
-   $('#code_e9f64748-1147-49ab-83ec-e1e0429cf5b2').hide()
+$('#code_25dbad27-b732-4dcd-96c6-366a4c8de8c1').click(function() {
+   $('#spoiler_25dbad27-b732-4dcd-96c6-366a4c8de8c1').show()
+   $('#code_25dbad27-b732-4dcd-96c6-366a4c8de8c1').hide()
 });
 </script>
 </div>
@@ -15344,11 +15344,11 @@ IjlCCV1EJEcooYuI5AgldBGRHKGELiKSI/4f+2wM+jNd/dYAAAAASUVORK5CYII=
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_b864cdf9-de07-4ddf-bca8-3d61f635134a" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_5a11c405-05b2-462b-97d1-c05c5bee9b69" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_b864cdf9-de07-4ddf-bca8-3d61f635134a"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">immidpoint</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_5a11c405-05b2-462b-97d1-c05c5bee9b69"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">adaptive_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">immidpoint</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15356,13 +15356,13 @@ IjlCCV1EJEcooYuI5AgldBGRHKGELiKSI/4f+2wM+jNd/dYAAAAASUVORK5CYII=
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_b864cdf9-de07-4ddf-bca8-3d61f635134a').click(function() {
-   $('#spoiler_b864cdf9-de07-4ddf-bca8-3d61f635134a').hide();
-   $('#code_b864cdf9-de07-4ddf-bca8-3d61f635134a').show();
+$('#spoiler_5a11c405-05b2-462b-97d1-c05c5bee9b69').click(function() {
+   $('#spoiler_5a11c405-05b2-462b-97d1-c05c5bee9b69').hide();
+   $('#code_5a11c405-05b2-462b-97d1-c05c5bee9b69').show();
 });
-$('#code_b864cdf9-de07-4ddf-bca8-3d61f635134a').click(function() {
-   $('#spoiler_b864cdf9-de07-4ddf-bca8-3d61f635134a').show()
-   $('#code_b864cdf9-de07-4ddf-bca8-3d61f635134a').hide()
+$('#code_5a11c405-05b2-462b-97d1-c05c5bee9b69').click(function() {
+   $('#spoiler_5a11c405-05b2-462b-97d1-c05c5bee9b69').show()
+   $('#code_5a11c405-05b2-462b-97d1-c05c5bee9b69').hide()
 });
 </script>
 </div>
@@ -15564,11 +15564,11 @@ ESkQ/w+1wNJg1mx9TwAAAABJRU5ErkJggg==
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_507f9039-64db-4b14-bc59-170133907842" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_ec836366-946d-4506-b06b-5b0a2f6c9340" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_507f9039-64db-4b14-bc59-170133907842"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">imeuler</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_ec836366-946d-4506-b06b-5b0a2f6c9340"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">imeuler</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -15577,13 +15577,13 @@ ESkQ/w+1wNJg1mx9TwAAAABJRU5ErkJggg==
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_507f9039-64db-4b14-bc59-170133907842').click(function() {
-   $('#spoiler_507f9039-64db-4b14-bc59-170133907842').hide();
-   $('#code_507f9039-64db-4b14-bc59-170133907842').show();
+$('#spoiler_ec836366-946d-4506-b06b-5b0a2f6c9340').click(function() {
+   $('#spoiler_ec836366-946d-4506-b06b-5b0a2f6c9340').hide();
+   $('#code_ec836366-946d-4506-b06b-5b0a2f6c9340').show();
 });
-$('#code_507f9039-64db-4b14-bc59-170133907842').click(function() {
-   $('#spoiler_507f9039-64db-4b14-bc59-170133907842').show()
-   $('#code_507f9039-64db-4b14-bc59-170133907842').hide()
+$('#code_ec836366-946d-4506-b06b-5b0a2f6c9340').click(function() {
+   $('#spoiler_ec836366-946d-4506-b06b-5b0a2f6c9340').show()
+   $('#code_ec836366-946d-4506-b06b-5b0a2f6c9340').hide()
 });
 </script>
 </div>
@@ -15773,11 +15773,11 @@ P39//CF5RlGXAAAAAElFTkSuQmCC
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
-<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_9555008d-9c9f-4897-9830-3c6db4720f91" hidden><div class="highlight hl-ipython3">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell"><div class="input_area spoiler_title" id="spoiler_0d75bdce-4dda-41f8-b1bd-aba52275572f" hidden><div class="highlight hl-ipython3">
    <span class="n">Show code</span>
    </div>
-   </div><div class="input_area spoiler_code" id="code_9555008d-9c9f-4897-9830-3c6db4720f91"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">immidpoint</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+   </div><div class="input_area spoiler_code" id="code_0d75bdce-4dda-41f8-b1bd-aba52275572f"><div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">fixed_stepsize</span><span class="p">(</span><span class="n">chem</span><span class="p">,</span> <span class="n">chem_init</span><span class="p">,</span> <span class="n">chem_tmax</span><span class="p">,</span> <span class="n">immidpoint</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -15786,13 +15786,13 @@ P39//CF5RlGXAAAAAElFTkSuQmCC
    </div>
 </div>
 <script type="text/javascript">
-$('#spoiler_9555008d-9c9f-4897-9830-3c6db4720f91').click(function() {
-   $('#spoiler_9555008d-9c9f-4897-9830-3c6db4720f91').hide();
-   $('#code_9555008d-9c9f-4897-9830-3c6db4720f91').show();
+$('#spoiler_0d75bdce-4dda-41f8-b1bd-aba52275572f').click(function() {
+   $('#spoiler_0d75bdce-4dda-41f8-b1bd-aba52275572f').hide();
+   $('#code_0d75bdce-4dda-41f8-b1bd-aba52275572f').show();
 });
-$('#code_9555008d-9c9f-4897-9830-3c6db4720f91').click(function() {
-   $('#spoiler_9555008d-9c9f-4897-9830-3c6db4720f91').show()
-   $('#code_9555008d-9c9f-4897-9830-3c6db4720f91').hide()
+$('#code_0d75bdce-4dda-41f8-b1bd-aba52275572f').click(function() {
+   $('#spoiler_0d75bdce-4dda-41f8-b1bd-aba52275572f').show()
+   $('#code_0d75bdce-4dda-41f8-b1bd-aba52275572f').hide()
 });
 </script>
 </div>
@@ -15990,6 +15990,185 @@ iP8PFC1jp8acWv0AAAAASUVORK5CYII=
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1042;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;">&#1042;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;<a class="anchor-link" href="#&#1042;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;">&#182;</a></h3><p>Расмотрим решение $\mathbf y(t)$, удовлетворяющее системе
+$\frac{d\mathbf y(t)}{dt} = \mathbf G(t, \mathbf y(t))$.</p>
+<p>Пусть $\mathbf y(t) + \boldsymbol \epsilon(t)$ &mdash; близкое решение той же системы. Тогда в первом приближении
+отклонение $\boldsymbol \epsilon(t)$ удовлетворяет линейному дифференциальному уравнению
+$$
+\frac{d\boldsymbol \epsilon(t)}{dt} = \mathbf A(t) \boldsymbol \epsilon(t), \qquad
+\mathbf A(t) = \frac{\partial \mathbf G}{\partial \mathbf y}(t, \mathbf y(t)).
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1052;&#1086;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1077;-&#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077;-&#1076;&#1083;&#1103;-&#1074;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103;">&#1052;&#1086;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1077; &#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077; &#1076;&#1083;&#1103; &#1074;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103;<a class="anchor-link" href="#&#1052;&#1086;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1077;-&#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077;-&#1076;&#1083;&#1103;-&#1074;&#1086;&#1079;&#1084;&#1091;&#1097;&#1077;&#1085;&#1080;&#1103;">&#182;</a></h3><p>Понять, как ведет себя решение
+$$
+\frac{d\boldsymbol \epsilon(t)}{dt} = \mathbf A(t) \boldsymbol \epsilon(t),
+$$
+можно рассматривая совокупность модельных скалярных уравнений
+$$
+\frac{d\epsilon}{dt} = \lambda \epsilon, \qquad \lambda \in \lambda(\mathbf A).
+$$
+Таким образом, о поведении возмущений трактории в задаче можно судить по <em>спектру матрицы Якоби системы</em>.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1087;&#1077;&#1082;&#1090;&#1088;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;">&#1057;&#1087;&#1077;&#1082;&#1090;&#1088; &#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;<a class="anchor-link" href="#&#1057;&#1087;&#1077;&#1082;&#1090;&#1088;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;">&#182;</a></h3><p>В спектре матрицы Якоби жесткой системы ОДУ можно выделить две зоны
+<img src="sp.png" style="height:300px"></p>
+<p>Отношение $L/\ell \gg 1$ называется <em>показателем жесткости задачи</em>.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;-&#1103;&#1074;&#1085;&#1099;&#1084;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084;-&#1069;&#1081;&#1083;&#1077;&#1088;&#1072;">&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077; &#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080; &#1103;&#1074;&#1085;&#1099;&#1084; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084; &#1069;&#1081;&#1083;&#1077;&#1088;&#1072;<a class="anchor-link" href="#&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1086;&#1081;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;-&#1103;&#1074;&#1085;&#1099;&#1084;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084;-&#1069;&#1081;&#1083;&#1077;&#1088;&#1072;">&#182;</a></h3><p><img src="instab.png" style="height:400px"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1072;-&#1085;&#1072;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1091;&#1102;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1100;">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; &#1085;&#1072; &#1078;&#1077;&#1089;&#1090;&#1082;&#1091;&#1102; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1072;-&#1085;&#1072;-&#1078;&#1077;&#1089;&#1090;&#1082;&#1091;&#1102;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h3><p>Чтобы понять, годится ли тот или иной метод для решения жесткой задачи, необходимо применить его к модельному уравнению
+$$
+\frac{dy}{dt} = \lambda y, \qquad \lambda \in \mathbb C,\; \operatorname{Re} \lambda < 0,
+$$
+и посмотреть, будет ли решение затухать (отклонение от траектории будут уменьшаться) или, наоборот, расти (отклонение будет увеличиваться).</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Оказывается, что применение любого одношагового метода (например, любого метода Рунге-Кутты) к $y' = \lambda y$ дает следующий численный метод:
+$$
+u_{n+1} = r(\lambda \tau) u_n,
+$$
+где $r(z)$ &mdash; функция, зависящая только от самого метода. Эта функция называется <em>функцией устойчивости</em> данного метода. Легко видеть, что условие $|r(\lambda \tau)| \leqslant 1$ гарантирует отсутствие развития неустойчивости. Область значений $z$, где $|r(z)| \leqslant 1$ называется <em>областю устойчивости метода</em>.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;-&#1080;-&#1089;&#1087;&#1077;&#1082;&#1090;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;">&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080; &#1080; &#1089;&#1087;&#1077;&#1082;&#1090;&#1088; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;<a class="anchor-link" href="#&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;-&#1080;-&#1089;&#1087;&#1077;&#1082;&#1090;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;">&#182;</a></h3><p>Для того, чтобы численный метод был жестко устойчив для данной задачи требуется, чтобы все жесткие собственные числа $\lambda_i$ задачи попали после умножения на $\tau$ в область устойчивости.</p>
+<p><img src="spst.png" style="height:300px"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1072;-&#1056;&#1091;&#1085;&#1075;&#1077;-&#1050;&#1091;&#1090;&#1090;&#1099;">&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; &#1056;&#1091;&#1085;&#1075;&#1077;-&#1050;&#1091;&#1090;&#1090;&#1099;<a class="anchor-link" href="#&#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1072;-&#1056;&#1091;&#1085;&#1075;&#1077;-&#1050;&#1091;&#1090;&#1090;&#1099;">&#182;</a></h3><p>Для методов Рунге-Кутты существует удобная формула, выражающая $r(z)$ через коэффициенты таблицы Бутчера.
+$$
+\begin{array}{c|c}
+c&A\\
+\hline
+&b
+\end{array}
+\qquad
+r(z) = \frac{\det(E - zA + zB)}{\det(E - zA)},
+\qquad 
+B = \begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix}
+b = \begin{pmatrix}
+b_1 & b_2 & \dots & b_n\\
+b_1 & b_2 & \dots & b_n\\
+{}&&\vdots\\
+b_1 & b_2 & \dots & b_n
+\end{pmatrix}
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Для метода Рунге-Кутты с $s$ стадиями
+$$
+r(z) = \frac{P_s(z)}{Q_s(z)},
+$$
+где $P_s(z), Q_s(z)$ &mdash; многочлены степени не больше $s$. Если метод явный, то $Q_s(z) = 1$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Сравним точное решение модельного уравнения
+$$
+[y]_{n+1} = e^{\lambda \tau} [y]_n
+$$
+и численное решение
+$$
+u_{n+1} = r(\lambda \tau) u_n.
+$$
+Условие сходимости порядка $p$: $\max_{n} |[y]_n - u_n| = O(\tau^p)$ влечет 
+$$
+r(z) = e^z + O(z^{p+1})
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;-&#1087;&#1086;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074; &#1087;&#1086; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;<a class="anchor-link" href="#&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103;-&#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;-&#1087;&#1086;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1086;&#1089;&#1090;&#1080;">&#182;</a></h3><p>Если область устойчивости содержит левую комплексную полуплоскость
+$
+\mathbb C^{-} = \left\{z \mid \operatorname{Re} z < 0\right\},
+$
+метод называется A-устойчивым (подходит для всех жестких задач).</p>
+<p>Если область устойчивости содержит конус $\left\{z \mid \left|\frac{\pi}{2} - \arg z\right| < \alpha\right\}$,
+метод называется A$(\alpha)$-устойчивым (подходит для жестких задач, у которых жесткий спектр содержится в таком же конусе).</p>
+<p>Если метод A-устойчив и дополнительно
+$
+\lim\limits_{z \to -\infty} r(z) = 0,
+$
+метод называется L-устойчивым. Позволяет интегрировать с большим шагом даже участки, где быстрые процессы еще не закончились, качественно повторяя картину решения.</p>
+
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
