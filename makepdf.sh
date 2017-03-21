@@ -7,6 +7,9 @@ for path in jupyter-slides/*; do
 	fn=$(echo $path | cut -f 2 -d '/' || $1)
 	num=$(echo $fn | cut -f 1 -d '-')
 	name=$(echo $fn | cut -f 2 -d '-')
+	if [ -f pdf/$name.pdf ]; then
+		continue;
+	fi
 
 	${DECKTAPE} http://localhost:8901/$num/$name.slides.html pdf/$name.pdf
 done
