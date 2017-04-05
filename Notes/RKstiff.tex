@@ -4,6 +4,8 @@
 \usepackage[english,russian]{babel}
 \usepackage{amssymb,amsmath}
 
+\usepackage[margin=2cm]{geometry}
+
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\tr}{\mathsf{T}}
 
@@ -121,7 +123,9 @@ r(z) = \frac{\begin{vmatrix}
 P(z) = 1 + (1 - 2\gamma) z + (1 - 4\gamma + 2\gamma^2)\frac{z^2}{2}\\
 Q(z) = (1 - \gamma z)^2 = 1 - 2\gamma z + \gamma^2 z^2.
 \end{gather*}
-Метод будет $L$-устойчивым тогда, когда $r(z) \rightarrow 0$ при $z \rightarrow -\infty$.
+Метод будет $L$-устойчивым тогда, когда он хотя бы $A(\alpha)$-устойчив и $r(z)
+\rightarrow 0$ при $z \rightarrow -\infty$. $A$-устойчивость будет исследована
+далее, а пока просто выясним когда $\lim_{z\to -\infty }r(z) = 0$:
 \[
 \lim_{z \rightarrow -\infty} r(z) = \lim_{z \rightarrow -\infty} \frac{P(z)}{Q(z)} = 
 \frac{1 - 4 \gamma + 2 \gamma ^2}{\gamma^2}
@@ -137,8 +141,9 @@ $L$-устойчивость возможна лишь при
 Для $r(z) = \frac{P(z)}{Q(z)}$ можно дать эквивалентное определение.
 \[z \in \mathbb{C} : |P(z)| \leqslant |Q(z)|\]
 
-Метод будет $A$-устойчив, если $|r(z)| \leqslant 1$ для всей левой полуплоскости $\operatorname{Re} z \leqslant 0$. Рассмотрим область $\operatorname{Re} z \leqslant 0$. Ее границей будет мнимая ось $\operatorname{Re} z = 0$. Для этой области существует принцип максимума (принцип Фрагмена — Линделёфа), который гласит, что
-функция, которая растет медленнее, чем $e^{|z|}$, и аналитична в области $\operatorname{Re} z \leqslant 0$ достигает своего максимума на границе, то есть на мнимой оси. 
+Метод будет $A$-устойчив, если $|r(z)| \leqslant 1$ для всей левой полуплоскости $\operatorname{Re} z \leqslant 0$. Рассмотрим область $\operatorname{Re} z \leqslant 0$. Ее границей будет мнимая ось $\operatorname{Re} z = 0$. Для этой области существует принцип максимума
+\footnote{принцип Фрагмена — Линделёфа}, который гласит, что
+функция, которая растет медленнее, чем $e^{|z|}$, и аналитична в области $\operatorname{Re} z \leqslant 0$ достигает своего максимума на границе, то есть на мнимой оси.
 
 Функция $r(z) = \frac{P(z)}{Q(z)}$ является отношением многочленов, поэтому не может экспоненциально расти. Дополнительно, единственный полюс $z = \frac{1}{\gamma}$ функции $r(z)$ расположен вне левой полуплоскости, а значит, функция $r(z)$ аналитическая в левой полуплоскости.
 
