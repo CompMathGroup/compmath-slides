@@ -1,0 +1,480 @@
+% !TeX program = xelatex
+\documentclass[12pt]{article}
+
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\setmainfont[
+SmallCapsFont={Latin Modern Roman Caps},
+SmallCapsFeatures={Letters=SmallCaps},
+Ligatures=TeX
+]{Times New Roman}
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage[intlimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dpd}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\pddd}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
+
+\renewcommand{\arraystretch}{1.2}
+\let\dividesymbol\div
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\rot}{\operatorname{rot}}
+\newcommand{\const}{\operatorname{const}}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\cutefrac}[2]{{}^{#1}\mkern-5mu/{\!}_#2}
+\newcommand{\half}{{\cutefrac{1}{2}}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\author{Цыбулин Иван}
+\title{Тренировочная к/р по вычислительной математике. Осенний семестр, 1 задание}
+
+\begin{document}
+\maketitle
+
+\section{Условия}
+
+Первый пункт в контрольной --- контрольный вопрос. Это теоретический вопрос, который \emph{рассматривался на лекциях}.
+Оценка за это задание может быть от $0$ до $1$ и служит множителем к оценке за все остальные задачи. Очень важно хоть что-нибудь написать в ответе на этот вопрос, иначе оценка за всю контрольную автоматически обнулится.
+
+\subsection{Контрольные вопросы}
+
+\paragraph{Погрешности.} Абсолютная и относительная погрешность. Погрешность хранения чисел в вычислительной технике. Погрешности при суммировании рядов. Ошибка метода и ошибка вычислений.
+\paragraph{Численное дифференцирование.} Формулы дифференцирования первого и второго порядка. Оптимальный шаг дифференцирования.
+\paragraph{Нормы и обусловленность.} Определение согласованной и подчиненной нормы. Стандартные подчиненные матричные нормы ($\|\cdot\|_\infty, \|\cdot\|_{\ell_1}, \|\cdot\|_E$). Число обусловленности для линейной системы и для матрицы, связь с относительной погрешностью решения системы. 
+\paragraph{СЛАУ.} Что такое прямые и итерационные методы решения СЛАУ. Метод прогонки. Метод простой итерации, достаточное условие и критерий сходимости.
+\paragraph{Итерационные методы решения СЛАУ.} Метод простой итерации с параметром $\tau$, условия сходимости. Методы Якоби, Зейделя --- достаточные условия и критерии сходимости.
+\paragraph{Метод наименьших квадратов.} Решение переопределенной СЛАУ в смысле МНК. Явный вид многочлена наилучшего приближения в норме $L_2$ через многочлены Лежандра.
+
+\subsection{Задачи}
+\textbf{1.} Оценить относительную погрешность в определении корней $x_{1,2}$ уравнения $ax^2 + bx + c = 0$, если известно, что величины $a = 10, b = -21, c = 2$ заданны с абсолютными погрешностями 
+$|\Delta a| \leq 10^{-3}, |\Delta b| \leq 10^{-3}, |\Delta c| \leq 10^{-4}$.
+
+\textbf{2.} 
+Для вычисления первой производной функции $f(x)$ в точке $x_0 = x+h$ используется формула
+\[
+f'(x + h) \approx \frac{f(x+2h) - f(x-2h)}{4h}.
+\]
+Сама функция $f(x)$ вычисляется с погрешностью $\Delta f$.
+\begin{itemize}
+\item Каков порядок данной формулы дифференцирования?
+\item Найти оптимальный шаг дифференцирования по этой формуле в произвольной точке $x_0$ для четырежды дифференцируемой функции.
+\item Оценить его численное значение для функции $f(x)=\cos(x+\pi/4)$ в случае использования арифметики одинарной и двойной точности (относительная погрешность округления чисел в одинарной точности $\delta = 6.0\cdot 10^{-8}$, в двойной точности --- $\delta = 1.1\cdot 10^{-16}$).
+\end{itemize}
+
+\textbf{3.}
+Для системы линейных алгебраических уравнений $\vec {Ax} = \vec f$
+\[
+\vec A = \begin{pmatrix}
+4 & 1\\1 & 4
+\end{pmatrix}, \; \vec f = \begin{pmatrix}
+4 \\ -11
+\end{pmatrix}
+\]
+\begin{itemize}
+\item Вычислить число обусловленности системы в нормах, подчиненных векторным нормам $\|\vec x\|_\infty = \max_i |x_i|,\; \|\vec x\|_{\ell_1} = \sum_i |x_i|,\; \|\vec x\|_E = \sqrt{\sum_i x_i^2}$.
+\item Найти оптимальный итерационный параметр $\tau$ для итерационного метода
+\[
+\vec x_{n+1} = \vec x_n + \tau (\vec f - \vec {Ax}_n)
+\]
+\item Определить число итераций, достаточное для уменьшения погрешности в $10^6$ раз при параметре $\tau$ из предыдущего пункта.
+\item Выполнить одну итерацию методом Якоби и одну итерацию методом Зейделя, используя в качестве начального приближения $\vec x_0 = (2, 0)^\top$.
+\end{itemize}
+
+\textbf{4.} Решить переопределенную систему линейных уравнений в смысле МНК:
+\[
+\begin{cases}
+x + y = 8\\
+2x + y = 15\\
+x + 2y = 20
+\end{cases}
+\]
+
+\textbf{5.} Построить на отрезке $[-1, 1]$ квадратичный многочлен наилучшего приближения $P_2(x)$ в норме $L_2$ для функции $f(x) = \cos \pi x$.
+
+\newpage
+\section{Решения}
+\textbf{1.}
+Для начала найдем корни уравнения 
+\[
+x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = 
+\frac{21 \pm 19}{20} =
+\begin{cases}
+x_1 = 0.1\\x_2 = 2
+\end{cases}
+\]
+
+Пусть коэффициенты уравнения $a,b,c$ изменены на $\Delta a, \Delta b, \Delta c$ соответственно. Тогда решение изменится на некоторый $\Delta x$:
+\begin{gather*}
+ax^2 + bx + c = 0\\
+(a + \Delta a)(x + \Delta x)^2 + (b + \Delta b)(x + \Delta x) + (c + \Delta c) = 0
+\end{gather*}
+Раскроем во втором уравнении скобки и пренебрежем всеми слагаемыми содержащими произведения возмущений (оставим только линейные слагаемые по $\Delta a, \Delta b, \Delta c, \Delta x$):
+\begin{gather*}
+ax^2 + bx + c = 0\\
+a x^2 + 2ax \Delta x + x^2 \Delta a + b x + b \Delta x + x \Delta b + c + \Delta c \approx 0
+\end{gather*}
+Вычтем из второго первое:
+\begin{gather}
+(2ax + b)\Delta x + x^2 \Delta a + x \Delta b + \Delta c \approx 0\label{eq:var}\\
+\Delta x \approx -\frac{x^2 \Delta a + x \Delta b + \Delta c}{2ax+b}\label{eq:ans}.
+\end{gather}
+Отметим, что уравнение \eqref{eq:var} можно было выписать сразу, если записать уравнение в виде
+\[
+f(a, b, c, x) = 0, \qquad f(a, b, c, x) = ax^2 + bx + c
+\]
+Уравнение \eqref{eq:var} получается, если записать $df = 0$
+\[
+df = \pd{f}{a} da + \pd{f}{b} db + \pd{f}{c} dc + \pd{f}{x} dx = x^2 da + x db + dc + (2ax + b)dx
+\]
+и заменить в нем дифференциалы на изменения $\Delta$:
+\[
+x^2 da + x db + dc + (2ax + b)dx = 0 \longrightarrow
+x^2 \Delta a + x \Delta b + \Delta c + (2ax + b)\Delta x \approx 0.
+\]
+
+Итак, 
+\[
+\Delta x = -\frac{x^2 \Delta a + x \Delta b + \Delta c}{2ax + b}.
+\]
+Для корня $x = x_1 = 0.1$
+\begin{gather*}
+\Delta x_1 = -\frac{0.01 \Delta a + 0.1 \Delta b + \Delta c}{2 \cdot 10 \cdot 0.1 - 21} = \frac{0.01 \Delta a + 0.1 \Delta b + \Delta c}{19}\\
+|\Delta x_1| \leq \frac{0.01 |\Delta a| + 0.1 |\Delta b| + |\Delta c|}{19} \leq \frac{10^{-5} + 10^{-4} + 10^{-4}}{19} \approx 1.1\cdot 10^{-5}.
+\end{gather*}
+Для корня $x = x_2 = 2$
+\begin{gather*}
+\Delta x_2 = -\frac{4 \Delta a + 2 \Delta b + \Delta c}{20 \cdot 10 \cdot 2 - 21 } = -\frac{4 \Delta a + 2 \Delta b + \Delta c}{19}\\
+|\Delta x_2| \leq \frac{4 |\Delta a| + 2 |\Delta b| + |\Delta c|}{19} \leq 4 \cdot 10^{-3} + 2 \cdot 10^{-3} + 10^{-4} \approx 3.2\cdot 10^{-4}.
+\end{gather*}
+
+\textbf{2.} Пусть $x_0 = x + h$ --- та точка, в которой мы вычисляем производную. Тогда формула дифференцирования может быть записана в виде
+\[
+f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - 3h)}{4h}.
+\]
+
+Разложим правую часть в \emph{окрестности точки $x_0$}, используя остаточный член в форме Лагранжа:
+\begin{multline*}
+\frac{f(x_0 + h) - f(x_0 - 3h)}{4h} = \\ =
+\frac{1}{4h} \left[
+\left(
+f(x_0) + h f'(x_0) + \frac{h^2}{2} f''(x_0)
++ O(h^3)
+\right)
+-\right. \\ -\left.
+\left(
+f(x_0) -3h f'(x_0) + \frac{9h^2}{2} f''(x_0)
++ O(h^3)
+\right)
+\right] = \\ =
+f'(x_0) -h f''(x_0) + O(h^2).
+\end{multline*}
+Таким образом, отличие левой и правой частей приближенного равенства
+\[
+f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - 3h)}{4h}.
+\]
+составляет
+\[
+\left|-hf''(x_0) + O(h^2) \right| 
+\lesssim M_2 h = \varepsilon_\text{метода}
+\]
+где $M_2$ --- максимум модуля второй производной $f(x)$. Так как $\varepsilon_\text{метода} = O(h)$, метод имеет первый порядок.
+
+Для определения оптимального шага оценим ошибку вычислений по данной формуле:
+\[
+\Delta \left(
+\frac{f(x_0+h) - f(x_0-3h)}{4h} 
+\right) \leqslant 
+\frac{\Delta f + \Delta f}{4h} = \frac{\Delta f}{2h} = \varepsilon_\text{вычисл}.
+\]
+Найдем минимум полной ошибки $\varepsilon_\text{полн} = \varepsilon_\text{метода} + \varepsilon_\text{вычисл}:$
+\[
+\pd{\varepsilon_\text{полн}}{h} = 
+M_2 - \frac{\Delta f}{2h^2} = 0\, \implies
+h_\text{опт} = \sqrt{\frac{\Delta f}{2M_2}}.
+\]
+
+Для функции $f(x) = \cos(x + \pi/4)$ максимум всех производных равен $1$. Оценим абсолютную погрешность $f(x)$:
+\[
+\Delta f \leq \delta \max_x |f(x)| = \delta \max_x |\cos(x + \pi/4)| = \delta.
+\]
+Для одинарной точности $\Delta f = \delta = 6 \cdot 10^{-8}$:
+\[
+h_\text{опт} = \sqrt\frac{6 \cdot 10^{-8}}{2 \cdot 1} \approx 1.7 \cdot 10^{-4}.
+\]
+Для двойной точности $\Delta f = \delta = 1.1 \cdot 10^{-16}$:
+\[
+h_\text{опт} = \sqrt\frac{1.1 \cdot 10^{-16}}{2 \cdot 1} \approx 7.4 \cdot 10^{-9}.
+\]
+
+\textbf{3.} Заметим, что $\vec A = \vec A^\top$, значит $\|\vec A\|_\infty = \|\vec A\|_{\ell_1}$, а также $\|\vec A\|_E = \max |\lambda(\mathbf A)|$. Аналогично справедливо для обратной матрицы $\vec A^{-1}$. Найдем обратную матрицу:
+\[
+\vec A^{-1} = \frac{\operatorname{adj} \vec A}{\det \vec A} = \frac{1}{15} \begin{pmatrix}
+4 & -1\\
+-1 & 4
+\end{pmatrix}.
+\]
+Также, найдем решение системы:
+\[
+\vec x = \vec A^{-1} \vec f = \begin{pmatrix}
+9/5\\-16/5
+\end{pmatrix}
+\]
+
+Число обусловленности системы
+\[
+\nu(\vec A, \vec f) = \frac{\|\vec A^{-1}\| \|\vec f\|}{\|\vec A^{-1} \vec f\|} = \frac{\|\vec A^{-1}\| \|\vec f\|}{\|\vec x\|}
+\]
+\begin{itemize}
+\item Для $\|\cdot\|_\infty$:
+\begin{gather*}
+\|\vec A^{-1}\|_\infty = \frac{4 + 1}{15} = \frac{1}{3}\\
+\|\vec x\|_\infty = \frac{16}{5}\\
+\|\vec f\|_\infty = 11\\
+\nu_\infty = \frac{1/3 \cdot 11}{16/5} = \frac{55}{48} \approx 1.146.
+\end{gather*}
+\item Для $\|\cdot\|_{\ell_1}$:
+\begin{gather*}
+\|\vec A^{-1}\|_{\ell_1} = \frac{4 + 1}{15} = \frac{1}{3}\\
+\|\vec x\|_{\ell_1} = \frac{25}{5} = 5\\
+\|\vec f\|_{\ell_1} = 15\\
+\nu_{\ell_1} = \frac{1/3 \cdot 15}{5} = 1.
+\end{gather*}
+\item Для $\|\cdot\|_E$:
+\begin{gather*}
+\det (\vec A^{-1} - \lambda \vec E) = 
+\begin{vmatrix}
+4/15 - \lambda & -1/15\\
+-1/15 & 4/15 - \lambda
+\end{vmatrix} = (4/15 - \lambda)^2 - 1/15^2 = 0\\
+\lambda_{1,2} = \frac{4 \pm 1}{15}\\
+\|\vec A^{-1}\|_E = \frac{5}{15} = \frac{1}{3}\\
+\|\vec x\|_E = \frac{\sqrt{9^2 + 16^2}}{5} = 
+\frac{\sqrt{337}}{5}\\
+\|\vec f\|_E = \sqrt{137}\\
+\nu_E = \frac{1/3 \cdot \sqrt{137}}{\sqrt{337}/5} \approx 1.063.
+\end{gather*}
+\end{itemize}
+
+Для итерационного метода $\vec x_{n+1} = \vec x_n + \tau (\vec f - \vec {Ax}_n)$ в случае симметричной положительно определенной матрицы $\vec A$ оптимальный параметр дается выражением
+\[
+\tau_\text{опт} = \frac{2}{\lambda_{\max}(\vec A) + \lambda_{\min}(\vec A)}.
+\]
+\begin{gather*}
+\det (\vec A - \lambda \vec E) = 
+\begin{vmatrix}
+4 - \lambda & -1\\
+-1 & 4 - \lambda
+\end{vmatrix} = (4 - \lambda)^2 - 1 = 0\\
+\lambda_{1,2} = 4 \pm 1\\
+\tau_\text{опт} = \frac{2}{3 + 5} = \frac{1}{4}.
+\end{gather*}
+
+При этом параметре скорость сходимости $\|\vec B\|_E = q_\text{опт} = \frac{\lambda_{\max}(\vec A) - \lambda_{\min}(\vec A)}{\lambda_{\max}(\vec A) + \lambda_{\min}(\vec A)} = \frac{5 - 3}{5 + 3} = \frac{1}{4}$. Учтем, что
+\[
+\|\vec e_n\|_E \leq q^n \|\vec e_0\|_E
+\]
+и для уменьшения ошибки в $10^6$ раз достаточно взять такое $n$, что
+\[
+q^n \leq 10^{-6} \implies n \geq \frac{\ln 10^{-6}}{\ln q} \approx 9.96.
+\]
+Достаточно сделать $10$ итераций данным методом.
+
+Сделаем одну итерацию методом Якоби. Найдем текущую невязку:
+\[
+\vec r_0 = \vec f - \vec A \vec x_0 = 
+\begin{pmatrix}
+4 \\ -11
+\end{pmatrix}
+- \begin{pmatrix}
+4 & 1\\
+1 & 4
+\end{pmatrix}
+\begin{pmatrix}
+2\\
+0
+\end{pmatrix} = 
+\begin{pmatrix}
+-4\\
+-13
+\end{pmatrix}
+\]
+Запишем метод Якоби в канонической форме
+\begin{gather*}
+\vec x_1 = \vec x_0 + \vec D^{-1}\vec r_0\\
+\vec x_1 = \begin{pmatrix}
+2\\
+0
+\end{pmatrix} +
+\begin{pmatrix}
+4 & 0\\
+0 & 4
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+-4\\
+-13
+\end{pmatrix} = 
+\begin{pmatrix}
+1\\
+-13/4
+\end{pmatrix}
+\end{gather*}
+Проделаем то же для метода Зейделя
+Запишем метод Якоби в канонической форме
+\begin{gather*}
+\vec x_1 = \vec x_0 + (\vec L + \vec D)^{-1}\vec r_0\\
+\vec x_1 = \begin{pmatrix}
+2\\
+0
+\end{pmatrix} +
+\begin{pmatrix}
+4 & 0\\
+1 & 4
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+-4\\
+-13
+\end{pmatrix} = 
+\begin{pmatrix}
+1\\
+-3
+\end{pmatrix}
+\end{gather*}
+
+\textbf{4.} Запишем систему в форме
+\begin{gather*}
+\begin{pmatrix}
+1 & 1\\
+2 & 1\\
+1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}
+=
+\begin{pmatrix}
+8 \\ 15 \\ 20
+\end{pmatrix}\\
+\vec A = \begin{pmatrix}
+1 & 1\\
+2 & 1\\
+1 & 2
+\end{pmatrix}, \quad 
+\vec f = \begin{pmatrix}
+8 \\ 15 \\ 20
+\end{pmatrix}
+\end{gather*}
+
+Для того, чтобы решить систему методом наименьших квадратов, умножим ее слева на $\vec A^\top$:
+\begin{gather*}
+\vec A^\top \vec A \vec x = \vec A^\top \vec f\\
+\vec A^\top \vec A = 
+\begin{pmatrix}
+1 & 2 & 1\\
+1 & 1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1\\
+2 & 1\\
+1 & 2
+\end{pmatrix} = 
+\begin{pmatrix}
+6 & 5\\
+5 & 6
+\end{pmatrix}\\
+\vec A^\top \vec f = 
+\begin{pmatrix}
+1 & 2 & 1\\
+1 & 1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+8\\15\\20
+\end{pmatrix} = 
+\begin{pmatrix}
+58\\63
+\end{pmatrix}
+\end{gather*}
+Решая полученную систему $2 \times 2$, получаем
+\[
+\vec x = \begin{pmatrix}
+3 \\ 8
+\end{pmatrix}.
+\]
+
+\textbf{5.} Будем строить многочлен в форме разложения по $1, x, x^2$:
+\[
+P_2(x) = c_0 + c_1 x + c_2 x^2.
+\]
+Тогда коэффициенты $c_0, c_1, c_2$ удовлетворяют системе
+\begin{gather*}
+\begin{pmatrix}
+(1, 1) & (1, x) & (1, x^2)\\
+(x, 1) & (x, x) & (x, x^2)\\
+(x^2, 1) & (x^2, x) & (x^2, x^2)
+\end{pmatrix}
+\begin{pmatrix}
+c_0 \\ c_1 \\ c_2
+\end{pmatrix}
+= 
+\begin{pmatrix}
+(\cos \pi x, 1)\\
+(\cos \pi x, x)\\
+(\cos \pi x, x^2)
+\end{pmatrix}\\
+(f,g) = \int_{-1}^1 f(x) g(x) dx.
+\end{gather*}
+Найдем элементы матрицы системы
+\begin{gather*}
+\Gamma_{ik} = \int_{-1}^{1} x^{i+k}dx
+= \frac{1 - (-1)^{i+k+1}}{i+k+1}\\
+\vec \Gamma = \begin{pmatrix}
+2 & 0 & \frac{2}{3}\\
+0 & \frac{2}{3} & 0\\
+\frac{2}{3} & 0 & \frac{2}{5}
+\end{pmatrix}\\
+g_0 = \int_{-1}^1 \cos \pi x dx = 0\\
+g_1 = \int_{-1}^1 x \cos \pi x dx = 0\\
+g_2 = \int_{-1}^1 x^2 \cos \pi x dx = 
+\frac{1}{\pi}\int_{-1}^1 x^2 d(\sin \pi x) = 
+-\frac{2}{\pi}\int_{-1}^1 x \sin \pi x dx = \\
+= \frac{2}{\pi^2}\int_{-1}^1 x d(\cos \pi x) =
+\frac{2}{\pi^2} (\cos \pi + \cos (-\pi)) - \frac{2}{\pi^2}
+\int_{-1}^1 \cos \pi x dx = -\frac{4}{\pi^2}\\
+\vec g = \begin{pmatrix}
+0\\0\\-\frac{4}{\pi^2}\\
+\end{pmatrix}\\
+\vec \Gamma \vec c = \vec g
+\end{gather*}
+Из системы видно, что $c_1 = 0$, а для $c_0, c_2$ имеем
+\[
+\begin{pmatrix}
+2 & \frac{2}{3}\\
+\frac{2}{3} & \frac{2}{5}
+\end{pmatrix}
+\begin{pmatrix}
+c_0 \\c_2
+\end{pmatrix}
+= -\frac{4}{\pi^2}
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix}.
+\]
+Имеем $c_2 = -3c_0$, а для $c_0$:
+\begin{gather*}
+\frac{2}{3}c_0 - \frac{6}{5} c_0 = -\frac{4}{\pi^2}\\
+c_0 = \frac{15}{2\pi^2}\\
+P_2(x) = \frac{15 - 45 x^2}{2\pi^2}.
+\end{gather*}
+
+\end{document}
