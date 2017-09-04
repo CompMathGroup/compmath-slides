@@ -1,9 +1,42 @@
+% !TeX program = xelatex
 \documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[english,russian]{babel}
-\usepackage{indentfirst,amssymb,amsmath}
+
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\setmainfont[
+SmallCapsFont={Latin Modern Roman Caps},
+SmallCapsFeatures={Letters=SmallCaps},
+Ligatures=TeX
+]{Times New Roman}
+
+\usepackage[intlimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
 \usepackage[colorlinks=true]{hyperref}
+\usepackage[top=1cm,bottom=2cm,left=2cm,right=1.5cm]{geometry}
+\usepackage{setspace}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dpd}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\pddd}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
+
+\renewcommand{\arraystretch}{1.2}
+\let\dividesymbol\div
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\rot}{\operatorname{rot}}
+\newcommand{\const}{\operatorname{const}}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\cutefrac}[2]{{}^{#1}\mkern-5mu/{\!}_#2}
+\newcommand{\half}{{\cutefrac{1}{2}}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
 
 \newcounter{task}
 
@@ -16,6 +49,8 @@
 \maketitle
 
 \section{Первое задание}
+
+\subsection{Погрешности и численное дифференцирование}
 
 \problem Используя ваш любимый язык программирования, напишите функцию,
 вычисляющую
@@ -41,16 +76,18 @@ $\varepsilon = 10^{-6}$.
 минимальное число членов ряда Тейлора для решения этой задачи. Для оценки
 максимумов всех производных функции Бесселя использовать $M_n \leq 1$.
 
+\subsection{Системы линейных алгебраических уравнений}
+
 \problem Решить следующую трехдиагональную систему уравнений методом прогонки
 \[
 \begin{cases}
 u_0 &= 0\\
 -u_{n - 1} + \big(2 + h^2\big) u_n - u_{n+1} &= 2 h^2 \sin (nh), \qquad n =
 \overline{1, N-1}\\
-u_N &= 0\\
+\hfill u_N &= 0\\
 \end{cases},
 \]
-где $N = 20, h = \frac{\pi}{N}$. Сравнить $u_n$ и $\sin(nh)$.
+где $N = 20, h = \frac{\pi}{N}$. Сравнить $u_n$ и $\sin(nh)$: найти $\varepsilon = \max\limits_{0 \leq n \leq N} |u_n - \sin(nh)|$.
 
 \problem Для решения интегрального уравнения Фредгольма второго рода
 \[
@@ -91,7 +128,7 @@ $U_m = U\left(x_m\right)$:
 \[
 \lambda \lesssim \lambda_\text{крит} \approx 0.07291218479495440151.
 \]
-Данное число является (единственным положительным) собственным значением интегрального уравнения.
+\emph{Число $\lambda_\text{крит}$ является (единственным положительным) собственным значением интегрального уравнения.}
 
 \problem Решить линейную систему уравнений из предыдущей задачи одним из
 итерационных методов:
@@ -106,6 +143,8 @@ $U_m = U\left(x_m\right)$:
 Итерационный процесс следует завершить, если $||\mathbf{u}^{(k)} - \mathbf{u}^{(k-1)}|| <
 \varepsilon = 10^{-6}$. В качестве начального приближения $\mathbf{u}^{(0)}$ возьмите
 $\mathbf{u}^{(0)} = \mathbf{0}$. Сколько итераций потребовалось для сходимости?
+
+\subsection{Переопределенные СЛАУ и МНК}
 
 \problem Построить для функции $f(x) = \sin x$ на отрезке $[-1, 1]$
 приближение многочленом степени $n = 8$ в смысле наименьших квадратов по одной из норм
@@ -146,6 +185,8 @@ L_0(x) = 1,\; L_1(x) = x.
 \]
 \end{itemize}
 Найти максимальную ошибку такого приближения на всем отрезке $[-1, 1]$.
+
+\subsection{Нелинейные алгебраические уравнения}
 
 \problem Решить одно из следующих уравнений
 \begin{itemize}
@@ -189,7 +230,8 @@ $|\Delta x| \lesssim \varepsilon = 10^{-14}$. Сколько итераций п
 \section{Второе задание}
 
 \emph{В этом задании разрешается использовать библиотечные функции для решения систем линейных уравнений.}
-\medskip
+
+\subsection{Системы нелинейных алгебраических уравнений}
 
 \problem Решить одну из следующих систем алгебраических уравнений методом Ньютона:
 \begin{itemize}
@@ -230,6 +272,8 @@ $$
 \|\mathbf x_{n+1} - \mathbf x_{n}\|_E \leqslant \varepsilon = 10^{-14}.
 $$
 
+\subsection{Интерполяция и сплайны}
+
 \problem Построить для функции $f(x) = \sin x$ на отрезке $[0, 2\pi]$ кубический
 сплайн $P(x)$, имеющий две непрерывные производные. Численно изучить зависимость
 максимального отклонения $f(x)$ и $P(x)$ в зависимости от количества узлов $N$.
@@ -251,6 +295,8 @@ f''(0) = f''(2\pi) = 0.
 максимального отклонения $f(x)$ и $P(x)$ в зависимости от количества узлов $N$.
 Найти порядок метода (степень зависимости максимального отклонения от
 $h = \frac{2\pi}{N - 1}$).
+
+\subsection{Численное интегрирование}
 
 \problem Написать программу, которая используя правило Рунге и формулу
 Гаусса численного интегрирования четвертого порядка (ошибка на всем
@@ -291,24 +337,40 @@ E(m) = \frac{1}{2}\int_{-1}^1 \frac{\sqrt{1 - m x^2}}{\sqrt{1-x^2}}dx
 
 \emph{Примечание}. Значение для проверки можно посмотреть, например, на \href{http://www.wolframalpha.com/input/?i=K(1\%2F2)}{WolframAlpha}.
 
-\problem Для задачи Коши
+\subsection{Задача Коши для ОДУ}
+
+\problem Для решения задачи Коши
 \[
 \begin{cases}
 \displaystyle\frac{dy(t)}{dt} = -2t y(t) + 2 t, \qquad t \in [0,1]\\
 y(0) = 1
 \end{cases}
 \]
-используется метод Адамса
+использовать один из предложенных методов:
+\begin{itemize}
+\item метод Адамса:
 \[
 \begin{cases}
-\displaystyle\frac{u_{n+1} - u_{n}}{\tau} = 3 n \tau(1 - u_n) - \tau  (n-1)(1 - u_{n-1}), \qquad n =
-\overline{1, N-1}\\
-u_0 = 2\\
-u_1 = 2
-\end{cases},
+\displaystyle\frac{u_{n+1} - u_{n}}{\tau} = \frac{3 f(t_n, u_n) - f(t_{n-1}, u_{n-1})}{2}, & n =
+1,\dots, N-1\\
+u_0 = y_0\\
+u_1 = y_0 + \tau f(0, y_0)
+\end{cases}
 \]
-где $\tau = \frac{1}{N}$.
-Написать программу, реализующую этот метод, и численно убедиться, что решение
-разностной задачи $u$ сходится к решению дифференциальной задачи $y(t) = 1 + e^{-t^2}$ со вторым порядком
-по $\tau$.
+\item метод Эйлера с пересчетом
+\[
+\begin{cases}
+\displaystyle\frac{\tilde u_{n+1/2} - u_{n}}{\tau/2} = f(t_n, u_n), &n =
+0,\dots, N-1\\
+\displaystyle\frac{u_{n+1} - u_{n}}{\tau} = 
+f\left(t_n + \frac{\tau}{2}, \tilde u_{n+1/2}\right), &n =
+0,\dots, N-1\\
+u_0 = y_0.\\
+\end{cases}
+\]
+В этом методе величины $\tilde u_{n+1/2}$ вспомогательные, и не являются частью сеточной функции $u$.
+\end{itemize}
+
+Написать программу, реализующую выбранный метод, и численно убедиться, что решение
+разностной задачи $u$ сходится к решению дифференциальной задачи $y(t) = 1 + e^{-t^2}$ со вторым порядком.
 \end{document}
